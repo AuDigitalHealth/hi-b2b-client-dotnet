@@ -199,7 +199,8 @@ namespace Nehta.VendorLibrary.HI
                 Stream tempStream = new MemoryStream(ASCIIEncoding.Default.GetBytes(root.OuterXml));
                 StreamReader sr = new StreamReader(tempStream);
                 outboundXml = sr.ReadToEnd();
-                bool isValid = VerifyXML(outboundXml);
+                //Pass certificate for validation purposes (fw 4.6.2 throws a fault when public key not passed in)
+                bool isValid = VerifyXML(outboundXml, signingCertificate);
 
                 Stream memoryStream = new MemoryStream(ASCIIEncoding.Default.GetBytes(root.OuterXml));
                 XmlDictionaryReader dictionaryReader = XmlDictionaryReader.CreateTextReader(memoryStream, new XmlDictionaryReaderQuotas());
@@ -252,7 +253,7 @@ namespace Nehta.VendorLibrary.HI
                 return signedXml.GetXml();
             }
 
-            internal static bool VerifyXML(string xml)
+            internal static bool VerifyXML(string xml, X509Certificate2 signingCertificate)
             {
                 XmlDocument env = new XmlDocument();
                 env.PreserveWhitespace = true;
@@ -270,7 +271,7 @@ namespace Nehta.VendorLibrary.HI
 
                 NehtaSignedXml signedXml = new NehtaSignedXml(env);
                 signedXml.LoadXml(ele);
-                bool answer = signedXml.CheckSignature();
+                bool answer = signedXml.CheckSignature(signingCertificate.PublicKey.Key);
                 return answer;
             }
         }

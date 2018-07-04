@@ -1,5 +1,9 @@
 ### Change Log/Revision History
 
+1.5.0
+-----
+* Updated the signedXml.CheckSignature function passing in certificate as fw 4.6.2 fails if not there
+
 1.4.0
 -----
 * removed redundant code/libs
