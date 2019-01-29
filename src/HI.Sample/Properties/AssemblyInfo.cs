@@ -1,16 +1,15 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("HI.Sample")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Nehta.VendorLibrary.HI.Sample")]
+[assembly: AssemblyDescription("A library for communicating with the HI Service")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("ADAH")]
-[assembly: AssemblyProduct("HI.Sample")]
-[assembly: AssemblyCopyright("Copyright © 2017")]
+[assembly: AssemblyCompany("Australian Digital Health Agency")]
+[assembly: AssemblyProduct("Nehta.VendorLibrary.HI.Sample")]
+[assembly: AssemblyCopyright("Copyright ©2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +31,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.5.0.0")]
-[assembly: AssemblyFileVersion("1.5.0.0")]
+[assembly: AssemblyVersion("1.5.0.1")]
+[assembly: AssemblyFileVersion("1.5.0.1")]
