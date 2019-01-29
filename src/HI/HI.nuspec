@@ -9,7 +9,7 @@
     <projectUrl>https://github.com/AuDigitalHealth/hi-b2b-client-dotnet</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Added license information</releaseNotes>
+    <releaseNotes>Added license information and dropped to fw 4.0</releaseNotes>
     <copyright>$copyright$</copyright>
     <tags>ADHA Digital Health Nehta</tags>  
   </metadata>
