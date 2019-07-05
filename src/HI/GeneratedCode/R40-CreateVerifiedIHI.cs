@@ -336,7 +336,7 @@ namespace nehta.mcaR40.CreateVerifiedIHI
         
         private string suburbField;
         
-        private StateType stateField;
+        private string stateField;
         
         private string postcodeField;
         
@@ -384,7 +384,7 @@ namespace nehta.mcaR40.CreateVerifiedIHI
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=3)]
-        public StateType state
+        public string state
         {
             get
             {
@@ -454,7 +454,7 @@ namespace nehta.mcaR40.CreateVerifiedIHI
         
         private string internationalStateProvinceField;
         
-        private CountryType countryField;
+        private string countryField;
         
         private string internationalPostcodeField;
         
@@ -476,7 +476,7 @@ namespace nehta.mcaR40.CreateVerifiedIHI
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=1)]
-        public CountryType country
+        public string country
         {
             get
             {
@@ -1608,7 +1608,7 @@ namespace nehta.mcaR40.CreateVerifiedIHI
     public partial class AustralianPostalAddressType
     {
         
-        private StateType stateField;
+        private string stateField;
         
         private string postcodeField;
         
@@ -1618,7 +1618,7 @@ namespace nehta.mcaR40.CreateVerifiedIHI
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=0)]
-        public StateType state
+        public string state
         {
             get
             {
@@ -1971,7 +1971,7 @@ namespace nehta.mcaR40.CreateVerifiedIHI
     public partial class AustralianStreetAddressType
     {
         
-        private StateType stateField;
+        private string stateField;
         
         private string postcodeField;
         
@@ -1999,7 +1999,7 @@ namespace nehta.mcaR40.CreateVerifiedIHI
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=0)]
-        public StateType state
+        public string state
         {
             get
             {
@@ -2861,7 +2861,7 @@ namespace nehta.mcaR40.CreateVerifiedIHI
         
         private AustralianUnstructuredStreetAddressType australianUnstructuredStreetAddressField;
         
-        private AddressPurposeType purposeField;
+        private string purposeField;
         
         private TrueFalseType preferredField;
         
@@ -2923,7 +2923,7 @@ namespace nehta.mcaR40.CreateVerifiedIHI
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=4)]
-        public AddressPurposeType purpose
+        public string purpose
         {
             get
             {
@@ -2997,9 +2997,9 @@ namespace nehta.mcaR40.CreateVerifiedIHI
     public partial class ElectronicCommunicationType
     {
         
-        private MediumType mediumField;
+        private string mediumField;
         
-        private UsageType usageField;
+        private string usageField;
         
         private string detailsField;
         
@@ -3009,7 +3009,7 @@ namespace nehta.mcaR40.CreateVerifiedIHI
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/ElectronicCommunicationCore/3.0", Order=0)]
-        public MediumType medium
+        public string medium
         {
             get
             {
@@ -3023,7 +3023,7 @@ namespace nehta.mcaR40.CreateVerifiedIHI
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/ElectronicCommunicationCore/3.0", Order=1)]
-        public UsageType usage
+        public string usage
         {
             get
             {
@@ -4534,15 +4534,15 @@ namespace nehta.mcaR40.CreateVerifiedIHI
         
         private System.DateTime dateOfBirthField;
         
-        private DateAccuracyIndicatorType dateOfBirthAccuracyIndicatorField;
+        private string dateOfBirthAccuracyIndicatorField;
         
-        private SexType sexField;
+        private string sexField;
         
-        private BirthPluralityType birthPluralityField;
+        private string birthPluralityField;
         
         private bool birthPluralityFieldSpecified;
         
-        private BirthOrderType birthOrderField;
+        private string birthOrderField;
         
         private bool birthOrderFieldSpecified;
         
@@ -4550,17 +4550,17 @@ namespace nehta.mcaR40.CreateVerifiedIHI
         
         private bool dateOfDeathFieldSpecified;
         
-        private DateAccuracyIndicatorType dateOfDeathAccuracyIndicatorField;
+        private string dateOfDeathAccuracyIndicatorField;
         
         private bool dateOfDeathAccuracyIndicatorFieldSpecified;
         
-        private SourceOfDeathNotificationType sourceOfDeathNotificationField;
+        private string sourceOfDeathNotificationField;
         
         private bool sourceOfDeathNotificationFieldSpecified;
         
         private ElectronicCommunicationType[] electronicCommunicationField;
         
-        private NameTitleType nameTitleField;
+        private string nameTitleField;
         
         private bool nameTitleFieldSpecified;
         
@@ -4572,13 +4572,13 @@ namespace nehta.mcaR40.CreateVerifiedIHI
         
         private bool onlyNameIndicatorFieldSpecified;
         
-        private NameSuffixType nameSuffixField;
+        private string nameSuffixField;
         
         private bool nameSuffixFieldSpecified;
         
-        private IndividualNameUsageType usageField;
+        private string usageField;
         
-        private ConditionalUseType conditionalUseField;
+        private string conditionalUseField;
         
         private bool conditionalUseFieldSpecified;
         
@@ -4602,7 +4602,7 @@ namespace nehta.mcaR40.CreateVerifiedIHI
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreElements/3.0", Order=1)]
-        public DateAccuracyIndicatorType dateOfBirthAccuracyIndicator
+        public string dateOfBirthAccuracyIndicator
         {
             get
             {
@@ -4616,7 +4616,7 @@ namespace nehta.mcaR40.CreateVerifiedIHI
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreElements/3.0", Order=2)]
-        public SexType sex
+        public string sex
         {
             get
             {
@@ -4630,7 +4630,7 @@ namespace nehta.mcaR40.CreateVerifiedIHI
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/consumercore/ConsumerCoreElements/3.0", Order=3)]
-        public BirthPluralityType birthPlurality
+        public string birthPlurality
         {
             get
             {
@@ -4658,7 +4658,7 @@ namespace nehta.mcaR40.CreateVerifiedIHI
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/consumercore/ConsumerCoreElements/3.0", Order=4)]
-        public BirthOrderType birthOrder
+        public string birthOrder
         {
             get
             {
@@ -4714,7 +4714,7 @@ namespace nehta.mcaR40.CreateVerifiedIHI
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreElements/3.0", Order=6)]
-        public DateAccuracyIndicatorType dateOfDeathAccuracyIndicator
+        public string dateOfDeathAccuracyIndicator
         {
             get
             {
@@ -4742,7 +4742,7 @@ namespace nehta.mcaR40.CreateVerifiedIHI
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/consumercore/ConsumerCoreElements/3.0", Order=7)]
-        public SourceOfDeathNotificationType sourceOfDeathNotification
+        public string sourceOfDeathNotification
         {
             get
             {
@@ -4785,7 +4785,7 @@ namespace nehta.mcaR40.CreateVerifiedIHI
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/IndividualNameCore/3.0", Order=9)]
-        public NameTitleType nameTitle
+        public string nameTitle
         {
             get
             {
@@ -4869,7 +4869,7 @@ namespace nehta.mcaR40.CreateVerifiedIHI
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/IndividualNameCore/3.0", Order=13)]
-        public NameSuffixType nameSuffix
+        public string nameSuffix
         {
             get
             {
@@ -4897,7 +4897,7 @@ namespace nehta.mcaR40.CreateVerifiedIHI
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/IndividualNameCore/3.0", Order=14)]
-        public IndividualNameUsageType usage
+        public string usage
         {
             get
             {
@@ -4911,7 +4911,7 @@ namespace nehta.mcaR40.CreateVerifiedIHI
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/consumercore/Name/3.0", Order=15)]
-        public ConditionalUseType conditionalUse
+        public string conditionalUse
         {
             get
             {
