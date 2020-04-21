@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsumerCreateVerifiedIHIModClientSample.cs" />
     <Compile Include="ConsumerCreateVerifiedIHIClientSample.cs" />
     <Compile Include="ConsumerSearchIHIBatchSyncClientSample.cs" />
     <Compile Include="ConsumerSearchIHIClientSample.cs" />

@@ -1,6 +1,11 @@
 ### Change Log/Revision History
 
 
+1.6.0
+-----
+* Added modified R40-CreateVerifiedIHI-Mod.cs file for HIPS
+
+
 1.5.1
 -----
 * Referencing latest Common Library to fix Serialize issue with HI Service

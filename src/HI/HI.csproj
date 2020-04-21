@@ -73,6 +73,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsumerCreateVerifiedIHIModClient.cs" />
+    <Compile Include="GeneratedCode\R40-CreateVerifiedIHI-Mod.cs" />
     <Compile Include="ProviderMatchProviderAdministrativeIndividualClient.cs" />
     <Compile Include="ConsumerCreateVerifiedIHIClient.cs">
       <SubType>Code</SubType>
