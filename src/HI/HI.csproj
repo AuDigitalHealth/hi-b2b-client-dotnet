@@ -75,6 +75,23 @@
   <ItemGroup>
     <Compile Include="ConsumerCreateVerifiedIHIModClient.cs" />
     <Compile Include="GeneratedCode\R40-CreateVerifiedIHI-Mod.cs" />
+    <Compile Include="IConsumerCreateVerifiedIHIClient.cs" />
+    <Compile Include="IConsumerCreateVerifiedIHIModClient.cs" />
+    <Compile Include="IConsumerSearchIHIBatchAsyncClient.cs" />
+    <Compile Include="IConsumerSearchIHIBatchSyncClient.cs" />
+    <Compile Include="IConsumerSearchIHIClient.cs" />
+    <Compile Include="IProviderBatchAsyncSearchForProviderIndividualClient.cs" />
+    <Compile Include="IProviderBatchAsyncSearchForProviderOrganisationClient.cs" />
+    <Compile Include="IProviderManageProviderDirectoryEntryClient.cs" />
+    <Compile Include="IProviderManageProviderOrganisationClient.cs" />
+    <Compile Include="IProviderMatchProviderAdministrativeIndividualClient.cs" />
+    <Compile Include="IProviderReadProviderOrganisationClient.cs" />
+    <Compile Include="IProviderReadReferenceDataClient.cs" />
+    <Compile Include="IProviderSearchForProviderIndividualClient.cs" />
+    <Compile Include="IProviderSearchForProviderOrganisationClient.cs" />
+    <Compile Include="IProviderSearchHIProviderDirectoryForIndividualClient.cs" />
+    <Compile Include="IProviderSearchHIProviderDirectoryForOrganisationClient.cs" />
+    <Compile Include="ISoapClient.cs" />
     <Compile Include="ProviderMatchProviderAdministrativeIndividualClient.cs" />
     <Compile Include="ConsumerCreateVerifiedIHIClient.cs">
       <SubType>Code</SubType>

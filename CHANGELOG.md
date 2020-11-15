@@ -1,6 +1,10 @@
 ### Change Log/Revision History
 
 
+1.7.0
+------------------
+* Added support for NUNIT testing exposing interfaces for dummy responses to can test locally
+
 1.6.0
 -----
 * Added modified R40-CreateVerifiedIHI-Mod.cs file for HIPS

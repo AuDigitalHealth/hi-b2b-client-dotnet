@@ -1,7 +1,7 @@
 del *.nupkg
 
 nuget restore
-
+msbuild 
 msbuild HI.sln /p:Configuration=Release
 
 NuGet.exe pack HI/HI.csproj -Properties Configuration=Release
