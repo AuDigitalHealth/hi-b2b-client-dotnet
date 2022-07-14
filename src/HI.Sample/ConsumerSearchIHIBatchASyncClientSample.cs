@@ -13,11 +13,14 @@
  */
 
 using System;
-using System.Net;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
+using System.Collections.Generic;
+using System.Net;
 using System.Security.Cryptography.X509Certificates;
-using nehta.mcaR3.ConsumerSearchIHI;
+using System.Threading;
+using Nehta.VendorLibrary.HI.Common;
+using nehta.mcaR3.ConsumerSearchIHIBatchAsync;
 using Nehta.VendorLibrary.Common;
 
 namespace Nehta.VendorLibrary.HI.Sample
@@ -31,7 +34,7 @@ namespace Nehta.VendorLibrary.HI.Sample
     ///    the product name and version, and the product platform. These are provided by Medicare.
     /// d) User identifier details.
     /// </summary>
-    class ConsumerSearchIHIClientSample
+    class ConsumerSearchIHIBatchASyncClientSample
     {
         public void Sample()
         {
@@ -85,9 +88,10 @@ namespace Nehta.VendorLibrary.HI.Sample
             // ------------------------------------------------------------------------------
             // Client instantiation and invocation
             // ------------------------------------------------------------------------------
-            
+
             // Instantiate the client
-            ConsumerSearchIHIClient client = new ConsumerSearchIHIClient(
+
+            ConsumerSearchIHIBatchAsyncClient client = new ConsumerSearchIHIBatchAsyncClient(
                 new Uri("https://HIServiceEndpoint"),
                 product,
                 user,
@@ -95,18 +99,87 @@ namespace Nehta.VendorLibrary.HI.Sample
                 signingCert,
                 tlsCert);
 
-            // Set up the request
-            searchIHI request = new searchIHI();
-            request.ihiNumber = "http://ns.electronichealth.net.au/id/hi/ihi/1.0/8003601240022579";
-            request.dateOfBirth = DateTime.Parse("12 Dec 2002");
-            request.givenName = "Jessica";
-            request.familyName = "Wood";
-            request.sex = SexType.F;
+            // Create a list of search requests
+            var searches = new List<CommonSearchIHIRequestType>();
+
+            // Add a basic search
+            searches.AddBasicSearch(Guid.NewGuid().ToString(), new CommonSearchIHI()
+            {
+                ihiNumber = HIQualifiers.IHIQualifier + "8003601240022579",
+                dateOfBirth = DateTime.Parse("12 Dec 2002"),
+                givenName = "Jessica",
+                familyName = "Wood",
+                sex = CommonSexType.F
+            });
+
+            // Add a basic Medicare search
+            searches.AddBasicMedicareSearch(Guid.NewGuid().ToString(), new CommonSearchIHI()
+            {
+                medicareCardNumber = "2950141861",
+                medicareIRN = "1",
+                dateOfBirth = DateTime.Parse("12 Dec 2002"),
+                givenName = "Jessica",
+                familyName = "Wood",
+                sex = CommonSexType.F
+            });
+
+            // Add a basic DVA search
+            searches.AddBasicDvaSearch(Guid.NewGuid().ToString(), new CommonSearchIHI()
+            {
+                dvaFileNumber = "N 908030C",
+                dateOfBirth = DateTime.Parse("12 Dec 1970"),
+                givenName = "Luke",
+                familyName = "Lawson",
+                sex = CommonSexType.M
+            });
+            
+            // Add an Australian street address search
+            searches.AddAustralianStreetAddressSearch(Guid.NewGuid().ToString(), new CommonSearchIHI()
+            {
+                dateOfBirth = DateTime.Parse("12 Dec 2002"),
+                givenName = "Jessica",
+                familyName = "Wood",
+                sex = CommonSexType.F,
+                australianStreetAddress = new CommonAustralianStreetAddressType()
+                {
+                    streetNumber = "21",
+                    streetName = "Ross",
+                    streetType = CommonStreetType.RD,
+                    streetTypeSpecified = true,
+                    suburb = "Queanbeyan",
+                    state = CommonStateType.NSW,
+                    postcode = "2620"
+                }
+            });
 
             try
             {
-                // Invokes a basic search
-                searchIHIResponse ihiResponse = client.BasicSearch(request);
+                // Invokes the batch search
+                submitSearchIHIBatchResponse1 ihiResponse1 = client.SubmitSearchIHIBatch(searches);
+
+                bool notCompleted = true;
+                do
+                {
+                    // Example: Sleep 10 seconds and do a loop until status change
+                    Thread.Sleep(10000);
+
+                    getSearchIHIBatchStatusResponse1 ihiResponse2 = client.GetSearchIHIBatchStatus(ihiResponse1.submitSearchIHIBatchResponse.batchIdentifier);
+
+                    var status = ihiResponse2.getSearchIHIBatchStatusResponse.getSearchIHIBatchStatusResult.status;
+
+                    if (status == BatchResponseStatusType.COMPLETED)
+                    {
+                        break;
+                    }
+                    // Handle other status's including checking for only certain period of time
+                } 
+                while (notCompleted);
+
+                // Retrieve and process batch
+                retrieveSearchIHIBatchResponse1 ihiResponse3 = client.RetrieveSearchIHIBatch(ihiResponse1.submitSearchIHIBatchResponse.batchIdentifier);
+
+                // Then remove batch
+                deleteSearchIHIBatchResponse1 ihiResponse4 = client.DeleteSearchIHIBatch(ihiResponse1.submitSearchIHIBatchResponse.batchIdentifier);
             }
             catch (FaultException fex)
             {

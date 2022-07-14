@@ -200,6 +200,7 @@ namespace Nehta.VendorLibrary.HI
             };
             envelope.product = product;
             envelope.user = user;
+            envelope.hpio = hpio;
             envelope.signature = new SignatureContainerType();
 
             envelope.timestamp = new TimestampType()
@@ -245,6 +246,7 @@ namespace Nehta.VendorLibrary.HI
             };
             envelope.product = product;
             envelope.user = user;
+            envelope.hpio = hpio;
             envelope.signature = new SignatureContainerType();
 
             envelope.timestamp = new TimestampType()
@@ -290,6 +292,7 @@ namespace Nehta.VendorLibrary.HI
             };
             envelope.product = product;
             envelope.user = user;
+            envelope.hpio = hpio;
             envelope.signature = new SignatureContainerType();
 
             envelope.timestamp = new TimestampType()

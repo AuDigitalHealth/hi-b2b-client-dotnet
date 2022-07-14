@@ -12,8 +12,7 @@
  * under the License.
  */
 using System;
-using System.ServiceModel;
-using System.ServiceModel.Channels;
+using System.Net;
 using System.Security.Cryptography.X509Certificates;
 using nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation;
 using Nehta.VendorLibrary.Common;
@@ -37,6 +36,8 @@ namespace Nehta.VendorLibrary.HI.Sample
             // ------------------------------------------------------------------------------
             // Set up
             // ------------------------------------------------------------------------------
+
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
             // Obtain the certificate by serial number
             X509Certificate2 tlsCert = X509CertificateUtil.GetCertificate(
@@ -77,8 +78,7 @@ namespace Nehta.VendorLibrary.HI.Sample
             QualifiedId hpio = new QualifiedId()
             {
                 id = "HPIO", // HPIO internal to your system
-                qualifier = "http://<anything>/id/<anything>/hpio/1.0"
-                // Eg: http://ns.yourcompany.com.au/id/yoursoftware/userid/1.0
+                qualifier = "http://ns.electronichealth.net.au/id/hi/hpio/1.0"
             };
 
             // ------------------------------------------------------------------------------

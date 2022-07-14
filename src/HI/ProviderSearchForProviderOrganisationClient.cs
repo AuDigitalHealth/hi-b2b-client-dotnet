@@ -177,9 +177,13 @@ namespace Nehta.VendorLibrary.HI
             }
 
             if (response1 != null && response1.searchForProviderOrganisationResponse != null)
+            {
                 return response1.searchForProviderOrganisationResponse;
+            }
             else
+            {
                 throw new ApplicationException(Properties.Resources.UnexpectedServiceResponse);
+            }
         }
 
         /// <summary>
@@ -225,7 +229,10 @@ namespace Nehta.VendorLibrary.HI
             {
                 HIEndpointProcessor.ProcessEndpoint(client.Endpoint, signingCert, SoapMessages);
 
-                if (tlsCert != null) client.ClientCredentials.ClientCertificate.Certificate = tlsCert;
+                if (tlsCert != null)
+                {
+                    client.ClientCredentials.ClientCertificate.Certificate = tlsCert;
+                }
 
                 providerSearchForProviderOrganisationClient = client;
 
@@ -275,7 +282,9 @@ namespace Nehta.VendorLibrary.HI
             {
                 lClient = (ClientBase<ProviderSearchForProviderOrganisationPortType>)providerSearchForProviderOrganisationClient;
                 if (lClient.State != CommunicationState.Closed)
+                {
                     lClient.Close();
+                }
             }
         }
 

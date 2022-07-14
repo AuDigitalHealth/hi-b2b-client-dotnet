@@ -13,6 +13,7 @@
  */
 
 using System;
+using System.Net;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Security.Cryptography.X509Certificates;
@@ -37,6 +38,8 @@ namespace Nehta.VendorLibrary.HI.Sample
             // ------------------------------------------------------------------------------
             // Set up
             // ------------------------------------------------------------------------------
+
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
             // Obtain the certificate by serial number
             X509Certificate2 tlsCert = X509CertificateUtil.GetCertificate(

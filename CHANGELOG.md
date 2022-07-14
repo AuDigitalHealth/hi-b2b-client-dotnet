@@ -1,5 +1,9 @@
 ### Change Log/Revision History
 
+1.7.1
+------------------
+* Fixed client for Async IHI Batch Submit,Status,Retrieve,Delete for CSP
+* fixed up samples and added Tls12
 
 1.7.0
 ------------------

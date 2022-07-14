@@ -177,11 +177,11 @@ namespace Nehta.VendorLibrary.HI
         /// </returns>
         public searchHIProviderDirectoryForOrganisationResponse IdentifierSearch(searchHIProviderDirectoryForOrganisation request)
         {
-            Validation.ValidateArgumentRequired("request.hpioNumber", request.hpioNumber);
+            //Validation.ValidateArgumentRequired("request.hpioNumber", request.hpioNumber);
             Validation.ValidateArgumentNotAllowed("request.australianAddressCriteria", request.australianAddressCriteria);
             Validation.ValidateArgumentNotAllowed("request.internationalAddressCriteria", request.internationalAddressCriteria);
             Validation.ValidateArgumentNotAllowed("request.name", request.name);
-            Validation.ValidateArgumentNotAllowed("request.organisationDetails", request.organisationDetails);
+            //Validation.ValidateArgumentNotAllowed("request.organisationDetails", request.organisationDetails);
             Validation.ValidateArgumentNotAllowed("request.organisationType", request.organisationType);
             Validation.ValidateArgumentNotAllowed("request.serviceType", request.serviceType);
             Validation.ValidateArgumentNotAllowed("request.unitType", request.unitType);
@@ -347,9 +347,13 @@ namespace Nehta.VendorLibrary.HI
             }
 
             if (response1 != null && response1.searchHIProviderDirectoryForOrganisationResponse != null)
+            {
                 return response1.searchHIProviderDirectoryForOrganisationResponse;
+            }
             else
+            {
                 throw new ApplicationException(Properties.Resources.UnexpectedServiceResponse);
+            }
         }
 
         #region Private and internal methods
@@ -397,7 +401,10 @@ namespace Nehta.VendorLibrary.HI
             {
                 HIEndpointProcessor.ProcessEndpoint(client.Endpoint, signingCert, SoapMessages);
 
-                if (tlsCert != null) client.ClientCredentials.ClientCertificate.Certificate = tlsCert;
+                if (tlsCert != null)
+                {
+                    client.ClientCredentials.ClientCertificate.Certificate = tlsCert;
+                }
 
                 providerSearchHIProviderDirectoryForOrganisationClient = client;
 
@@ -447,7 +454,9 @@ namespace Nehta.VendorLibrary.HI
             {
                 lClient = (ClientBase<ProviderSearchHIProviderDirectoryForOrganisationPortType>)providerSearchHIProviderDirectoryForOrganisationClient;
                 if (lClient.State != CommunicationState.Closed)
+                {
                     lClient.Close();
+                }
             }
         }
 

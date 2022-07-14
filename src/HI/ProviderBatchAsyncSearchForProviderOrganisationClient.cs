@@ -177,9 +177,13 @@ namespace Nehta.VendorLibrary.HI
             }
 
             if (response1 != null && response1.submitSearchForProviderOrganisationResponse != null)
+            {
                 return response1.submitSearchForProviderOrganisationResponse;
+            }
             else
+            {
                 throw new ApplicationException(Properties.Resources.UnexpectedServiceResponse);
+            }
         }
 
 
@@ -223,9 +227,13 @@ namespace Nehta.VendorLibrary.HI
             }
 
             if (response1 != null && response1.retrieveSearchForProviderOrganisationResponse != null)
+            {
                 return response1.retrieveSearchForProviderOrganisationResponse;
+            }
             else
+            {
                 throw new ApplicationException(Properties.Resources.UnexpectedServiceResponse);
+            }
         }
 
 
@@ -272,7 +280,10 @@ namespace Nehta.VendorLibrary.HI
             {
                 HIEndpointProcessor.ProcessEndpoint(client.Endpoint, signingCert, SoapMessages);
 
-                if (tlsCert != null) client.ClientCredentials.ClientCertificate.Certificate = tlsCert;
+                if (tlsCert != null)
+                {
+                    client.ClientCredentials.ClientCertificate.Certificate = tlsCert;
+                }
 
                 providerBatchAsyncSearchForProviderOrganisationClient = client;
 
@@ -322,7 +333,9 @@ namespace Nehta.VendorLibrary.HI
             {
                 lClient = (ClientBase<SearchForProviderOrganisationBatchAsyncPortType>)providerBatchAsyncSearchForProviderOrganisationClient;
                 if (lClient.State != CommunicationState.Closed)
+                {
                     lClient.Close();
+                }
             }
         }
 
