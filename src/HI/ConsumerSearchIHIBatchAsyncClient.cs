@@ -149,7 +149,7 @@ namespace Nehta.VendorLibrary.HI
 
             var envelope = new submitSearchIHIBatchRequest();
 
-            var mappedSearches = Mapper.Map<List<CommonSearchIHIRequestType>, List<SearchIHIRequestType>>(searches);
+            var mappedSearches = Utility.Mapper.Map<List<CommonSearchIHIRequestType>, List<SearchIHIRequestType>>(searches);
 
             envelope.submitSearchIHIBatch = mappedSearches.ToArray();
             envelope.product = product;

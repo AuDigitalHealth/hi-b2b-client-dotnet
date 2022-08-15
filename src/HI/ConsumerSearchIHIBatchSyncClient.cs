@@ -159,7 +159,7 @@ namespace Nehta.VendorLibrary.HI
 
             searchIHIBatchSyncRequest envelope = new searchIHIBatchSyncRequest();
 
-            var mappedSearches = Mapper.Map<List<CommonSearchIHIRequestType>, List<SearchIHIRequestType>>(searches);
+            var mappedSearches = Utility.Mapper.Map<List<CommonSearchIHIRequestType>, List<SearchIHIRequestType>>(searches);
 
             envelope.searchIHIBatchSync = mappedSearches.ToArray();
             envelope.product = product;

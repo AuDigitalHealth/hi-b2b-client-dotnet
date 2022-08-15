@@ -1,12 +1,16 @@
 ### Change Log/Revision History
 
+1.8.0
+-----
+* Added support for netstandard2.0
+
 1.7.1
-------------------
+-----
 * Fixed client for Async IHI Batch Submit,Status,Retrieve,Delete for CSP
 * fixed up samples and added Tls12
 
 1.7.0
-------------------
+-----
 * Added support for NUNIT testing exposing interfaces for dummy responses to can test locally
 
 1.6.0

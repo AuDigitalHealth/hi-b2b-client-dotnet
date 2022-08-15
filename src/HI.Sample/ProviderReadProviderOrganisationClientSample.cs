@@ -118,7 +118,7 @@ namespace Nehta.VendorLibrary.HI.Sample
                 // detailed description of the error.
                 string soapResponse = client.SoapMessages.SoapResponse;
             }
-            catch (Exception ex)
+            catch (Exception x)
             {
                 // If an error is encountered, client.LastSoapResponse often provides a more
                 // detailed description of the error.

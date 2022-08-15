@@ -39,7 +39,7 @@ namespace Nehta.VendorLibrary.HI
             InspectorBehavior newBehavior = new InspectorBehavior(soapMessages, signingCertificate);
 
             // Add the behavior
-            endpoint.Behaviors.Add(newBehavior);
+            endpoint.EndpointBehaviors.Add(newBehavior);
         }
 
         /// <summary>
@@ -296,7 +296,7 @@ namespace Nehta.VendorLibrary.HI
 
             public void ApplyClientBehavior(ServiceEndpoint endpoint, System.ServiceModel.Dispatcher.ClientRuntime clientRuntime)
             {
-                clientRuntime.MessageInspectors.Add(new MessageInspector(soapMessages, signingCertificate));
+                clientRuntime.ClientMessageInspectors.Add(new MessageInspector(soapMessages, signingCertificate));
             }
 
             public void ApplyDispatchBehavior(ServiceEndpoint endpoint, System.ServiceModel.Dispatcher.EndpointDispatcher endpointDispatcher)
