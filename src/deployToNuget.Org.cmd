@@ -1,7 +1,5 @@
 del *.nupkg
 
-msbuild /p:Configuration=Release
-
 REM Use dotnet for packaging now
 REM NuGet.exe pack HI/HI.csproj -Properties Configuration=Release
 dotnet pack .\HI\HI.csproj -c Release -o .
