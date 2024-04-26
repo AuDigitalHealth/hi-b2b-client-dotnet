@@ -1,5 +1,10 @@
 ### Change Log/Revision History
 
+1.8.1
+-----
+* Added support for mobile/email for IHIsearch
+
+
 1.8.0
 -----
 * Added support for netstandard2.0

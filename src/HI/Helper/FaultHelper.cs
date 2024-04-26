@@ -2,9 +2,6 @@
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Xml;
-
-using ConsumerIHIBatch = nehta.mcaR3.ConsumerSearchIHIBatchSync;
-
 using Nehta.VendorLibrary.Common;
 
 namespace Nehta.VendorLibrary.HI

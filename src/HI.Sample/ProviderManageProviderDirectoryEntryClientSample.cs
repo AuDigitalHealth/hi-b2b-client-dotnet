@@ -78,7 +78,7 @@ namespace Nehta.VendorLibrary.HI.Sample
                 // Eg: http://ns.yourcompany.com.au/id/yoursoftware/userid/1.0
             };
 
-            // Set up user identifier details
+            // Set up org identifier details
             QualifiedId hpio = new QualifiedId()
             {
                 id = "HPIO", // HPIO internal to your system
@@ -101,6 +101,7 @@ namespace Nehta.VendorLibrary.HI.Sample
                 new Uri("https://HIServiceEndpoint"),
                 product,
                 user,
+                hpio,
                 signingCert,
                 tlsCert);
 

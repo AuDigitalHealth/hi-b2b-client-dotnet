@@ -76,6 +76,12 @@ namespace Nehta.VendorLibrary.HI.Sample
                 // Eg: http://ns.medicareaustralia.gov.au/id/hi/distinguishedname/1.0
             };
 
+            // Set up org identifier details
+            QualifiedId hpio = new QualifiedId()
+            {
+                id = "HPIO", // HPIO internal to your system
+                qualifier = "http://ns.electronichealth.net.au/id/hi/hpio/1.0"
+            };
 
             // ------------------------------------------------------------------------------
             // Client instantiation and invocation
@@ -86,6 +92,7 @@ namespace Nehta.VendorLibrary.HI.Sample
                 new Uri("https://HIServiceEndpoint"),
                 product,
                 user,
+                hpio,
                 signingCert,
                 tlsCert
                 );

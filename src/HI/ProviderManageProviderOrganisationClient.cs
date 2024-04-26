@@ -30,7 +30,7 @@ namespace Nehta.VendorLibrary.HI
         /// The User to be used in all searches.
         /// </summary>
         QualifiedId _user;
-
+        
         /// <summary>
         /// The hpio of the organisation.
         /// </summary>
@@ -191,7 +191,7 @@ namespace Nehta.VendorLibrary.HI
                 };
 
                 response = providerSearchForProviderOrganisationClient.manageProviderOrganisation(ref _product,
-                    ref sig, timestamp, _user, manageProviderOrganisation);
+                    ref sig, timestamp, _user, _hpio, manageProviderOrganisation);
 
             }
             catch (Exception ex)

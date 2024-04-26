@@ -12,11 +12,11 @@
   </PropertyGroup>
   <!-- Package and assembly information -->
   <PropertyGroup>
-    <Version>1.8.0.0</Version>
+    <Version>1.8.1.0</Version>
     <Description>A library for communicating with the HI Service</Description>
     <Company>Australian Digital Health Agency</Company>
     <Authors>$(Company)</Authors>
-    <Copyright>Copyright ©2022</Copyright>
+    <Copyright>Copyright ©2024</Copyright>
     <PackageReleaseNotes>Added netstandard2.0 compatible version of library</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/AuDigitalHealth/hi-b2b-client-dotnet</PackageProjectUrl>
     <PackageTags>ADHA Digital Health Nehta</PackageTags>
