@@ -1,132 +1,80 @@
-# HI B2B Client
+# Introduction
+The Healthcare Identifiers (HI) Service specifications are one of the foundation services the Agency has provided for eHealth (along with Terminology, Secure Messaging and NASH).
 
-This is a software library that provides an example implementation of a
-NEHTA Healthcare Identifiers (as operated by Medicare) Web Services client using .NET.
+Services Australia has developed and currently operates the HI Service, and publishes the specifications and WSDL/schemas. The specifications and WSDLs can be downloaded from the department’s website (www.humanservices.gov.au/hiservice > Information for Software Vendors developing for the Healthcare Identifiers Service) once a licence agreement has been signed.
 
-More information on the HI service can be found here:
-https://www.humanservices.gov.au/organisations/health-professionals/services/medicare/healthcare-identifiers-service-health-professionals?utm_id=9
+The HI Service provides a variety of interfaces for retrieving IHI, HPI-I and HPI-O numbers, as well as a number of maintenance features.
 
+The Healthcare Identifiers B2B Client Library provides vendors with an example implementation of some of these client interfaces in both Java and .net development environments.
 
+# Content
+The Healthcare Identifiers B2B Client Library simplifies the development process by providing vendors with a sample implementation of how to interact with the HI Service Endpoints. The library implements only the “Main Search” HI interfaces and operations as listed below.
 
-Setup
-=====
+### Main Search Interfaces
+The Main Search interfaces cover all the different types of searches a vendor system would need.
 
-- To build and test the distributable package, Visual Studio 2008 must be installed.
-- Load up the HI.sln solution file.
-- For documentation on the HI library, refer to Help/Index.html.
+The Read Reference Data is an additional interface that provides all the “static” reference values that are returned in the above searches. This allows for additional values to be added to specific reference sets.
 
+- IHI Inquiry Search via B2B - 3.0 [SIS.6]
+- Consumer Search IHI Batch Synchronous - 3.0 [SIS.12]
+- Consumer Search IHI Batch Asynchronous - 3.0 [SIS.30]
+- Healthcare Provider Directory – Search for Individual Provider Directory Entry – 3.2.0 [SIS.17]
+- Healthcare Provider Directory – Search for Organisation Provider Directory Entry – 3.2.0 [SIS.18]
+- Search for Provider Individual Details – 5.0.0 [SIS.31]
+- Search for Provider Organisation Details – 5.0.0 [SIS.32]
+- Search for Provider Individual Batch Asynchronous – 5.1.0 [SIS.33]
+- Search for Provider Organisation Batch Asynchronous – 5.1.0 [SIS.34]
+- Read Reference Data – 3.2.0 [SIS.22]
 
+### Organisation Maintenance Interfaces
+The Organisation Maintenance Interfaces allow a vendor’s software to control and maintain what organisation information is held by the HI Service for a particular HPI-O, and what information is published into the Healthcare Provider Directory. This can be very useful for secure messaging vendors who want to be able to automate the publishing of Endpoint Location Service information.
+- Read Provider Organisation Details – 3.2.0 [SIS.16]
+- Manage Provider Organisation Details – 3.2.0 [SIS.14]
+- Healthcare Provider Directory – Manage Provider Directory Entry– 3.2.0 [SIS.19]
 
-Solution
-========
+### Provider Maintenance Interfaces
+The Provider Maintenance Interfaces allow a vendor’s software to control and maintain what provider or HI User information is held by the HI Service, and what information is published into the Healthcare Provider Directory. For HPI-I information that comes from a trusted data source, their demographic information is read only, but still can be published.
+- Read Provider or Administrative Individual Details – 3.2.0 [SIS.15]
+- Manage Provider or Administrative Individual Details – 3.2.0 [SIS.13]
+- Healthcare Provider Directory – Manage Provider Directory Entry – 3.2.0 [SIS.19]
+- Match Provider or Administrative Individual Details – 6.0.0 [SIS.36]
 
-The solution consists of three projects:
+### Consumer Maintenance Interfaces
+The use cases for the Consumer Maintenance Interfaces are still being developed. Emergency departments and maternity units are prime locations for these types of interfaces, but are still being worked out from a workflow perspective.
+- Create Provisional IHI via B2B – 3.0 [SIS.10]
+- Update Provisional IHI via B2B – 3.0 [SIS.3]
+- Create Unverified IHI via B2B – 3.0.2 [SIS.11]
+- Create Verified IHI for Newborn via B2B – 4.0 [SIS.26]
+- Update IHI via B2B – 3.2.0 [SIS.5]
+- Resolve Provisional IHI-Merge record via B2B – 3.0 [SIS.8]
+- Resolve Provisional IHI – Create Unverified IHI via B2B – 3.0.2 [SIS.9]
+- Notify of Duplicate IHI via B2B – 3.2.0 [SIS.24]
+- Notify of Replica IHI via B2B – 3.2.0 [SIS.25]
 
-HI: The 'Nehta.VendorLibrary.HI' project contains the implementation of Healthcare Identifiers service
-clients. There are 5 different clients in the HI library. They are:
-   
-   1. ConsumerSearchIHIClient                                 - For individual consumer searches
-   2. ConsumerSearchIHIBatchSyncClient                        - For synchronous batch consumer searches
-   3. ProviderSearchHIProviderDirectoryForIndividualClient    - For health provider searches
-   4. ProviderSearchHIProviderDirectoryForOrganisationClient  - For health organisation searches
-   5. ProviderReadReferenceDataClient                         - For looking up current reference data values
-
-Common: The 'Nehta.VendorLibrary.Common' project contains helper libraries common across
-all NEHTA vendor library components.
-
-HI.Sample: Project containing sample uses of each of the clients.
-
-
-Building and using the library
-==============================
-
-The solution can be built using 'ctrl-shift-b'. The compiled assembly can then be referenced
-where the HiClient will be available.
-
-
-
-Client Instantiation
-====================
-
-1. Requirements
-
-   a) A public/private key pair and its associated public certificate
-      These are used to authenticate the client to an HI Server during the Transport Layer Security (TLS)
-      handshake. 
-
-   b) A public/private key pair and its associated public certificate
-      These are used to authenticate the client sign all Web Service requests to the HI Service server.
-      The associated public certificate is always an organisation certificate provided by a recognized
-      Certificate Authority.
- 
-   c) The certificate of the Certificate Authority (CA) which signed the HI server's TLS certificate.
-      This certificate is used to authenticate the HI server during the TLS handshake. 
- 
-   d) The TLS Web Service endpoint URLs for the HI service.
-
-   e) Medicare authentication details
-      These will be provided by Medicare, and include a Qualified ID identifying you to Medicare. These
-      details should be instantiated as a QualifiedId instance.
-
-   f) Details for the client product information (PCIN)
-      These include a QualifiedId for the product, the product name and version, and the product platform.
-      These should all be instantiated in a ProductType instance.
-
-2. Code Example
-
-   The 5 different clients available in this library are:
-   1. ConsumerSearchIHIClient
-   2. ConsumerSearchIHIBatchSyncClient
-   3. ProviderSearchHIProviderDirectoryForIndividualClient
-   4. ProviderSearchHIProviderDirectoryForOrganisationClient
-   5. ProviderReadReferenceDataClient
-
-   All the clients are instantiated similarly, and the ConsumerSearchIHIClient is cited in the example below:
-
-   ConsumerSearchIHIClient client = new ConsumerSearchIHIClient(
-                new Uri(hiServiceEndpoint),	// Medicare service endpoint
-                product,			// Client product information (PCIN)
-                user,				// Medicare authentication details
-                signingCert,			// Signing certificate
-                tlsCert);			// TLS client certificate   
-
-   The client can also be instantiated using a configured WCF endpoint, in which case the endpoint configuration
-   name is used in the constructor:
-
-   ConsumerSearchIHIClient client = new ConsumerSearchIHIClient(
-                "EndpointConfigurationName",	// WCF endpoint configuration name
-                product,			// Client product information (PCIN)
-                user,				// Medicare authentication details
-                signingCert,			// Signing certificate
-                tlsCert);			// TLS client certificate   
+# Common Specifications
+There are also a few common specifications, which are useful to read as a starting point.
+- HI Service - Developers Guide – 7.1
+- HI Service - IHI Searching Guide - 5.0
+- Common Functionality Document – 5.0 [SIS.1]
+- Common Field Processing Reference Document – 3.1 [SIS.2]
 
 
-Generating service interfaces and classes from the WSDL and XSD files
-=====================================================================
+# Project
+This is a software library that provides an example implementation of how to connect up to the Healthcare Identifiers Web Services client using .NET.
 
-1. With the installation of VS2008, the SvcUtil.exe tool should be installed.
+# Setup
+- To build the distributable package, Visual Studio must be installed.
+- Start up HI.sln
 
-2. Run the following command (or compile it into an executable *.cmd file):
+# Solution
+The solution consists of several projects, however the main project is the HI project. 
+This project contains the code to communicate with the hi service.
 
-   -------------------------
-   REM : This command has to be executed in the "WsdlAndXsd" directory
-   REM : Set WSDLTOOL to the location of the local SvcUtil.exe installation
-   SET WSDLTOOL="c:\Program Files\Microsoft SDKs\Windows\v6.0A\Bin\SvcUtil.exe" /noLogo
+# Building and using the library
+The solution can be built using 'F6'. 
 
-   %WSDLTOOL%  /useSerializerForFaults /serializer:XmlSerializer wsdl\consumer\20100731\HI_ConsumerSearchIHIBatchSync*.wsdl schema\mca\consumer\messages\20100731\SearchIHI*Messages.xsd schema\w3c\xmldsig-core-schema.xsd schema\mca\common\20100731\*.xsd schema\mca\consumer\core\20100731\*.xsd /out:R3-ConsumerSearchIHIBatchSync.cs /noConfig /namespace:*,nehta.mcaR3.ConsumerSearchIHIBatchSync /tcv:Version35
-   %WSDLTOOL%  /useSerializerForFaults /serializer:XmlSerializer wsdl\consumer\20100731\HI_ConsumerSearchIHI-*.wsdl wsdl\consumer\20100731\HI_ConsumerSearchIHIInterface*.wsdl schema\mca\consumer\messages\20100731\SearchIHIMessages.xsd schema\w3c\xmldsig-core-schema.xsd schema\mca\common\20100731\*.xsd schema\mca\consumer\core\20100731\*.xsd /out:R3-ConsumerSearchIHI.cs /noConfig /namespace:*,nehta.mcaR3.ConsumerSearchIHI /tcv:Version35
+# Library Usage
+Documentation can be found in the sample project.
 
-   %WSDLTOOL%  /useSerializerForFaults /serializer:XmlSerializer wsdl\provider\20100930\HI_ProviderSearchHIProviderDirectoryForIndividual*.wsdl schema\mca\provider\messages\20100930\SearchHIProviderDirectoryForIndividualMessages.xsd schema\w3c\xmldsig-core-schema.xsd schema\mca\common\20100731\*.xsd schema\mca\provider\core\20100930\*.xsd /out:R32-ProviderSearchHIProviderDirectoryForIndividual.cs /noConfig /namespace:*,nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual /tcv:Version35
-   %WSDLTOOL%  /useSerializerForFaults /serializer:XmlSerializer wsdl\provider\20100930\HI_ProviderSearchHIProviderDirectoryForOrganisation*.wsdl schema\mca\provider\messages\20100930\SearchHIProviderDirectoryForOrganisationMessages.xsd schema\w3c\xmldsig-core-schema.xsd schema\mca\common\20100731\*.xsd schema\mca\provider\core\20100930\*.xsd /out:R32-ProviderSearchHIProviderDirectoryForOrganisation.cs /noConfig /namespace:*,nehta.mcaR32.ProviderSearchHIProviderDirectoryForOrganisation /tcv:Version35
-
-   %WSDLTOOL%  /useSerializerForFaults /serializer:XmlSerializer wsdl\provider\20100930\HI_ProviderReadReferenceData*.wsdl schema\mca\provider\messages\20100930\ReadReferenceDataMessages.xsd schema\w3c\xmldsig-core-schema.xsd schema\mca\common\20100731\*.xsd schema\mca\provider\core\20100930\*.xsd /out:R32-ProviderReadReferenceData.cs /noConfig /namespace:*,nehta.mcaR32.ProviderReadReferenceData /tcv:Version35
-
-   PAUSE
-   --------------------------
-
-
-
-License Agreement
-=================
-
+# Licensing
 See [LICENSE](LICENSE.txt) file.
