@@ -1,9 +1,12 @@
 ### Change Log/Revision History
 
+1.8.2
+-----
+* Fix order of elements in IHISearch
+
 1.8.1
 -----
 * Added support for mobile/email for IHIsearch
-
 
 1.8.0
 -----

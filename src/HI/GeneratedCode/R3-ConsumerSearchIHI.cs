@@ -179,157 +179,6 @@ namespace nehta.mcaR3.ConsumerSearchIHI
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/consumercore/ElectronicCommunication/3.0" +
-        "")]
-    public partial class ElectronicCommunicationType
-    {
-        
-        private MediumType mediumField;
-        
-        private UsageType usageField;
-        
-        private string detailsField;
-        
-        private TrueFalseType preferredField;
-        
-        private bool preferredFieldSpecified;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/ElectronicCommunicationCore/3.0", Order=0)]
-        public MediumType medium
-        {
-            get
-            {
-                return this.mediumField;
-            }
-            set
-            {
-                this.mediumField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/ElectronicCommunicationCore/3.0", Order=1)]
-        public UsageType usage
-        {
-            get
-            {
-                return this.usageField;
-            }
-            set
-            {
-                this.usageField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string details
-        {
-            get
-            {
-                return this.detailsField;
-            }
-            set
-            {
-                this.detailsField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreElements/3.0", Order=3)]
-        public TrueFalseType preferred
-        {
-            get
-            {
-                return this.preferredField;
-            }
-            set
-            {
-                this.preferredField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool preferredSpecified
-        {
-            get
-            {
-                return this.preferredFieldSpecified;
-            }
-            set
-            {
-                this.preferredFieldSpecified = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreDatatypes/3.0")]
-    public enum MediumType
-    {
-        
-        /// <remarks/>
-        E,
-        
-        /// <remarks/>
-        F,
-        
-        /// <remarks/>
-        M,
-        
-        /// <remarks/>
-        O,
-        
-        /// <remarks/>
-        P,
-        
-        /// <remarks/>
-        T,
-        
-        /// <remarks/>
-        U,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreDatatypes/3.0")]
-    public enum UsageType
-    {
-        
-        /// <remarks/>
-        A,
-        
-        /// <remarks/>
-        B,
-        
-        /// <remarks/>
-        P,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreDatatypes/3.0")]
-    public enum TrueFalseType
-    {
-        
-        /// <remarks/>
-        F,
-        
-        /// <remarks/>
-        T,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/consumercore/Address/3.0")]
     public partial class InternationalAddressType
     {
@@ -2848,6 +2697,157 @@ namespace nehta.mcaR3.ConsumerSearchIHI
         }
     }
     
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/consumercore/ElectronicCommunication/3.0" +
+        "")]
+    public partial class ElectronicCommunicationType
+    {
+        
+        private MediumType mediumField;
+        
+        private UsageType usageField;
+        
+        private string detailsField;
+        
+        private TrueFalseType preferredField;
+        
+        private bool preferredFieldSpecified;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/ElectronicCommunicationCore/3.0", Order=0)]
+        public MediumType medium
+        {
+            get
+            {
+                return this.mediumField;
+            }
+            set
+            {
+                this.mediumField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/ElectronicCommunicationCore/3.0", Order=1)]
+        public UsageType usage
+        {
+            get
+            {
+                return this.usageField;
+            }
+            set
+            {
+                this.usageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string details
+        {
+            get
+            {
+                return this.detailsField;
+            }
+            set
+            {
+                this.detailsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreElements/3.0", Order=3)]
+        public TrueFalseType preferred
+        {
+            get
+            {
+                return this.preferredField;
+            }
+            set
+            {
+                this.preferredField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool preferredSpecified
+        {
+            get
+            {
+                return this.preferredFieldSpecified;
+            }
+            set
+            {
+                this.preferredFieldSpecified = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreDatatypes/3.0")]
+    public enum MediumType
+    {
+        
+        /// <remarks/>
+        E,
+        
+        /// <remarks/>
+        F,
+        
+        /// <remarks/>
+        M,
+        
+        /// <remarks/>
+        O,
+        
+        /// <remarks/>
+        P,
+        
+        /// <remarks/>
+        T,
+        
+        /// <remarks/>
+        U,
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreDatatypes/3.0")]
+    public enum UsageType
+    {
+        
+        /// <remarks/>
+        A,
+        
+        /// <remarks/>
+        B,
+        
+        /// <remarks/>
+        P,
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreDatatypes/3.0")]
+    public enum TrueFalseType
+    {
+        
+        /// <remarks/>
+        F,
+        
+        /// <remarks/>
+        T,
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://ns.electronichealth.net.au/hi/svc/ConsumerSearchIHI/3.0", ConfigurationName="nehta.mcaR3.ConsumerSearchIHI.ConsumerSearchIHIPortType")]
     public interface ConsumerSearchIHIPortType
@@ -4269,6 +4269,8 @@ namespace nehta.mcaR3.ConsumerSearchIHI
         
         private string dvaFileNumberField;
         
+        private ElectronicCommunicationType electronicCommunicationField;
+        
         private System.DateTime dateOfBirthField;
         
         private SexType sexField;
@@ -4284,8 +4286,6 @@ namespace nehta.mcaR3.ConsumerSearchIHI
         private AustralianUnstructuredStreetAddressType australianUnstructuredStreetAddressField;
         
         private InternationalAddressType internationalAddressField;
-        
-        private ElectronicCommunicationType electronicCommunicationField;
         
         private TrueFalseType historyField;
         
@@ -4348,7 +4348,22 @@ namespace nehta.mcaR3.ConsumerSearchIHI
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreElements/3.0", DataType="date", Order=4)]
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/consumercore/ElectronicCommunication/3.0" +
+            "", Order=4)]
+        public ElectronicCommunicationType electronicCommunication
+        {
+            get
+            {
+                return this.electronicCommunicationField;
+            }
+            set
+            {
+                this.electronicCommunicationField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreElements/3.0", DataType="date", Order=5)]
         public System.DateTime dateOfBirth
         {
             get
@@ -4362,7 +4377,7 @@ namespace nehta.mcaR3.ConsumerSearchIHI
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreElements/3.0", Order=5)]
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreElements/3.0", Order=6)]
         public SexType sex
         {
             get
@@ -4376,7 +4391,7 @@ namespace nehta.mcaR3.ConsumerSearchIHI
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/IndividualNameCore/3.0", Order=6)]
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/IndividualNameCore/3.0", Order=7)]
         public string familyName
         {
             get
@@ -4390,7 +4405,7 @@ namespace nehta.mcaR3.ConsumerSearchIHI
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/IndividualNameCore/3.0", Order=7)]
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/IndividualNameCore/3.0", Order=8)]
         public string givenName
         {
             get
@@ -4404,7 +4419,7 @@ namespace nehta.mcaR3.ConsumerSearchIHI
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/consumercore/Address/3.0", Order=8)]
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/consumercore/Address/3.0", Order=9)]
         public AustralianPostalAddressType australianPostalAddress
         {
             get
@@ -4418,7 +4433,7 @@ namespace nehta.mcaR3.ConsumerSearchIHI
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/consumercore/Address/3.0", Order=9)]
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/consumercore/Address/3.0", Order=10)]
         public AustralianStreetAddressType australianStreetAddress
         {
             get
@@ -4432,7 +4447,7 @@ namespace nehta.mcaR3.ConsumerSearchIHI
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/consumercore/Address/3.0", Order=10)]
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/consumercore/Address/3.0", Order=11)]
         public AustralianUnstructuredStreetAddressType australianUnstructuredStreetAddress
         {
             get
@@ -4446,7 +4461,7 @@ namespace nehta.mcaR3.ConsumerSearchIHI
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/consumercore/Address/3.0", Order=11)]
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/consumercore/Address/3.0", Order=12)]
         public InternationalAddressType internationalAddress
         {
             get
@@ -4456,21 +4471,6 @@ namespace nehta.mcaR3.ConsumerSearchIHI
             set
             {
                 this.internationalAddressField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/consumercore/ElectronicCommunication/3.0" +
-            "", Order=12)]
-        public ElectronicCommunicationType electronicCommunication
-        {
-            get
-            {
-                return this.electronicCommunicationField;
-            }
-            set
-            {
-                this.electronicCommunicationField = value;
             }
         }
         
