@@ -1,4 +1,5 @@
-﻿using nehta.mcaR50.ProviderSearchForProviderOrganisation;
+﻿using System.Threading.Tasks;
+using nehta.mcaR50.ProviderSearchForProviderOrganisation;
 
 namespace Nehta.VendorLibrary.HI
 {
@@ -10,5 +11,10 @@ namespace Nehta.VendorLibrary.HI
         /// <param name="request">The search criteria in a searchHIProviderDirectoryForIndividual object.</param>
         /// <returns>The search results in a searchHIProviderDirectoryForIndividualResponse object.</returns>
         searchForProviderOrganisationResponse ProviderOrganisationSearch(searchForProviderOrganisation request);
+
+        /// <summary>
+        /// Asynchronous implementation of <see cref="ProviderOrganisationSearch" />.
+        /// </summary>
+        Task<searchForProviderOrganisationResponse> ProviderOrganisationSearchAsync(searchForProviderOrganisation request);
     }
 }

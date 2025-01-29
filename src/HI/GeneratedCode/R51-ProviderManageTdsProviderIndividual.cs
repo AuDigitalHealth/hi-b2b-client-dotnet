@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual
+namespace nehta.mcaR51.ProviderManageTdsProviderIndividual
 {
     
     
@@ -179,118 +179,625 @@ namespace nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/LinkedType/3.2.0")]
-    public partial class LinkedOrganisationType
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/Certificate/3.2.0")]
+    public partial class CertificateResponseType
     {
         
-        private string hpioNumberField;
+        private string raNumberField;
         
-        private string nameField;
-        
-        private Address addressField;
+        private string distinguishedNameField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="anyURI", Order=0)]
-        public string hpioNumber
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string raNumber
         {
             get
             {
-                return this.hpioNumberField;
+                return this.raNumberField;
             }
             set
             {
-                this.hpioNumberField = value;
+                this.raNumberField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string name
+        public string distinguishedName
         {
             get
             {
-                return this.nameField;
+                return this.distinguishedNameField;
             }
             set
             {
-                this.nameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/Address/3.2.0", Order=2)]
-        public Address address
-        {
-            get
-            {
-                return this.addressField;
-            }
-            set
-            {
-                this.addressField = value;
+                this.distinguishedNameField = value;
             }
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AddressRecord))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/Address/3.2.0")]
-    public partial class Address
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.medicareaustralia.gov.au/provider/schema/2013/06/22/elements")]
+    public partial class DetailsResponseType
     {
         
-        private AustralianAddressType australianAddressField;
+        private string clientRefField;
         
-        private InternationalAddressType internationalAddressField;
+        private string tdsReferenceField;
         
-        private AddressPurposeAndDateType addressPurposeField;
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string clientRef
+        {
+            get
+            {
+                return this.clientRefField;
+            }
+            set
+            {
+                this.clientRefField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string tdsReference
+        {
+            get
+            {
+                return this.tdsReferenceField;
+            }
+            set
+            {
+                this.tdsReferenceField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providermessages/ManageTdsProviderIndivi" +
+        "dual/3.2.0")]
+    public partial class providerIndividualResponse
+    {
+        
+        private string hpiiNumberField;
+        
+        private string statusField;
+        
+        private string clientRefField;
+        
+        private DetailsResponseType[] individualNameResponsesField;
+        
+        private DetailsResponseType[] addressResponsesField;
+        
+        private DetailsResponseType[] providerTypeResponsesField;
+        
+        private DetailsResponseType[] electronicCommunicationResponsesField;
+        
+        private CertificateResponseType certificateResponseField;
+        
+        private ServiceMessagesType serviceMessagesField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="anyURI", Order=0)]
+        public string hpiiNumber
+        {
+            get
+            {
+                return this.hpiiNumberField;
+            }
+            set
+            {
+                this.hpiiNumberField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string status
+        {
+            get
+            {
+                return this.statusField;
+            }
+            set
+            {
+                this.statusField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string clientRef
+        {
+            get
+            {
+                return this.clientRefField;
+            }
+            set
+            {
+                this.clientRefField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("individualNameResponses", Order=3)]
+        public DetailsResponseType[] individualNameResponses
+        {
+            get
+            {
+                return this.individualNameResponsesField;
+            }
+            set
+            {
+                this.individualNameResponsesField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("addressResponses", Order=4)]
+        public DetailsResponseType[] addressResponses
+        {
+            get
+            {
+                return this.addressResponsesField;
+            }
+            set
+            {
+                this.addressResponsesField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("providerTypeResponses", Order=5)]
+        public DetailsResponseType[] providerTypeResponses
+        {
+            get
+            {
+                return this.providerTypeResponsesField;
+            }
+            set
+            {
+                this.providerTypeResponsesField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("electronicCommunicationResponses", Order=6)]
+        public DetailsResponseType[] electronicCommunicationResponses
+        {
+            get
+            {
+                return this.electronicCommunicationResponsesField;
+            }
+            set
+            {
+                this.electronicCommunicationResponsesField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/Certificate/3.2.0", Order=7)]
+        public CertificateResponseType certificateResponse
+        {
+            get
+            {
+                return this.certificateResponseField;
+            }
+            set
+            {
+                this.certificateResponseField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreElements/3.0", Order=8)]
+        public ServiceMessagesType serviceMessages
+        {
+            get
+            {
+                return this.serviceMessagesField;
+            }
+            set
+            {
+                this.serviceMessagesField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/Certificate/3.2.0")]
+    public partial class NewCertificateRequestType
+    {
+        
+        private string tokenField;
+        
+        private string operatingSystemField;
+        
+        private string otherOperatingSystemField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string token
+        {
+            get
+            {
+                return this.tokenField;
+            }
+            set
+            {
+                this.tokenField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string operatingSystem
+        {
+            get
+            {
+                return this.operatingSystemField;
+            }
+            set
+            {
+                this.operatingSystemField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string otherOperatingSystem
+        {
+            get
+            {
+                return this.otherOperatingSystemField;
+            }
+            set
+            {
+                this.otherOperatingSystemField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/Certificate/3.2.0")]
+    public partial class LinkCertificateRequestType
+    {
+        
+        private string distinguishedNameField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string distinguishedName
+        {
+            get
+            {
+                return this.distinguishedNameField;
+            }
+            set
+            {
+                this.distinguishedNameField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/Certificate/3.2.0")]
+    public partial class CertificateType
+    {
+        
+        private LinkCertificateRequestType linkCertificateRequestField;
+        
+        private NewCertificateRequestType newCertificateRequestField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public LinkCertificateRequestType linkCertificateRequest
+        {
+            get
+            {
+                return this.linkCertificateRequestField;
+            }
+            set
+            {
+                this.linkCertificateRequestField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public NewCertificateRequestType newCertificateRequest
+        {
+            get
+            {
+                return this.newCertificateRequestField;
+            }
+            set
+            {
+                this.newCertificateRequestField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/PersonalDetails/3.2.0")]
+    public partial class DeathNotificationType
+    {
+        
+        private DateAndAccuracyType dateOfDeathField;
+        
+        private SourceOfDeathNotificationType sourceOfDeathNotificationField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public DateAndAccuracyType dateOfDeath
+        {
+            get
+            {
+                return this.dateOfDeathField;
+            }
+            set
+            {
+                this.dateOfDeathField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public SourceOfDeathNotificationType sourceOfDeathNotification
+        {
+            get
+            {
+                return this.sourceOfDeathNotificationField;
+            }
+            set
+            {
+                this.sourceOfDeathNotificationField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/Elements/3.2.0")]
+    public partial class DateAndAccuracyType
+    {
+        
+        private System.DateTime dateField;
+        
+        private DateAccuracyIndicatorType accuracyIndicatorField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="date", Order=0)]
+        public System.DateTime date
+        {
+            get
+            {
+                return this.dateField;
+            }
+            set
+            {
+                this.dateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public DateAccuracyIndicatorType accuracyIndicator
+        {
+            get
+            {
+                return this.accuracyIndicatorField;
+            }
+            set
+            {
+                this.accuracyIndicatorField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreDatatypes/3.0")]
+    public enum DateAccuracyIndicatorType
+    {
+        
+        /// <remarks/>
+        AAA,
+        
+        /// <remarks/>
+        AAE,
+        
+        /// <remarks/>
+        AAU,
+        
+        /// <remarks/>
+        AEA,
+        
+        /// <remarks/>
+        AEE,
+        
+        /// <remarks/>
+        AEU,
+        
+        /// <remarks/>
+        AUA,
+        
+        /// <remarks/>
+        AUE,
+        
+        /// <remarks/>
+        AUU,
+        
+        /// <remarks/>
+        EAA,
+        
+        /// <remarks/>
+        EAE,
+        
+        /// <remarks/>
+        EAU,
+        
+        /// <remarks/>
+        EEA,
+        
+        /// <remarks/>
+        EEE,
+        
+        /// <remarks/>
+        EEU,
+        
+        /// <remarks/>
+        EUA,
+        
+        /// <remarks/>
+        EUE,
+        
+        /// <remarks/>
+        EUU,
+        
+        /// <remarks/>
+        UAA,
+        
+        /// <remarks/>
+        UAE,
+        
+        /// <remarks/>
+        UAU,
+        
+        /// <remarks/>
+        UEA,
+        
+        /// <remarks/>
+        UEE,
+        
+        /// <remarks/>
+        UEU,
+        
+        /// <remarks/>
+        UUA,
+        
+        /// <remarks/>
+        UUE,
+        
+        /// <remarks/>
+        UUU,
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/PersonalDetails/3.2.0")]
+    public enum SourceOfDeathNotificationType
+    {
+        
+        /// <remarks/>
+        D,
+        
+        /// <remarks/>
+        P,
+        
+        /// <remarks/>
+        R,
+        
+        /// <remarks/>
+        T,
+        
+        /// <remarks/>
+        O,
+        
+        /// <remarks/>
+        U,
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ElectronicCommunicationRecord1))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/ElectronicCommunication/3.2" +
+        ".0")]
+    public partial class ElectronicCommunication
+    {
+        
+        private MediumType mediumField;
+        
+        private string detailsField;
+        
+        private UsageType usageField;
         
         private bool preferredField;
         
         private bool preferredFieldSpecified;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public AustralianAddressType australianAddress
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/ElectronicCommunicationCore/3.0", Order=0)]
+        public MediumType medium
         {
             get
             {
-                return this.australianAddressField;
+                return this.mediumField;
             }
             set
             {
-                this.australianAddressField = value;
+                this.mediumField = value;
             }
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public InternationalAddressType internationalAddress
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/ElectronicCommunicationCore/3.0", Order=1)]
+        public string details
         {
             get
             {
-                return this.internationalAddressField;
+                return this.detailsField;
             }
             set
             {
-                this.internationalAddressField = value;
+                this.detailsField = value;
             }
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public AddressPurposeAndDateType addressPurpose
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/ElectronicCommunicationCore/3.0", Order=2)]
+        public UsageType usage
         {
             get
             {
-                return this.addressPurposeField;
+                return this.usageField;
             }
             set
             {
-                this.addressPurposeField = value;
+                this.usageField = value;
             }
         }
         
@@ -326,445 +833,47 @@ namespace nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
     [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/Address/3.2.0")]
-    public partial class AustralianAddressType
-    {
-        
-        private UnitGroupType unitGroupField;
-        
-        private string addressSiteNameField;
-        
-        private LevelGroupType levelGroupField;
-        
-        private string streetNumberField;
-        
-        private string lotNumberField;
-        
-        private string streetNameField;
-        
-        private StreetType streetTypeField;
-        
-        private bool streetTypeFieldSpecified;
-        
-        private StreetSuffixType streetSuffixField;
-        
-        private bool streetSuffixFieldSpecified;
-        
-        private PostalDeliveryGroupType postalDeliveryGroupField;
-        
-        private string unstructuredAddressLineField;
-        
-        private string suburbField;
-        
-        private StateType stateField;
-        
-        private string postcodeField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=0)]
-        public UnitGroupType unitGroup
-        {
-            get
-            {
-                return this.unitGroupField;
-            }
-            set
-            {
-                this.unitGroupField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=1)]
-        public string addressSiteName
-        {
-            get
-            {
-                return this.addressSiteNameField;
-            }
-            set
-            {
-                this.addressSiteNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=2)]
-        public LevelGroupType levelGroup
-        {
-            get
-            {
-                return this.levelGroupField;
-            }
-            set
-            {
-                this.levelGroupField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=3)]
-        public string streetNumber
-        {
-            get
-            {
-                return this.streetNumberField;
-            }
-            set
-            {
-                this.streetNumberField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=4)]
-        public string lotNumber
-        {
-            get
-            {
-                return this.lotNumberField;
-            }
-            set
-            {
-                this.lotNumberField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=5)]
-        public string streetName
-        {
-            get
-            {
-                return this.streetNameField;
-            }
-            set
-            {
-                this.streetNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=6)]
-        public StreetType streetType
-        {
-            get
-            {
-                return this.streetTypeField;
-            }
-            set
-            {
-                this.streetTypeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool streetTypeSpecified
-        {
-            get
-            {
-                return this.streetTypeFieldSpecified;
-            }
-            set
-            {
-                this.streetTypeFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=7)]
-        public StreetSuffixType streetSuffix
-        {
-            get
-            {
-                return this.streetSuffixField;
-            }
-            set
-            {
-                this.streetSuffixField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool streetSuffixSpecified
-        {
-            get
-            {
-                return this.streetSuffixFieldSpecified;
-            }
-            set
-            {
-                this.streetSuffixFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=8)]
-        public PostalDeliveryGroupType postalDeliveryGroup
-        {
-            get
-            {
-                return this.postalDeliveryGroupField;
-            }
-            set
-            {
-                this.postalDeliveryGroupField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=9)]
-        public string unstructuredAddressLine
-        {
-            get
-            {
-                return this.unstructuredAddressLineField;
-            }
-            set
-            {
-                this.unstructuredAddressLineField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=10)]
-        public string suburb
-        {
-            get
-            {
-                return this.suburbField;
-            }
-            set
-            {
-                this.suburbField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=11)]
-        public StateType state
-        {
-            get
-            {
-                return this.stateField;
-            }
-            set
-            {
-                this.stateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=12)]
-        public string postcode
-        {
-            get
-            {
-                return this.postcodeField;
-            }
-            set
-            {
-                this.postcodeField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0")]
-    public partial class UnitGroupType
-    {
-        
-        private UnitType unitTypeField;
-        
-        private string unitNumberField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public UnitType unitType
-        {
-            get
-            {
-                return this.unitTypeField;
-            }
-            set
-            {
-                this.unitTypeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string unitNumber
-        {
-            get
-            {
-                return this.unitNumberField;
-            }
-            set
-            {
-                this.unitNumberField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-    [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreDatatypes/3.0")]
-    public enum UnitType
+    public enum MediumType
     {
         
         /// <remarks/>
-        ANT,
-        
-        /// <remarks/>
-        APT,
-        
-        /// <remarks/>
-        ATM,
-        
-        /// <remarks/>
-        BBQ,
-        
-        /// <remarks/>
-        BTSD,
-        
-        /// <remarks/>
-        BLDG,
-        
-        /// <remarks/>
-        BNGW,
-        
-        /// <remarks/>
-        CAGE,
-        
-        /// <remarks/>
-        CARP,
-        
-        /// <remarks/>
-        CARS,
-        
-        /// <remarks/>
-        CLUB,
-        
-        /// <remarks/>
-        COOL,
-        
-        /// <remarks/>
-        CTGE,
-        
-        /// <remarks/>
-        DUP,
-        
-        /// <remarks/>
-        FY,
+        E,
         
         /// <remarks/>
         F,
         
         /// <remarks/>
-        GRGE,
+        M,
         
         /// <remarks/>
-        HALL,
+        O,
         
         /// <remarks/>
-        HSE,
+        P,
         
         /// <remarks/>
-        KSK,
-        
-        /// <remarks/>
-        LSE,
-        
-        /// <remarks/>
-        LBBY,
-        
-        /// <remarks/>
-        LOFT,
-        
-        /// <remarks/>
-        LOT,
-        
-        /// <remarks/>
-        MSNT,
-        
-        /// <remarks/>
-        MB,
-        
-        /// <remarks/>
-        OFF,
-        
-        /// <remarks/>
-        PTHS,
-        
-        /// <remarks/>
-        RESV,
-        
-        /// <remarks/>
-        RM,
-        
-        /// <remarks/>
-        SHED,
-        
-        /// <remarks/>
-        SHOP,
-        
-        /// <remarks/>
-        SIGN,
-        
-        /// <remarks/>
-        SITE,
-        
-        /// <remarks/>
-        SL,
-        
-        /// <remarks/>
-        STOR,
-        
-        /// <remarks/>
-        STR,
-        
-        /// <remarks/>
-        STU,
-        
-        /// <remarks/>
-        SUBS,
-        
-        /// <remarks/>
-        SE,
-        
-        /// <remarks/>
-        TNCY,
-        
-        /// <remarks/>
-        TWR,
-        
-        /// <remarks/>
-        TNHS,
+        T,
         
         /// <remarks/>
         U,
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreDatatypes/3.0")]
+    public enum UsageType
+    {
         
         /// <remarks/>
-        VLLA,
+        A,
         
         /// <remarks/>
-        WARD,
+        B,
         
         /// <remarks/>
-        WE,
-        
-        /// <remarks/>
-        WKSH,
+        P,
     }
     
     /// <remarks/>
@@ -772,39 +881,428 @@ namespace nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0")]
-    public partial class LevelGroupType
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="ElectronicCommunicationRecord", Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/ElectronicCommunication/3.2" +
+        ".0")]
+    public partial class ElectronicCommunicationRecord1 : ElectronicCommunication
     {
         
-        private LevelType levelTypeField;
+        private string clientRefField;
         
-        private string levelNumberField;
+        private int externalIdentifierField;
+        
+        private bool externalIdentifierFieldSpecified;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public LevelType levelType
+        public string clientRef
         {
             get
             {
-                return this.levelTypeField;
+                return this.clientRefField;
             }
             set
             {
-                this.levelTypeField = value;
+                this.clientRefField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string levelNumber
+        public int externalIdentifier
         {
             get
             {
-                return this.levelNumberField;
+                return this.externalIdentifierField;
             }
             set
             {
-                this.levelNumberField = value;
+                this.externalIdentifierField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool externalIdentifierSpecified
+        {
+            get
+            {
+                return this.externalIdentifierFieldSpecified;
+            }
+            set
+            {
+                this.externalIdentifierFieldSpecified = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/ElectronicCommunication/5.1" +
+        ".0")]
+    public partial class ElectronicCommunicationRecord
+    {
+        
+        private string clientRefField;
+        
+        private string tdsReferenceField;
+        
+        private ElectronicCommunication electronicCommunicationField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string clientRef
+        {
+            get
+            {
+                return this.clientRefField;
+            }
+            set
+            {
+                this.clientRefField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string tdsReference
+        {
+            get
+            {
+                return this.tdsReferenceField;
+            }
+            set
+            {
+                this.tdsReferenceField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public ElectronicCommunication electronicCommunication
+        {
+            get
+            {
+                return this.electronicCommunicationField;
+            }
+            set
+            {
+                this.electronicCommunicationField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProviderTypeRecord1))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/ProviderType/3.2.0")]
+    public partial class ProviderType
+    {
+        
+        private string providerTypeCodeField;
+        
+        private DateAndAccuracyType startDateField;
+        
+        private DateAndAccuracyType endDateField;
+        
+        private string providerSpecialtyField;
+        
+        private string providerSpecialisationField;
+        
+        private string registrationIdField;
+        
+        private string registrationTypeField;
+        
+        private string registrationIssuerField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string providerTypeCode
+        {
+            get
+            {
+                return this.providerTypeCodeField;
+            }
+            set
+            {
+                this.providerTypeCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public DateAndAccuracyType startDate
+        {
+            get
+            {
+                return this.startDateField;
+            }
+            set
+            {
+                this.startDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public DateAndAccuracyType endDate
+        {
+            get
+            {
+                return this.endDateField;
+            }
+            set
+            {
+                this.endDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string providerSpecialty
+        {
+            get
+            {
+                return this.providerSpecialtyField;
+            }
+            set
+            {
+                this.providerSpecialtyField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public string providerSpecialisation
+        {
+            get
+            {
+                return this.providerSpecialisationField;
+            }
+            set
+            {
+                this.providerSpecialisationField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public string registrationId
+        {
+            get
+            {
+                return this.registrationIdField;
+            }
+            set
+            {
+                this.registrationIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public string registrationType
+        {
+            get
+            {
+                return this.registrationTypeField;
+            }
+            set
+            {
+                this.registrationTypeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
+        public string registrationIssuer
+        {
+            get
+            {
+                return this.registrationIssuerField;
+            }
+            set
+            {
+                this.registrationIssuerField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="ProviderTypeRecord", Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/ProviderType/3.2.0")]
+    public partial class ProviderTypeRecord1 : ProviderType
+    {
+        
+        private string clientRefField;
+        
+        private int externalIdentifierField;
+        
+        private bool externalIdentifierFieldSpecified;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string clientRef
+        {
+            get
+            {
+                return this.clientRefField;
+            }
+            set
+            {
+                this.clientRefField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public int externalIdentifier
+        {
+            get
+            {
+                return this.externalIdentifierField;
+            }
+            set
+            {
+                this.externalIdentifierField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool externalIdentifierSpecified
+        {
+            get
+            {
+                return this.externalIdentifierFieldSpecified;
+            }
+            set
+            {
+                this.externalIdentifierFieldSpecified = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/ProviderType/5.1.1")]
+    public partial class ProviderTypeRecord
+    {
+        
+        private string clientRefField;
+        
+        private string tdsReferenceField;
+        
+        private ProviderType providerTypeField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string clientRef
+        {
+            get
+            {
+                return this.clientRefField;
+            }
+            set
+            {
+                this.clientRefField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string tdsReference
+        {
+            get
+            {
+                return this.tdsReferenceField;
+            }
+            set
+            {
+                this.tdsReferenceField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public ProviderType providerType
+        {
+            get
+            {
+                return this.providerTypeField;
+            }
+            set
+            {
+                this.providerTypeField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/Address/3.2.0")]
+    public partial class AddressPurposeAndDateType
+    {
+        
+        private AddressPurposeType[] purposeField;
+        
+        private DateAndAccuracyType startDateField;
+        
+        private DateAndAccuracyType endDateField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("purpose", Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=0)]
+        public AddressPurposeType[] purpose
+        {
+            get
+            {
+                return this.purposeField;
+            }
+            set
+            {
+                this.purposeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public DateAndAccuracyType startDate
+        {
+            get
+            {
+                return this.startDateField;
+            }
+            set
+            {
+                this.startDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public DateAndAccuracyType endDate
+        {
+            get
+            {
+                return this.endDateField;
+            }
+            set
+            {
+                this.endDateField = value;
             }
         }
     }
@@ -813,840 +1311,23 @@ namespace nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual
     [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreDatatypes/3.0")]
-    public enum LevelType
+    public enum AddressPurposeType
     {
         
         /// <remarks/>
         B,
         
         /// <remarks/>
-        FL,
-        
-        /// <remarks/>
-        G,
-        
-        /// <remarks/>
-        L,
-        
-        /// <remarks/>
-        LG,
-        
-        /// <remarks/>
         M,
         
         /// <remarks/>
-        OD,
+        U,
         
         /// <remarks/>
-        P,
+        R,
         
         /// <remarks/>
-        PTHS,
-        
-        /// <remarks/>
-        PLF,
-        
-        /// <remarks/>
-        PLZA,
-        
-        /// <remarks/>
-        PDM,
-        
-        /// <remarks/>
-        RT,
-        
-        /// <remarks/>
-        SB,
-        
-        /// <remarks/>
-        UG,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreDatatypes/3.0")]
-    public enum StreetType
-    {
-        
-        /// <remarks/>
-        ACCS,
-        
-        /// <remarks/>
-        ALLY,
-        
-        /// <remarks/>
-        ALWY,
-        
-        /// <remarks/>
-        AMBL,
-        
-        /// <remarks/>
-        ANCG,
-        
-        /// <remarks/>
-        APP,
-        
-        /// <remarks/>
-        ARC,
-        
-        /// <remarks/>
-        ART,
-        
-        /// <remarks/>
-        AVE,
-        
-        /// <remarks/>
-        BASN,
-        
-        /// <remarks/>
-        BCH,
-        
-        /// <remarks/>
-        BEND,
-        
-        /// <remarks/>
-        BLK,
-        
-        /// <remarks/>
-        BWLK,
-        
-        /// <remarks/>
-        BVD,
-        
-        /// <remarks/>
-        BRCE,
-        
-        /// <remarks/>
-        BRAE,
-        
-        /// <remarks/>
-        BRK,
-        
-        /// <remarks/>
-        BDGE,
-        
-        /// <remarks/>
-        BDWY,
-        
-        /// <remarks/>
-        BROW,
-        
-        /// <remarks/>
-        BYPA,
-        
-        /// <remarks/>
-        BYWY,
-        
-        /// <remarks/>
-        CAUS,
-        
-        /// <remarks/>
-        CTR,
-        
-        /// <remarks/>
-        CNWY,
-        
-        /// <remarks/>
-        CH,
-        
-        /// <remarks/>
-        CIR,
-        
-        /// <remarks/>
-        CLT,
-        
-        /// <remarks/>
-        CCT,
-        
-        /// <remarks/>
-        CRCS,
-        
-        /// <remarks/>
-        CL,
-        
-        /// <remarks/>
-        CLDE,
-        
-        /// <remarks/>
-        CMMN,
-        
-        /// <remarks/>
-        CON,
-        
-        /// <remarks/>
-        CPS,
-        
-        /// <remarks/>
-        CNR,
-        
-        /// <remarks/>
-        CSO,
-        
-        /// <remarks/>
-        CT,
-        
-        /// <remarks/>
-        CTYD,
-        
-        /// <remarks/>
-        COVE,
-        
-        /// <remarks/>
-        CRES,
-        
-        /// <remarks/>
-        CRST,
-        
-        /// <remarks/>
-        CRSS,
-        
-        /// <remarks/>
-        CRSG,
-        
-        /// <remarks/>
-        CRD,
-        
-        /// <remarks/>
-        COWY,
-        
-        /// <remarks/>
-        CUWY,
-        
-        /// <remarks/>
-        CDS,
-        
-        /// <remarks/>
-        CTTG,
-        
-        /// <remarks/>
-        DALE,
-        
-        /// <remarks/>
-        DELL,
-        
-        /// <remarks/>
-        DEVN,
-        
-        /// <remarks/>
-        DIP,
-        
-        /// <remarks/>
-        DSTR,
-        
-        /// <remarks/>
-        DR,
-        
-        /// <remarks/>
-        DRWY,
-        
-        /// <remarks/>
-        EDGE,
-        
-        /// <remarks/>
-        ELB,
-        
-        /// <remarks/>
-        END,
-        
-        /// <remarks/>
-        ENT,
-        
-        /// <remarks/>
-        ESP,
-        
-        /// <remarks/>
-        EST,
-        
-        /// <remarks/>
-        EXP,
-        
-        /// <remarks/>
-        EXTN,
-        
-        /// <remarks/>
-        FAWY,
-        
-        /// <remarks/>
-        FTRK,
-        
-        /// <remarks/>
-        FITR,
-        
-        /// <remarks/>
-        FLAT,
-        
-        /// <remarks/>
-        FOLW,
-        
-        /// <remarks/>
-        FTWY,
-        
-        /// <remarks/>
-        FSHR,
-        
-        /// <remarks/>
-        FORM,
-        
-        /// <remarks/>
-        FWY,
-        
-        /// <remarks/>
-        FRNT,
-        
-        /// <remarks/>
-        FRTG,
-        
-        /// <remarks/>
-        GAP,
-        
-        /// <remarks/>
-        GDN,
-        
-        /// <remarks/>
-        GDNS,
-        
-        /// <remarks/>
-        GTE,
-        
-        /// <remarks/>
-        GTES,
-        
-        /// <remarks/>
-        GLD,
-        
-        /// <remarks/>
-        GLEN,
-        
-        /// <remarks/>
-        GRA,
-        
-        /// <remarks/>
-        GRN,
-        
-        /// <remarks/>
-        GRND,
-        
-        /// <remarks/>
-        GR,
-        
-        /// <remarks/>
-        GLY,
-        
-        /// <remarks/>
-        HTS,
-        
-        /// <remarks/>
-        HRD,
-        
-        /// <remarks/>
-        HWY,
-        
-        /// <remarks/>
-        HILL,
-        
-        /// <remarks/>
-        INTG,
-        
-        /// <remarks/>
-        INTN,
-        
-        /// <remarks/>
-        JNC,
-        
-        /// <remarks/>
-        KEY,
-        
-        /// <remarks/>
-        LDG,
-        
-        /// <remarks/>
-        LANE,
-        
-        /// <remarks/>
-        LNWY,
-        
-        /// <remarks/>
-        LEES,
-        
-        /// <remarks/>
-        LINE,
-        
-        /// <remarks/>
-        LINK,
-        
-        /// <remarks/>
-        LT,
-        
-        /// <remarks/>
-        LKT,
-        
-        /// <remarks/>
-        LOOP,
-        
-        /// <remarks/>
-        LWR,
-        
-        /// <remarks/>
-        MALL,
-        
-        /// <remarks/>
-        MNDR,
-        
-        /// <remarks/>
-        MEW,
-        
-        /// <remarks/>
-        MEWS,
-        
-        /// <remarks/>
-        MWY,
-        
-        /// <remarks/>
-        MT,
-        
-        /// <remarks/>
-        NOOK,
-        
-        /// <remarks/>
-        OTLK,
-        
-        /// <remarks/>
-        PDE,
-        
-        /// <remarks/>
-        PARK,
-        
-        /// <remarks/>
-        PKLD,
-        
-        /// <remarks/>
-        PKWY,
-        
-        /// <remarks/>
-        PART,
-        
-        /// <remarks/>
-        PASS,
-        
-        /// <remarks/>
-        PATH,
-        
-        /// <remarks/>
-        PHWY,
-        
-        /// <remarks/>
-        PIAZ,
-        
-        /// <remarks/>
-        PL,
-        
-        /// <remarks/>
-        PLAT,
-        
-        /// <remarks/>
-        PLZA,
-        
-        /// <remarks/>
-        PKT,
-        
-        /// <remarks/>
-        PNT,
-        
-        /// <remarks/>
-        PORT,
-        
-        /// <remarks/>
-        PROM,
-        
-        /// <remarks/>
-        QUAD,
-        
-        /// <remarks/>
-        QDGL,
-        
-        /// <remarks/>
-        QDRT,
-        
-        /// <remarks/>
-        QY,
-        
-        /// <remarks/>
-        QYS,
-        
-        /// <remarks/>
-        RMBL,
-        
-        /// <remarks/>
-        RAMP,
-        
-        /// <remarks/>
-        RNGE,
-        
-        /// <remarks/>
-        RCH,
-        
-        /// <remarks/>
-        RES,
-        
-        /// <remarks/>
-        REST,
-        
-        /// <remarks/>
-        RTT,
-        
-        /// <remarks/>
-        RIDE,
-        
-        /// <remarks/>
-        RDGE,
-        
-        /// <remarks/>
-        RGWY,
-        
-        /// <remarks/>
-        ROWY,
-        
-        /// <remarks/>
-        RING,
-        
-        /// <remarks/>
-        RISE,
-        
-        /// <remarks/>
-        RVR,
-        
-        /// <remarks/>
-        RVWY,
-        
-        /// <remarks/>
-        RVRA,
-        
-        /// <remarks/>
-        RD,
-        
-        /// <remarks/>
-        RDS,
-        
-        /// <remarks/>
-        RDSD,
-        
-        /// <remarks/>
-        RDWY,
-        
-        /// <remarks/>
-        RNDE,
-        
-        /// <remarks/>
-        RSBL,
-        
-        /// <remarks/>
-        RTY,
-        
-        /// <remarks/>
-        RND,
-        
-        /// <remarks/>
-        RTE,
-        
-        /// <remarks/>
-        ROW,
-        
-        /// <remarks/>
-        RUE,
-        
-        /// <remarks/>
-        RUN,
-        
-        /// <remarks/>
-        SWY,
-        
-        /// <remarks/>
-        SHUN,
-        
-        /// <remarks/>
-        SDNG,
-        
-        /// <remarks/>
-        SLPE,
-        
-        /// <remarks/>
-        SND,
-        
-        /// <remarks/>
-        SPUR,
-        
-        /// <remarks/>
-        SQ,
-        
-        /// <remarks/>
-        STRS,
-        
-        /// <remarks/>
-        SHWY,
-        
-        /// <remarks/>
-        STPS,
-        
-        /// <remarks/>
-        STRA,
-        
-        /// <remarks/>
-        ST,
-        
-        /// <remarks/>
-        STRP,
-        
-        /// <remarks/>
-        SBWY,
-        
-        /// <remarks/>
-        TARN,
-        
-        /// <remarks/>
-        TCE,
-        
-        /// <remarks/>
-        THOR,
-        
-        /// <remarks/>
-        TLWY,
-        
-        /// <remarks/>
-        TOP,
-        
-        /// <remarks/>
-        TOR,
-        
-        /// <remarks/>
-        TWRS,
-        
-        /// <remarks/>
-        TRK,
-        
-        /// <remarks/>
-        TRL,
-        
-        /// <remarks/>
-        TRLR,
-        
-        /// <remarks/>
-        TRI,
-        
-        /// <remarks/>
-        TKWY,
-        
-        /// <remarks/>
-        TURN,
-        
-        /// <remarks/>
-        UPAS,
-        
-        /// <remarks/>
-        UPR,
-        
-        /// <remarks/>
-        VALE,
-        
-        /// <remarks/>
-        VDCT,
-        
-        /// <remarks/>
-        VIEW,
-        
-        /// <remarks/>
-        VLLS,
-        
-        /// <remarks/>
-        VSTA,
-        
-        /// <remarks/>
-        WADE,
-        
-        /// <remarks/>
-        WALK,
-        
-        /// <remarks/>
-        WKWY,
-        
-        /// <remarks/>
-        WAY,
-        
-        /// <remarks/>
-        WHRF,
-        
-        /// <remarks/>
-        WYND,
-        
-        /// <remarks/>
-        YARD,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreDatatypes/3.0")]
-    public enum StreetSuffixType
-    {
-        
-        /// <remarks/>
-        CN,
-        
-        /// <remarks/>
-        E,
-        
-        /// <remarks/>
-        EX,
-        
-        /// <remarks/>
-        LR,
-        
-        /// <remarks/>
-        N,
-        
-        /// <remarks/>
-        NE,
-        
-        /// <remarks/>
-        NW,
-        
-        /// <remarks/>
-        S,
-        
-        /// <remarks/>
-        SE,
-        
-        /// <remarks/>
-        SW,
-        
-        /// <remarks/>
-        UP,
-        
-        /// <remarks/>
-        W,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0")]
-    public partial class PostalDeliveryGroupType
-    {
-        
-        private PostalDeliveryType postalDeliveryTypeField;
-        
-        private string postalDeliveryNumberField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public PostalDeliveryType postalDeliveryType
-        {
-            get
-            {
-                return this.postalDeliveryTypeField;
-            }
-            set
-            {
-                this.postalDeliveryTypeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string postalDeliveryNumber
-        {
-            get
-            {
-                return this.postalDeliveryNumberField;
-            }
-            set
-            {
-                this.postalDeliveryNumberField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreDatatypes/3.0")]
-    public enum PostalDeliveryType
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Care PO")]
-        CarePO,
-        
-        /// <remarks/>
-        CMA,
-        
-        /// <remarks/>
-        CMB,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("GPO Box")]
-        GPOBox,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Locked Bag")]
-        LockedBag,
-        
-        /// <remarks/>
-        MS,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("PO Box")]
-        POBox,
-        
-        /// <remarks/>
-        POR,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Private Bag")]
-        PrivateBag,
-        
-        /// <remarks/>
-        RSD,
-        
-        /// <remarks/>
-        RMB,
-        
-        /// <remarks/>
-        RMS,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreDatatypes/3.0")]
-    public enum StateType
-    {
-        
-        /// <remarks/>
-        ACT,
-        
-        /// <remarks/>
-        NSW,
-        
-        /// <remarks/>
-        NT,
-        
-        /// <remarks/>
-        QLD,
-        
-        /// <remarks/>
-        SA,
-        
-        /// <remarks/>
-        TAS,
-        
-        /// <remarks/>
-        VIC,
-        
-        /// <remarks/>
-        WA,
+        T,
     }
     
     /// <remarks/>
@@ -2719,55 +2400,39 @@ namespace nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/Address/3.2.0")]
-    public partial class AddressPurposeAndDateType
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0")]
+    public partial class PostalDeliveryGroupType
     {
         
-        private AddressPurposeType[] purposeField;
+        private PostalDeliveryType postalDeliveryTypeField;
         
-        private DateAndAccuracyType startDateField;
-        
-        private DateAndAccuracyType endDateField;
+        private string postalDeliveryNumberField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("purpose", Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=0)]
-        public AddressPurposeType[] purpose
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public PostalDeliveryType postalDeliveryType
         {
             get
             {
-                return this.purposeField;
+                return this.postalDeliveryTypeField;
             }
             set
             {
-                this.purposeField = value;
+                this.postalDeliveryTypeField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public DateAndAccuracyType startDate
+        public string postalDeliveryNumber
         {
             get
             {
-                return this.startDateField;
+                return this.postalDeliveryNumberField;
             }
             set
             {
-                this.startDateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public DateAndAccuracyType endDate
-        {
-            get
-            {
-                return this.endDateField;
-            }
-            set
-            {
-                this.endDateField = value;
+                this.postalDeliveryNumberField = value;
             }
         }
     }
@@ -2776,23 +2441,144 @@ namespace nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual
     [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreDatatypes/3.0")]
-    public enum AddressPurposeType
+    public enum PostalDeliveryType
+    {
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlEnumAttribute("Care PO")]
+        CarePO,
+        
+        /// <remarks/>
+        CMA,
+        
+        /// <remarks/>
+        CMB,
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlEnumAttribute("GPO Box")]
+        GPOBox,
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlEnumAttribute("Locked Bag")]
+        LockedBag,
+        
+        /// <remarks/>
+        MS,
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlEnumAttribute("PO Box")]
+        POBox,
+        
+        /// <remarks/>
+        POR,
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlEnumAttribute("Private Bag")]
+        PrivateBag,
+        
+        /// <remarks/>
+        RSD,
+        
+        /// <remarks/>
+        RMB,
+        
+        /// <remarks/>
+        RMS,
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0")]
+    public partial class LevelGroupType
+    {
+        
+        private LevelType levelTypeField;
+        
+        private string levelNumberField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public LevelType levelType
+        {
+            get
+            {
+                return this.levelTypeField;
+            }
+            set
+            {
+                this.levelTypeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string levelNumber
+        {
+            get
+            {
+                return this.levelNumberField;
+            }
+            set
+            {
+                this.levelNumberField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreDatatypes/3.0")]
+    public enum LevelType
     {
         
         /// <remarks/>
         B,
         
         /// <remarks/>
+        FL,
+        
+        /// <remarks/>
+        G,
+        
+        /// <remarks/>
+        L,
+        
+        /// <remarks/>
+        LG,
+        
+        /// <remarks/>
         M,
         
         /// <remarks/>
-        U,
+        OD,
         
         /// <remarks/>
-        R,
+        P,
         
         /// <remarks/>
-        T,
+        PTHS,
+        
+        /// <remarks/>
+        PLF,
+        
+        /// <remarks/>
+        PLZA,
+        
+        /// <remarks/>
+        PDM,
+        
+        /// <remarks/>
+        RT,
+        
+        /// <remarks/>
+        SB,
+        
+        /// <remarks/>
+        UG,
     }
     
     /// <remarks/>
@@ -2800,39 +2586,39 @@ namespace nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/Elements/3.2.0")]
-    public partial class DateAndAccuracyType
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0")]
+    public partial class UnitGroupType
     {
         
-        private System.DateTime dateField;
+        private UnitType unitTypeField;
         
-        private DateAccuracyIndicatorType accuracyIndicatorField;
+        private string unitNumberField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="date", Order=0)]
-        public System.DateTime date
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public UnitType unitType
         {
             get
             {
-                return this.dateField;
+                return this.unitTypeField;
             }
             set
             {
-                this.dateField = value;
+                this.unitTypeField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public DateAccuracyIndicatorType accuracyIndicator
+        public string unitNumber
         {
             get
             {
-                return this.accuracyIndicatorField;
+                return this.unitNumberField;
             }
             set
             {
-                this.accuracyIndicatorField = value;
+                this.unitNumberField = value;
             }
         }
     }
@@ -2841,89 +2627,152 @@ namespace nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual
     [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreDatatypes/3.0")]
-    public enum DateAccuracyIndicatorType
+    public enum UnitType
     {
         
         /// <remarks/>
-        AAA,
+        ANT,
         
         /// <remarks/>
-        AAE,
+        APT,
         
         /// <remarks/>
-        AAU,
+        ATM,
         
         /// <remarks/>
-        AEA,
+        BBQ,
         
         /// <remarks/>
-        AEE,
+        BTSD,
         
         /// <remarks/>
-        AEU,
+        BLDG,
         
         /// <remarks/>
-        AUA,
+        BNGW,
         
         /// <remarks/>
-        AUE,
+        CAGE,
         
         /// <remarks/>
-        AUU,
+        CARP,
         
         /// <remarks/>
-        EAA,
+        CARS,
         
         /// <remarks/>
-        EAE,
+        CLUB,
         
         /// <remarks/>
-        EAU,
+        COOL,
         
         /// <remarks/>
-        EEA,
+        CTGE,
         
         /// <remarks/>
-        EEE,
+        DUP,
         
         /// <remarks/>
-        EEU,
+        FY,
         
         /// <remarks/>
-        EUA,
+        F,
         
         /// <remarks/>
-        EUE,
+        GRGE,
         
         /// <remarks/>
-        EUU,
+        HALL,
         
         /// <remarks/>
-        UAA,
+        HSE,
         
         /// <remarks/>
-        UAE,
+        KSK,
         
         /// <remarks/>
-        UAU,
+        LSE,
         
         /// <remarks/>
-        UEA,
+        LBBY,
         
         /// <remarks/>
-        UEE,
+        LOFT,
         
         /// <remarks/>
-        UEU,
+        LOT,
         
         /// <remarks/>
-        UUA,
+        MSNT,
         
         /// <remarks/>
-        UUE,
+        MB,
         
         /// <remarks/>
-        UUU,
+        OFF,
+        
+        /// <remarks/>
+        PTHS,
+        
+        /// <remarks/>
+        RESV,
+        
+        /// <remarks/>
+        RM,
+        
+        /// <remarks/>
+        SHED,
+        
+        /// <remarks/>
+        SHOP,
+        
+        /// <remarks/>
+        SIGN,
+        
+        /// <remarks/>
+        SITE,
+        
+        /// <remarks/>
+        SL,
+        
+        /// <remarks/>
+        STOR,
+        
+        /// <remarks/>
+        STR,
+        
+        /// <remarks/>
+        STU,
+        
+        /// <remarks/>
+        SUBS,
+        
+        /// <remarks/>
+        SE,
+        
+        /// <remarks/>
+        TNCY,
+        
+        /// <remarks/>
+        TWR,
+        
+        /// <remarks/>
+        TNHS,
+        
+        /// <remarks/>
+        U,
+        
+        /// <remarks/>
+        VLLA,
+        
+        /// <remarks/>
+        WARD,
+        
+        /// <remarks/>
+        WE,
+        
+        /// <remarks/>
+        WKSH,
     }
     
     /// <remarks/>
@@ -2932,315 +2781,1005 @@ namespace nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/Address/3.2.0")]
-    public partial class AddressRecord : Address
+    public partial class AustralianAddressType
     {
         
-        private string clientRefField;
+        private UnitGroupType unitGroupField;
         
-        private int externalIdentifierField;
+        private string addressSiteNameField;
         
-        private bool externalIdentifierFieldSpecified;
+        private LevelGroupType levelGroupField;
+        
+        private string streetNumberField;
+        
+        private string lotNumberField;
+        
+        private string streetNameField;
+        
+        private StreetType streetTypeField;
+        
+        private bool streetTypeFieldSpecified;
+        
+        private StreetSuffixType streetSuffixField;
+        
+        private bool streetSuffixFieldSpecified;
+        
+        private PostalDeliveryGroupType postalDeliveryGroupField;
+        
+        private string unstructuredAddressLineField;
+        
+        private string suburbField;
+        
+        private StateType stateField;
+        
+        private string postcodeField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string clientRef
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=0)]
+        public UnitGroupType unitGroup
         {
             get
             {
-                return this.clientRefField;
+                return this.unitGroupField;
             }
             set
             {
-                this.clientRefField = value;
+                this.unitGroupField = value;
             }
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public int externalIdentifier
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=1)]
+        public string addressSiteName
         {
             get
             {
-                return this.externalIdentifierField;
+                return this.addressSiteNameField;
             }
             set
             {
-                this.externalIdentifierField = value;
+                this.addressSiteNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=2)]
+        public LevelGroupType levelGroup
+        {
+            get
+            {
+                return this.levelGroupField;
+            }
+            set
+            {
+                this.levelGroupField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=3)]
+        public string streetNumber
+        {
+            get
+            {
+                return this.streetNumberField;
+            }
+            set
+            {
+                this.streetNumberField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=4)]
+        public string lotNumber
+        {
+            get
+            {
+                return this.lotNumberField;
+            }
+            set
+            {
+                this.lotNumberField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=5)]
+        public string streetName
+        {
+            get
+            {
+                return this.streetNameField;
+            }
+            set
+            {
+                this.streetNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=6)]
+        public StreetType streetType
+        {
+            get
+            {
+                return this.streetTypeField;
+            }
+            set
+            {
+                this.streetTypeField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool externalIdentifierSpecified
+        public bool streetTypeSpecified
         {
             get
             {
-                return this.externalIdentifierFieldSpecified;
+                return this.streetTypeFieldSpecified;
             }
             set
             {
-                this.externalIdentifierFieldSpecified = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProviderTypeRecord))]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/ProviderType/3.2.0")]
-    public partial class ProviderType
-    {
-        
-        private string providerTypeCodeField;
-        
-        private DateAndAccuracyType startDateField;
-        
-        private DateAndAccuracyType endDateField;
-        
-        private string providerSpecialtyField;
-        
-        private string providerSpecialisationField;
-        
-        private string registrationIdField;
-        
-        private string registrationTypeField;
-        
-        private string registrationIssuerField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string providerTypeCode
-        {
-            get
-            {
-                return this.providerTypeCodeField;
-            }
-            set
-            {
-                this.providerTypeCodeField = value;
+                this.streetTypeFieldSpecified = value;
             }
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public DateAndAccuracyType startDate
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=7)]
+        public StreetSuffixType streetSuffix
         {
             get
             {
-                return this.startDateField;
+                return this.streetSuffixField;
             }
             set
             {
-                this.startDateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public DateAndAccuracyType endDate
-        {
-            get
-            {
-                return this.endDateField;
-            }
-            set
-            {
-                this.endDateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string providerSpecialty
-        {
-            get
-            {
-                return this.providerSpecialtyField;
-            }
-            set
-            {
-                this.providerSpecialtyField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-        public string providerSpecialisation
-        {
-            get
-            {
-                return this.providerSpecialisationField;
-            }
-            set
-            {
-                this.providerSpecialisationField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-        public string registrationId
-        {
-            get
-            {
-                return this.registrationIdField;
-            }
-            set
-            {
-                this.registrationIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
-        public string registrationType
-        {
-            get
-            {
-                return this.registrationTypeField;
-            }
-            set
-            {
-                this.registrationTypeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
-        public string registrationIssuer
-        {
-            get
-            {
-                return this.registrationIssuerField;
-            }
-            set
-            {
-                this.registrationIssuerField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/ProviderType/3.2.0")]
-    public partial class ProviderTypeRecord : ProviderType
-    {
-        
-        private string clientRefField;
-        
-        private int externalIdentifierField;
-        
-        private bool externalIdentifierFieldSpecified;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string clientRef
-        {
-            get
-            {
-                return this.clientRefField;
-            }
-            set
-            {
-                this.clientRefField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public int externalIdentifier
-        {
-            get
-            {
-                return this.externalIdentifierField;
-            }
-            set
-            {
-                this.externalIdentifierField = value;
+                this.streetSuffixField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool externalIdentifierSpecified
+        public bool streetSuffixSpecified
         {
             get
             {
-                return this.externalIdentifierFieldSpecified;
+                return this.streetSuffixFieldSpecified;
             }
             set
             {
-                this.externalIdentifierFieldSpecified = value;
+                this.streetSuffixFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=8)]
+        public PostalDeliveryGroupType postalDeliveryGroup
+        {
+            get
+            {
+                return this.postalDeliveryGroupField;
+            }
+            set
+            {
+                this.postalDeliveryGroupField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=9)]
+        public string unstructuredAddressLine
+        {
+            get
+            {
+                return this.unstructuredAddressLineField;
+            }
+            set
+            {
+                this.unstructuredAddressLineField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=10)]
+        public string suburb
+        {
+            get
+            {
+                return this.suburbField;
+            }
+            set
+            {
+                this.suburbField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=11)]
+        public StateType state
+        {
+            get
+            {
+                return this.stateField;
+            }
+            set
+            {
+                this.stateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=12)]
+        public string postcode
+        {
+            get
+            {
+                return this.postcodeField;
+            }
+            set
+            {
+                this.postcodeField = value;
             }
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ElectronicCommunicationRecord))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreDatatypes/3.0")]
+    public enum StreetType
+    {
+        
+        /// <remarks/>
+        ACCS,
+        
+        /// <remarks/>
+        ALLY,
+        
+        /// <remarks/>
+        ALWY,
+        
+        /// <remarks/>
+        AMBL,
+        
+        /// <remarks/>
+        ANCG,
+        
+        /// <remarks/>
+        APP,
+        
+        /// <remarks/>
+        ARC,
+        
+        /// <remarks/>
+        ART,
+        
+        /// <remarks/>
+        AVE,
+        
+        /// <remarks/>
+        BASN,
+        
+        /// <remarks/>
+        BCH,
+        
+        /// <remarks/>
+        BEND,
+        
+        /// <remarks/>
+        BLK,
+        
+        /// <remarks/>
+        BWLK,
+        
+        /// <remarks/>
+        BVD,
+        
+        /// <remarks/>
+        BRCE,
+        
+        /// <remarks/>
+        BRAE,
+        
+        /// <remarks/>
+        BRK,
+        
+        /// <remarks/>
+        BDGE,
+        
+        /// <remarks/>
+        BDWY,
+        
+        /// <remarks/>
+        BROW,
+        
+        /// <remarks/>
+        BYPA,
+        
+        /// <remarks/>
+        BYWY,
+        
+        /// <remarks/>
+        CAUS,
+        
+        /// <remarks/>
+        CTR,
+        
+        /// <remarks/>
+        CNWY,
+        
+        /// <remarks/>
+        CH,
+        
+        /// <remarks/>
+        CIR,
+        
+        /// <remarks/>
+        CLT,
+        
+        /// <remarks/>
+        CCT,
+        
+        /// <remarks/>
+        CRCS,
+        
+        /// <remarks/>
+        CL,
+        
+        /// <remarks/>
+        CLDE,
+        
+        /// <remarks/>
+        CMMN,
+        
+        /// <remarks/>
+        CON,
+        
+        /// <remarks/>
+        CPS,
+        
+        /// <remarks/>
+        CNR,
+        
+        /// <remarks/>
+        CSO,
+        
+        /// <remarks/>
+        CT,
+        
+        /// <remarks/>
+        CTYD,
+        
+        /// <remarks/>
+        COVE,
+        
+        /// <remarks/>
+        CRES,
+        
+        /// <remarks/>
+        CRST,
+        
+        /// <remarks/>
+        CRSS,
+        
+        /// <remarks/>
+        CRSG,
+        
+        /// <remarks/>
+        CRD,
+        
+        /// <remarks/>
+        COWY,
+        
+        /// <remarks/>
+        CUWY,
+        
+        /// <remarks/>
+        CDS,
+        
+        /// <remarks/>
+        CTTG,
+        
+        /// <remarks/>
+        DALE,
+        
+        /// <remarks/>
+        DELL,
+        
+        /// <remarks/>
+        DEVN,
+        
+        /// <remarks/>
+        DIP,
+        
+        /// <remarks/>
+        DSTR,
+        
+        /// <remarks/>
+        DR,
+        
+        /// <remarks/>
+        DRWY,
+        
+        /// <remarks/>
+        EDGE,
+        
+        /// <remarks/>
+        ELB,
+        
+        /// <remarks/>
+        END,
+        
+        /// <remarks/>
+        ENT,
+        
+        /// <remarks/>
+        ESP,
+        
+        /// <remarks/>
+        EST,
+        
+        /// <remarks/>
+        EXP,
+        
+        /// <remarks/>
+        EXTN,
+        
+        /// <remarks/>
+        FAWY,
+        
+        /// <remarks/>
+        FTRK,
+        
+        /// <remarks/>
+        FITR,
+        
+        /// <remarks/>
+        FLAT,
+        
+        /// <remarks/>
+        FOLW,
+        
+        /// <remarks/>
+        FTWY,
+        
+        /// <remarks/>
+        FSHR,
+        
+        /// <remarks/>
+        FORM,
+        
+        /// <remarks/>
+        FWY,
+        
+        /// <remarks/>
+        FRNT,
+        
+        /// <remarks/>
+        FRTG,
+        
+        /// <remarks/>
+        GAP,
+        
+        /// <remarks/>
+        GDN,
+        
+        /// <remarks/>
+        GDNS,
+        
+        /// <remarks/>
+        GTE,
+        
+        /// <remarks/>
+        GTES,
+        
+        /// <remarks/>
+        GLD,
+        
+        /// <remarks/>
+        GLEN,
+        
+        /// <remarks/>
+        GRA,
+        
+        /// <remarks/>
+        GRN,
+        
+        /// <remarks/>
+        GRND,
+        
+        /// <remarks/>
+        GR,
+        
+        /// <remarks/>
+        GLY,
+        
+        /// <remarks/>
+        HTS,
+        
+        /// <remarks/>
+        HRD,
+        
+        /// <remarks/>
+        HWY,
+        
+        /// <remarks/>
+        HILL,
+        
+        /// <remarks/>
+        INTG,
+        
+        /// <remarks/>
+        INTN,
+        
+        /// <remarks/>
+        JNC,
+        
+        /// <remarks/>
+        KEY,
+        
+        /// <remarks/>
+        LDG,
+        
+        /// <remarks/>
+        LANE,
+        
+        /// <remarks/>
+        LNWY,
+        
+        /// <remarks/>
+        LEES,
+        
+        /// <remarks/>
+        LINE,
+        
+        /// <remarks/>
+        LINK,
+        
+        /// <remarks/>
+        LT,
+        
+        /// <remarks/>
+        LKT,
+        
+        /// <remarks/>
+        LOOP,
+        
+        /// <remarks/>
+        LWR,
+        
+        /// <remarks/>
+        MALL,
+        
+        /// <remarks/>
+        MNDR,
+        
+        /// <remarks/>
+        MEW,
+        
+        /// <remarks/>
+        MEWS,
+        
+        /// <remarks/>
+        MWY,
+        
+        /// <remarks/>
+        MT,
+        
+        /// <remarks/>
+        NOOK,
+        
+        /// <remarks/>
+        OTLK,
+        
+        /// <remarks/>
+        PDE,
+        
+        /// <remarks/>
+        PARK,
+        
+        /// <remarks/>
+        PKLD,
+        
+        /// <remarks/>
+        PKWY,
+        
+        /// <remarks/>
+        PART,
+        
+        /// <remarks/>
+        PASS,
+        
+        /// <remarks/>
+        PATH,
+        
+        /// <remarks/>
+        PHWY,
+        
+        /// <remarks/>
+        PIAZ,
+        
+        /// <remarks/>
+        PL,
+        
+        /// <remarks/>
+        PLAT,
+        
+        /// <remarks/>
+        PLZA,
+        
+        /// <remarks/>
+        PKT,
+        
+        /// <remarks/>
+        PNT,
+        
+        /// <remarks/>
+        PORT,
+        
+        /// <remarks/>
+        PROM,
+        
+        /// <remarks/>
+        QUAD,
+        
+        /// <remarks/>
+        QDGL,
+        
+        /// <remarks/>
+        QDRT,
+        
+        /// <remarks/>
+        QY,
+        
+        /// <remarks/>
+        QYS,
+        
+        /// <remarks/>
+        RMBL,
+        
+        /// <remarks/>
+        RAMP,
+        
+        /// <remarks/>
+        RNGE,
+        
+        /// <remarks/>
+        RCH,
+        
+        /// <remarks/>
+        RES,
+        
+        /// <remarks/>
+        REST,
+        
+        /// <remarks/>
+        RTT,
+        
+        /// <remarks/>
+        RIDE,
+        
+        /// <remarks/>
+        RDGE,
+        
+        /// <remarks/>
+        RGWY,
+        
+        /// <remarks/>
+        ROWY,
+        
+        /// <remarks/>
+        RING,
+        
+        /// <remarks/>
+        RISE,
+        
+        /// <remarks/>
+        RVR,
+        
+        /// <remarks/>
+        RVWY,
+        
+        /// <remarks/>
+        RVRA,
+        
+        /// <remarks/>
+        RD,
+        
+        /// <remarks/>
+        RDS,
+        
+        /// <remarks/>
+        RDSD,
+        
+        /// <remarks/>
+        RDWY,
+        
+        /// <remarks/>
+        RNDE,
+        
+        /// <remarks/>
+        RSBL,
+        
+        /// <remarks/>
+        RTY,
+        
+        /// <remarks/>
+        RND,
+        
+        /// <remarks/>
+        RTE,
+        
+        /// <remarks/>
+        ROW,
+        
+        /// <remarks/>
+        RUE,
+        
+        /// <remarks/>
+        RUN,
+        
+        /// <remarks/>
+        SWY,
+        
+        /// <remarks/>
+        SHUN,
+        
+        /// <remarks/>
+        SDNG,
+        
+        /// <remarks/>
+        SLPE,
+        
+        /// <remarks/>
+        SND,
+        
+        /// <remarks/>
+        SPUR,
+        
+        /// <remarks/>
+        SQ,
+        
+        /// <remarks/>
+        STRS,
+        
+        /// <remarks/>
+        SHWY,
+        
+        /// <remarks/>
+        STPS,
+        
+        /// <remarks/>
+        STRA,
+        
+        /// <remarks/>
+        ST,
+        
+        /// <remarks/>
+        STRP,
+        
+        /// <remarks/>
+        SBWY,
+        
+        /// <remarks/>
+        TARN,
+        
+        /// <remarks/>
+        TCE,
+        
+        /// <remarks/>
+        THOR,
+        
+        /// <remarks/>
+        TLWY,
+        
+        /// <remarks/>
+        TOP,
+        
+        /// <remarks/>
+        TOR,
+        
+        /// <remarks/>
+        TWRS,
+        
+        /// <remarks/>
+        TRK,
+        
+        /// <remarks/>
+        TRL,
+        
+        /// <remarks/>
+        TRLR,
+        
+        /// <remarks/>
+        TRI,
+        
+        /// <remarks/>
+        TKWY,
+        
+        /// <remarks/>
+        TURN,
+        
+        /// <remarks/>
+        UPAS,
+        
+        /// <remarks/>
+        UPR,
+        
+        /// <remarks/>
+        VALE,
+        
+        /// <remarks/>
+        VDCT,
+        
+        /// <remarks/>
+        VIEW,
+        
+        /// <remarks/>
+        VLLS,
+        
+        /// <remarks/>
+        VSTA,
+        
+        /// <remarks/>
+        WADE,
+        
+        /// <remarks/>
+        WALK,
+        
+        /// <remarks/>
+        WKWY,
+        
+        /// <remarks/>
+        WAY,
+        
+        /// <remarks/>
+        WHRF,
+        
+        /// <remarks/>
+        WYND,
+        
+        /// <remarks/>
+        YARD,
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreDatatypes/3.0")]
+    public enum StreetSuffixType
+    {
+        
+        /// <remarks/>
+        CN,
+        
+        /// <remarks/>
+        E,
+        
+        /// <remarks/>
+        EX,
+        
+        /// <remarks/>
+        LR,
+        
+        /// <remarks/>
+        N,
+        
+        /// <remarks/>
+        NE,
+        
+        /// <remarks/>
+        NW,
+        
+        /// <remarks/>
+        S,
+        
+        /// <remarks/>
+        SE,
+        
+        /// <remarks/>
+        SW,
+        
+        /// <remarks/>
+        UP,
+        
+        /// <remarks/>
+        W,
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreDatatypes/3.0")]
+    public enum StateType
+    {
+        
+        /// <remarks/>
+        ACT,
+        
+        /// <remarks/>
+        NSW,
+        
+        /// <remarks/>
+        NT,
+        
+        /// <remarks/>
+        QLD,
+        
+        /// <remarks/>
+        SA,
+        
+        /// <remarks/>
+        TAS,
+        
+        /// <remarks/>
+        VIC,
+        
+        /// <remarks/>
+        WA,
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AddressRecord1))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/ElectronicCommunication/3.2" +
-        ".0")]
-    public partial class ElectronicCommunication
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/Address/3.2.0")]
+    public partial class Address
     {
         
-        private MediumType mediumField;
+        private AustralianAddressType australianAddressField;
         
-        private string detailsField;
+        private InternationalAddressType internationalAddressField;
         
-        private UsageType usageField;
+        private AddressPurposeAndDateType addressPurposeField;
         
         private bool preferredField;
         
         private bool preferredFieldSpecified;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/ElectronicCommunicationCore/3.0", Order=0)]
-        public MediumType medium
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public AustralianAddressType australianAddress
         {
             get
             {
-                return this.mediumField;
+                return this.australianAddressField;
             }
             set
             {
-                this.mediumField = value;
+                this.australianAddressField = value;
             }
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/ElectronicCommunicationCore/3.0", Order=1)]
-        public string details
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public InternationalAddressType internationalAddress
         {
             get
             {
-                return this.detailsField;
+                return this.internationalAddressField;
             }
             set
             {
-                this.detailsField = value;
+                this.internationalAddressField = value;
             }
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/ElectronicCommunicationCore/3.0", Order=2)]
-        public UsageType usage
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public AddressPurposeAndDateType addressPurpose
         {
             get
             {
-                return this.usageField;
+                return this.addressPurposeField;
             }
             set
             {
-                this.usageField = value;
+                this.addressPurposeField = value;
             }
         }
         
@@ -3276,57 +3815,10 @@ namespace nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreDatatypes/3.0")]
-    public enum MediumType
-    {
-        
-        /// <remarks/>
-        E,
-        
-        /// <remarks/>
-        F,
-        
-        /// <remarks/>
-        M,
-        
-        /// <remarks/>
-        O,
-        
-        /// <remarks/>
-        P,
-        
-        /// <remarks/>
-        T,
-        
-        /// <remarks/>
-        U,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreDatatypes/3.0")]
-    public enum UsageType
-    {
-        
-        /// <remarks/>
-        A,
-        
-        /// <remarks/>
-        B,
-        
-        /// <remarks/>
-        P,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-    [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/ElectronicCommunication/3.2" +
-        ".0")]
-    public partial class ElectronicCommunicationRecord : ElectronicCommunication
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="AddressRecord", Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/Address/3.2.0")]
+    public partial class AddressRecord1 : Address
     {
         
         private string clientRefField;
@@ -3374,6 +3866,64 @@ namespace nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual
             set
             {
                 this.externalIdentifierFieldSpecified = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/Address/5.1.0")]
+    public partial class AddressRecord
+    {
+        
+        private string clientRefField;
+        
+        private string tdsReferenceField;
+        
+        private Address addressField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string clientRef
+        {
+            get
+            {
+                return this.clientRefField;
+            }
+            set
+            {
+                this.clientRefField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string tdsReference
+        {
+            get
+            {
+                return this.tdsReferenceField;
+            }
+            set
+            {
+                this.tdsReferenceField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public Address address
+        {
+            get
+            {
+                return this.addressField;
+            }
+            set
+            {
+                this.addressField = value;
             }
         }
     }
@@ -3463,7 +4013,7 @@ namespace nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IndividualNameRecord))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IndividualNameRecord1))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -4153,8 +4703,8 @@ namespace nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/IndividualName/3.2.0")]
-    public partial class IndividualNameRecord : IndividualName
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="IndividualNameRecord", Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/IndividualName/3.2.0")]
+    public partial class IndividualNameRecord1 : IndividualName
     {
         
         private string clientRefField;
@@ -4202,6 +4752,64 @@ namespace nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual
             set
             {
                 this.externalIdentifierFieldSpecified = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/IndividualName/5.1.0")]
+    public partial class IndividualNameRecord
+    {
+        
+        private string clientRefField;
+        
+        private string tdsReferenceField;
+        
+        private IndividualName individualNameField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string clientRef
+        {
+            get
+            {
+                return this.clientRefField;
+            }
+            set
+            {
+                this.clientRefField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string tdsReference
+        {
+            get
+            {
+                return this.tdsReferenceField;
+            }
+            set
+            {
+                this.tdsReferenceField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public IndividualName individualName
+        {
+            get
+            {
+                return this.individualNameField;
+            }
+            set
+            {
+                this.individualNameField = value;
             }
         }
     }
@@ -4273,30 +4881,89 @@ namespace nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providermessages/SearchIndividual/3.2.0")]
-    public partial class IndividualProviderDirectoryEntryType
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/Status/3.2.0")]
+    public partial class Status
     {
+        
+        private string statusField;
+        
+        private string reasonField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string status
+        {
+            get
+            {
+                return this.statusField;
+            }
+            set
+            {
+                this.statusField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string reason
+        {
+            get
+            {
+                return this.reasonField;
+            }
+            set
+            {
+                this.reasonField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providermessages/ManageTdsProviderIndivi" +
+        "dual/3.2.0")]
+    public partial class providerIndividual
+    {
+        
+        private string clientRefField;
         
         private string hpiiNumberField;
         
+        private Status statusField;
+        
         private PersonalDetails personalDetailsField;
         
-        private IndividualName individualNameField;
+        private IndividualNameRecord[] individualNameRecordField;
         
-        private Address addressField;
+        private AddressRecord[] addressRecordField;
         
-        private ElectronicCommunication[] electronicCommunicationField;
+        private ProviderTypeRecord[] providerTypeRecordField;
         
-        private ProviderType[] providerTypeField;
+        private ElectronicCommunicationRecord[] electronicCommunicationRecordField;
         
-        private LinkedOrganisationType[] linkedOrganisationsField;
+        private DeathNotificationType deathNotificationField;
         
-        private string additionalCommentsField;
-        
-        private int priorityNumberField;
+        private CertificateType certificateField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="anyURI", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string clientRef
+        {
+            get
+            {
+                return this.clientRefField;
+            }
+            set
+            {
+                this.clientRefField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="anyURI", Order=1)]
         public string hpiiNumber
         {
             get
@@ -4310,7 +4977,21 @@ namespace nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/PersonalDetails/3.2.0", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/Status/3.2.0", Order=2)]
+        public Status status
+        {
+            get
+            {
+                return this.statusField;
+            }
+            set
+            {
+                this.statusField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/PersonalDetails/3.2.0", Order=3)]
         public PersonalDetails personalDetails
         {
             get
@@ -4324,454 +5005,116 @@ namespace nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/IndividualName/3.2.0", Order=2)]
-        public IndividualName individualName
+        [System.Xml.Serialization.XmlElementAttribute("individualNameRecord", Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/IndividualName/5.1.0", Order=4)]
+        public IndividualNameRecord[] individualNameRecord
         {
             get
             {
-                return this.individualNameField;
+                return this.individualNameRecordField;
             }
             set
             {
-                this.individualNameField = value;
+                this.individualNameRecordField = value;
             }
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/Address/3.2.0", Order=3)]
-        public Address address
+        [System.Xml.Serialization.XmlElementAttribute("addressRecord", Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/Address/5.1.0", Order=5)]
+        public AddressRecord[] addressRecord
         {
             get
             {
-                return this.addressField;
+                return this.addressRecordField;
             }
             set
             {
-                this.addressField = value;
+                this.addressRecordField = value;
             }
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("electronicCommunication", Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/ElectronicCommunication/3.2" +
-            ".0", Order=4)]
-        public ElectronicCommunication[] electronicCommunication
+        [System.Xml.Serialization.XmlElementAttribute("providerTypeRecord", Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/ProviderType/5.1.1", Order=6)]
+        public ProviderTypeRecord[] providerTypeRecord
         {
             get
             {
-                return this.electronicCommunicationField;
+                return this.providerTypeRecordField;
             }
             set
             {
-                this.electronicCommunicationField = value;
+                this.providerTypeRecordField = value;
             }
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("providerType", Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/ProviderType/3.2.0", Order=5)]
-        public ProviderType[] providerType
+        [System.Xml.Serialization.XmlElementAttribute("electronicCommunicationRecord", Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/ElectronicCommunication/5.1" +
+            ".0", Order=7)]
+        public ElectronicCommunicationRecord[] electronicCommunicationRecord
         {
             get
             {
-                return this.providerTypeField;
+                return this.electronicCommunicationRecordField;
             }
             set
             {
-                this.providerTypeField = value;
+                this.electronicCommunicationRecordField = value;
             }
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("linkedOrganisations", Order=6)]
-        public LinkedOrganisationType[] linkedOrganisations
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/PersonalDetails/3.2.0", Order=8)]
+        public DeathNotificationType deathNotification
         {
             get
             {
-                return this.linkedOrganisationsField;
+                return this.deathNotificationField;
             }
             set
             {
-                this.linkedOrganisationsField = value;
+                this.deathNotificationField = value;
             }
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
-        public string additionalComments
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/Certificate/3.2.0", Order=9)]
+        public CertificateType certificate
         {
             get
             {
-                return this.additionalCommentsField;
+                return this.certificateField;
             }
             set
             {
-                this.additionalCommentsField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=8)]
-        public int priorityNumber
-        {
-            get
-            {
-                return this.priorityNumberField;
-            }
-            set
-            {
-                this.priorityNumberField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/Address/3.2.0")]
-    public partial class InternationalAddressCriteriaType
-    {
-        
-        private string internationalAddressLineField;
-        
-        private string internationalStateProvinceField;
-        
-        private string internationalPostcodeField;
-        
-        private CountryType countryField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=0)]
-        public string internationalAddressLine
-        {
-            get
-            {
-                return this.internationalAddressLineField;
-            }
-            set
-            {
-                this.internationalAddressLineField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=1)]
-        public string internationalStateProvince
-        {
-            get
-            {
-                return this.internationalStateProvinceField;
-            }
-            set
-            {
-                this.internationalStateProvinceField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=2)]
-        public string internationalPostcode
-        {
-            get
-            {
-                return this.internationalPostcodeField;
-            }
-            set
-            {
-                this.internationalPostcodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=3)]
-        public CountryType country
-        {
-            get
-            {
-                return this.countryField;
-            }
-            set
-            {
-                this.countryField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/Address/3.2.0")]
-    public partial class AustralianAddressCriteriaType
-    {
-        
-        private UnitGroupType unitGroupField;
-        
-        private LevelGroupType levelGroupField;
-        
-        private string addressSiteNameField;
-        
-        private string streetNumberField;
-        
-        private string lotNumberField;
-        
-        private string streetNameField;
-        
-        private StreetType streetTypeField;
-        
-        private bool streetTypeFieldSpecified;
-        
-        private StreetSuffixType streetSuffixField;
-        
-        private bool streetSuffixFieldSpecified;
-        
-        private PostalDeliveryGroupType postalDeliveryGroupField;
-        
-        private string unstructuredAddressLineField;
-        
-        private string suburbField;
-        
-        private StateType stateField;
-        
-        private string postcodeField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=0)]
-        public UnitGroupType unitGroup
-        {
-            get
-            {
-                return this.unitGroupField;
-            }
-            set
-            {
-                this.unitGroupField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=1)]
-        public LevelGroupType levelGroup
-        {
-            get
-            {
-                return this.levelGroupField;
-            }
-            set
-            {
-                this.levelGroupField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=2)]
-        public string addressSiteName
-        {
-            get
-            {
-                return this.addressSiteNameField;
-            }
-            set
-            {
-                this.addressSiteNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=3)]
-        public string streetNumber
-        {
-            get
-            {
-                return this.streetNumberField;
-            }
-            set
-            {
-                this.streetNumberField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=4)]
-        public string lotNumber
-        {
-            get
-            {
-                return this.lotNumberField;
-            }
-            set
-            {
-                this.lotNumberField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=5)]
-        public string streetName
-        {
-            get
-            {
-                return this.streetNameField;
-            }
-            set
-            {
-                this.streetNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=6)]
-        public StreetType streetType
-        {
-            get
-            {
-                return this.streetTypeField;
-            }
-            set
-            {
-                this.streetTypeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool streetTypeSpecified
-        {
-            get
-            {
-                return this.streetTypeFieldSpecified;
-            }
-            set
-            {
-                this.streetTypeFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=7)]
-        public StreetSuffixType streetSuffix
-        {
-            get
-            {
-                return this.streetSuffixField;
-            }
-            set
-            {
-                this.streetSuffixField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool streetSuffixSpecified
-        {
-            get
-            {
-                return this.streetSuffixFieldSpecified;
-            }
-            set
-            {
-                this.streetSuffixFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=8)]
-        public PostalDeliveryGroupType postalDeliveryGroup
-        {
-            get
-            {
-                return this.postalDeliveryGroupField;
-            }
-            set
-            {
-                this.postalDeliveryGroupField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=9)]
-        public string unstructuredAddressLine
-        {
-            get
-            {
-                return this.unstructuredAddressLineField;
-            }
-            set
-            {
-                this.unstructuredAddressLineField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=10)]
-        public string suburb
-        {
-            get
-            {
-                return this.suburbField;
-            }
-            set
-            {
-                this.suburbField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=11)]
-        public StateType state
-        {
-            get
-            {
-                return this.stateField;
-            }
-            set
-            {
-                this.stateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/AddressCore/3.0", Order=12)]
-        public string postcode
-        {
-            get
-            {
-                return this.postcodeField;
-            }
-            set
-            {
-                this.postcodeField = value;
+                this.certificateField = value;
             }
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://ns.electronichealth.net.au/hi/svc/ProviderSearchHIProviderDirectoryForIndi" +
-        "vidual/3.2.0", ConfigurationName="nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.ProviderSearchHIProvi" +
-        "derDirectoryForIndividualPortType")]
-    public interface ProviderSearchHIProviderDirectoryForIndividualPortType
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://ns.electronichealth.net.au/hi/svc/ProviderManageTdsProviderIndividual/5.1." +
+        "0", ConfigurationName="nehta.mcaR51.ProviderManageTdsProviderIndividual.ProviderManageTdsProviderIndivid" +
+        "ualPortType")]
+    public interface ProviderManageTdsProviderIndividualPortType
     {
         
-        // CODEGEN: Generating message contract since the operation searchHIProviderDirectoryForIndividual is neither RPC nor document wrapped.
-        [System.ServiceModel.OperationContractAttribute(Action="http://ns.electronichealth.net.au/hi/svc/ProviderSearchHIProviderDirectoryForIndi" +
-            "vidual/3.2.0/ProviderSearchHIProviderDirectoryForIndividualPortType/searchHIProv" +
-            "iderDirectoryForIndividualRequest", ReplyAction="http://ns.electronichealth.net.au/hi/svc/ProviderSearchHIProviderDirectoryForIndi" +
-            "vidual/3.2.0/ProviderSearchHIProviderDirectoryForIndividualPortType/searchHIProv" +
-            "iderDirectoryForIndividualResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.ServiceMessagesType), Action="http://ns.electronichealth.net.au/hi/svc/ProviderSearchHIProviderDirectoryForIndi" +
-            "vidual/3.2.0/ProviderSearchHIProviderDirectoryForIndividualPortType/searchHIProv" +
-            "iderDirectoryForIndividual/Fault/standardError", Name="serviceMessages", Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreElements/3.0")]
+        // CODEGEN: Generating message contract since the operation manageTdsProviderIndividual is neither RPC nor document wrapped.
+        [System.ServiceModel.OperationContractAttribute(Action="http://ns.electronichealth.net.au/hi/svc/ProviderManageTdsProviderIndividual/5.1." +
+            "0/ProviderManageTdsProviderIndividualPortType/manageTdsProviderIndividualRequest" +
+            "", ReplyAction="http://ns.electronichealth.net.au/hi/svc/ProviderManageTdsProviderIndividual/5.1." +
+            "0/ProviderManageTdsProviderIndividualPortType/manageTdsProviderIndividualRespons" +
+            "e")]
+        [System.ServiceModel.FaultContractAttribute(typeof(nehta.mcaR51.ProviderManageTdsProviderIndividual.ServiceMessagesType), Action="http://ns.electronichealth.net.au/hi/svc/ProviderManageTdsProviderIndividual/5.1." +
+            "0/ProviderManageTdsProviderIndividualPortType/manageTdsProviderIndividual/Fault/" +
+            "standardError", Name="serviceMessages", Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreElements/3.0")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.searchHIProviderDirectoryForIndividualResponse1 searchHIProviderDirectoryForIndividual(nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.searchHIProviderDirectoryForIndividualRequest request);
+        nehta.mcaR51.ProviderManageTdsProviderIndividual.manageTdsProviderIndividualResponse1 manageTdsProviderIndividual(nehta.mcaR51.ProviderManageTdsProviderIndividual.manageTdsProviderIndividualRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://ns.electronichealth.net.au/hi/svc/ProviderSearchHIProviderDirectoryForIndi" +
-            "vidual/3.2.0/ProviderSearchHIProviderDirectoryForIndividualPortType/searchHIProv" +
-            "iderDirectoryForIndividualRequest", ReplyAction="http://ns.electronichealth.net.au/hi/svc/ProviderSearchHIProviderDirectoryForIndi" +
-            "vidual/3.2.0/ProviderSearchHIProviderDirectoryForIndividualPortType/searchHIProv" +
-            "iderDirectoryForIndividualResponse")]
-        System.Threading.Tasks.Task<nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.searchHIProviderDirectoryForIndividualResponse1> searchHIProviderDirectoryForIndividualAsync(nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.searchHIProviderDirectoryForIndividualRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://ns.electronichealth.net.au/hi/svc/ProviderManageTdsProviderIndividual/5.1." +
+            "0/ProviderManageTdsProviderIndividualPortType/manageTdsProviderIndividualRequest" +
+            "", ReplyAction="http://ns.electronichealth.net.au/hi/svc/ProviderManageTdsProviderIndividual/5.1." +
+            "0/ProviderManageTdsProviderIndividualPortType/manageTdsProviderIndividualRespons" +
+            "e")]
+        System.Threading.Tasks.Task<nehta.mcaR51.ProviderManageTdsProviderIndividual.manageTdsProviderIndividualResponse1> manageTdsProviderIndividualAsync(nehta.mcaR51.ProviderManageTdsProviderIndividual.manageTdsProviderIndividualRequest request);
     }
     
     /// <remarks/>
@@ -6163,237 +6506,26 @@ namespace nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://ns.electronichealth.net.au/hi/svc/ProviderSearchHIProviderDirectoryForIndi" +
-        "vidual/3.2.0")]
-    public partial class searchHIProviderDirectoryForIndividual
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://ns.electronichealth.net.au/hi/svc/ProviderManageTdsProviderIndividual/5.1." +
+        "0")]
+    public partial class manageTdsProviderIndividualResponse
     {
         
-        private string hpiiNumberField;
-        
-        private string familyNameField;
-        
-        private string givenNameField;
-        
-        private SexType sexField;
-        
-        private bool sexFieldSpecified;
-        
-        private string providerTypeCodeField;
-        
-        private string providerSpecialtyField;
-        
-        private string providerSpecialisationField;
-        
-        private AustralianAddressCriteriaType australianAddressCriteriaField;
-        
-        private InternationalAddressCriteriaType internationalAddressCriteriaField;
+        private providerIndividualResponse[] manageTdsProviderIndividualResultField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providermessages/SearchIndividual/3.2.0", DataType="anyURI", Order=0)]
-        public string hpiiNumber
+        [System.Xml.Serialization.XmlArrayAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providermessages/ManageTdsProviderIndivi" +
+            "dual/3.2.0", Order=0)]
+        [System.Xml.Serialization.XmlArrayItemAttribute("providerIndividualResponses", IsNullable=false)]
+        public providerIndividualResponse[] manageTdsProviderIndividualResult
         {
             get
             {
-                return this.hpiiNumberField;
+                return this.manageTdsProviderIndividualResultField;
             }
             set
             {
-                this.hpiiNumberField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/IndividualNameCore/3.0", Order=1)]
-        public string familyName
-        {
-            get
-            {
-                return this.familyNameField;
-            }
-            set
-            {
-                this.familyNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/IndividualNameCore/3.0", Order=2)]
-        public string givenName
-        {
-            get
-            {
-                return this.givenNameField;
-            }
-            set
-            {
-                this.givenNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreElements/3.0", Order=3)]
-        public SexType sex
-        {
-            get
-            {
-                return this.sexField;
-            }
-            set
-            {
-                this.sexField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool sexSpecified
-        {
-            get
-            {
-                return this.sexFieldSpecified;
-            }
-            set
-            {
-                this.sexFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providermessages/SearchIndividual/3.2.0", Order=4)]
-        public string providerTypeCode
-        {
-            get
-            {
-                return this.providerTypeCodeField;
-            }
-            set
-            {
-                this.providerTypeCodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providermessages/SearchIndividual/3.2.0", Order=5)]
-        public string providerSpecialty
-        {
-            get
-            {
-                return this.providerSpecialtyField;
-            }
-            set
-            {
-                this.providerSpecialtyField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providermessages/SearchIndividual/3.2.0", Order=6)]
-        public string providerSpecialisation
-        {
-            get
-            {
-                return this.providerSpecialisationField;
-            }
-            set
-            {
-                this.providerSpecialisationField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providermessages/SearchIndividual/3.2.0", Order=7)]
-        public AustralianAddressCriteriaType australianAddressCriteria
-        {
-            get
-            {
-                return this.australianAddressCriteriaField;
-            }
-            set
-            {
-                this.australianAddressCriteriaField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providermessages/SearchIndividual/3.2.0", Order=8)]
-        public InternationalAddressCriteriaType internationalAddressCriteria
-        {
-            get
-            {
-                return this.internationalAddressCriteriaField;
-            }
-            set
-            {
-                this.internationalAddressCriteriaField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://ns.electronichealth.net.au/hi/svc/ProviderSearchHIProviderDirectoryForIndi" +
-        "vidual/3.2.0")]
-    public partial class searchHIProviderDirectoryForIndividualResponse
-    {
-        
-        private searchHIProviderDirectoryForIndividualResult searchHIProviderDirectoryForIndividualResultField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providermessages/SearchIndividual/3.2.0", Order=0)]
-        public searchHIProviderDirectoryForIndividualResult searchHIProviderDirectoryForIndividualResult
-        {
-            get
-            {
-                return this.searchHIProviderDirectoryForIndividualResultField;
-            }
-            set
-            {
-                this.searchHIProviderDirectoryForIndividualResultField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://ns.electronichealth.net.au/hi/xsd/providermessages/SearchIndividual/3.2.0")]
-    public partial class searchHIProviderDirectoryForIndividualResult
-    {
-        
-        private IndividualProviderDirectoryEntryType[] individualProviderDirectoryEntriesField;
-        
-        private ServiceMessagesType serviceMessagesField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("individualProviderDirectoryEntries", Order=0)]
-        public IndividualProviderDirectoryEntryType[] individualProviderDirectoryEntries
-        {
-            get
-            {
-                return this.individualProviderDirectoryEntriesField;
-            }
-            set
-            {
-                this.individualProviderDirectoryEntriesField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreElements/3.0", Order=1)]
-        public ServiceMessagesType serviceMessages
-        {
-            get
-            {
-                return this.serviceMessagesField;
-            }
-            set
-            {
-                this.serviceMessagesField = value;
+                this.manageTdsProviderIndividualResultField = value;
             }
         }
     }
@@ -6402,40 +6534,38 @@ namespace nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class searchHIProviderDirectoryForIndividualRequest
+    public partial class manageTdsProviderIndividualRequest
     {
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreElements/3.0")]
-        public nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.ProductType product;
+        public nehta.mcaR51.ProviderManageTdsProviderIndividual.ProductType product;
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreElements/3.0")]
-        public nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.SignatureContainerType signature;
+        public nehta.mcaR51.ProviderManageTdsProviderIndividual.SignatureContainerType signature;
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreElements/3.0")]
-        public nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.TimestampType timestamp;
+        public nehta.mcaR51.ProviderManageTdsProviderIndividual.TimestampType timestamp;
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreElements/3.0")]
-        public nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.QualifiedId user;
+        public nehta.mcaR51.ProviderManageTdsProviderIndividual.QualifiedId user;
         
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreElements/3.0")]
-        public nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.QualifiedId hpio;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ns.electronichealth.net.au/hi/svc/ProviderManageTdsProviderIndividual/5.1." +
+            "0", Order=0)]
+        [System.Xml.Serialization.XmlArrayItemAttribute("providerIndividuals", Namespace="http://ns.electronichealth.net.au/hi/xsd/providermessages/ManageTdsProviderIndivi" +
+            "dual/3.2.0", IsNullable=false)]
+        public nehta.mcaR51.ProviderManageTdsProviderIndividual.providerIndividual[] manageTdsProviderIndividual;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ns.electronichealth.net.au/hi/svc/ProviderSearchHIProviderDirectoryForIndi" +
-            "vidual/3.2.0", Order=0)]
-        public nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.searchHIProviderDirectoryForIndividual searchHIProviderDirectoryForIndividual;
-        
-        public searchHIProviderDirectoryForIndividualRequest()
+        public manageTdsProviderIndividualRequest()
         {
         }
         
-        public searchHIProviderDirectoryForIndividualRequest(nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.ProductType product, nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.SignatureContainerType signature, nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.TimestampType timestamp, nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.QualifiedId user, nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.QualifiedId hpio, nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.searchHIProviderDirectoryForIndividual searchHIProviderDirectoryForIndividual)
+        public manageTdsProviderIndividualRequest(nehta.mcaR51.ProviderManageTdsProviderIndividual.ProductType product, nehta.mcaR51.ProviderManageTdsProviderIndividual.SignatureContainerType signature, nehta.mcaR51.ProviderManageTdsProviderIndividual.TimestampType timestamp, nehta.mcaR51.ProviderManageTdsProviderIndividual.QualifiedId user, nehta.mcaR51.ProviderManageTdsProviderIndividual.providerIndividual[] manageTdsProviderIndividual)
         {
             this.product = product;
             this.signature = signature;
             this.timestamp = timestamp;
             this.user = user;
-            this.hpio = hpio;
-            this.searchHIProviderDirectoryForIndividual = searchHIProviderDirectoryForIndividual;
+            this.manageTdsProviderIndividual = manageTdsProviderIndividual;
         }
     }
     
@@ -6443,102 +6573,100 @@ namespace nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class searchHIProviderDirectoryForIndividualResponse1
+    public partial class manageTdsProviderIndividualResponse1
     {
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreElements/3.0")]
-        public nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.ProductType product;
+        public nehta.mcaR51.ProviderManageTdsProviderIndividual.ProductType product;
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreElements/3.0")]
-        public nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.SignatureContainerType signature;
+        public nehta.mcaR51.ProviderManageTdsProviderIndividual.SignatureContainerType signature;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ns.electronichealth.net.au/hi/svc/ProviderSearchHIProviderDirectoryForIndi" +
-            "vidual/3.2.0", Order=0)]
-        public nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.searchHIProviderDirectoryForIndividualResponse searchHIProviderDirectoryForIndividualResponse;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ns.electronichealth.net.au/hi/svc/ProviderManageTdsProviderIndividual/5.1." +
+            "0", Order=0)]
+        public nehta.mcaR51.ProviderManageTdsProviderIndividual.manageTdsProviderIndividualResponse manageTdsProviderIndividualResponse;
         
-        public searchHIProviderDirectoryForIndividualResponse1()
+        public manageTdsProviderIndividualResponse1()
         {
         }
         
-        public searchHIProviderDirectoryForIndividualResponse1(nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.ProductType product, nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.SignatureContainerType signature, nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.searchHIProviderDirectoryForIndividualResponse searchHIProviderDirectoryForIndividualResponse)
+        public manageTdsProviderIndividualResponse1(nehta.mcaR51.ProviderManageTdsProviderIndividual.ProductType product, nehta.mcaR51.ProviderManageTdsProviderIndividual.SignatureContainerType signature, nehta.mcaR51.ProviderManageTdsProviderIndividual.manageTdsProviderIndividualResponse manageTdsProviderIndividualResponse)
         {
             this.product = product;
             this.signature = signature;
-            this.searchHIProviderDirectoryForIndividualResponse = searchHIProviderDirectoryForIndividualResponse;
+            this.manageTdsProviderIndividualResponse = manageTdsProviderIndividualResponse;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface ProviderSearchHIProviderDirectoryForIndividualPortTypeChannel : nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.ProviderSearchHIProviderDirectoryForIndividualPortType, System.ServiceModel.IClientChannel
+    public interface ProviderManageTdsProviderIndividualPortTypeChannel : nehta.mcaR51.ProviderManageTdsProviderIndividual.ProviderManageTdsProviderIndividualPortType, System.ServiceModel.IClientChannel
     {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ProviderSearchHIProviderDirectoryForIndividualPortTypeClient : System.ServiceModel.ClientBase<nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.ProviderSearchHIProviderDirectoryForIndividualPortType>, nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.ProviderSearchHIProviderDirectoryForIndividualPortType
+    public partial class ProviderManageTdsProviderIndividualPortTypeClient : System.ServiceModel.ClientBase<nehta.mcaR51.ProviderManageTdsProviderIndividual.ProviderManageTdsProviderIndividualPortType>, nehta.mcaR51.ProviderManageTdsProviderIndividual.ProviderManageTdsProviderIndividualPortType
     {
         
-        public ProviderSearchHIProviderDirectoryForIndividualPortTypeClient()
+        public ProviderManageTdsProviderIndividualPortTypeClient()
         {
         }
         
-        public ProviderSearchHIProviderDirectoryForIndividualPortTypeClient(string endpointConfigurationName) : 
+        public ProviderManageTdsProviderIndividualPortTypeClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName)
         {
         }
         
-        public ProviderSearchHIProviderDirectoryForIndividualPortTypeClient(string endpointConfigurationName, string remoteAddress) : 
+        public ProviderManageTdsProviderIndividualPortTypeClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress)
         {
         }
         
-        public ProviderSearchHIProviderDirectoryForIndividualPortTypeClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ProviderManageTdsProviderIndividualPortTypeClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress)
         {
         }
         
-        public ProviderSearchHIProviderDirectoryForIndividualPortTypeClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ProviderManageTdsProviderIndividualPortTypeClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress)
         {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.searchHIProviderDirectoryForIndividualResponse1 nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.ProviderSearchHIProviderDirectoryForIndividualPortType.searchHIProviderDirectoryForIndividual(nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.searchHIProviderDirectoryForIndividualRequest request)
+        nehta.mcaR51.ProviderManageTdsProviderIndividual.manageTdsProviderIndividualResponse1 nehta.mcaR51.ProviderManageTdsProviderIndividual.ProviderManageTdsProviderIndividualPortType.manageTdsProviderIndividual(nehta.mcaR51.ProviderManageTdsProviderIndividual.manageTdsProviderIndividualRequest request)
         {
-            return base.Channel.searchHIProviderDirectoryForIndividual(request);
+            return base.Channel.manageTdsProviderIndividual(request);
         }
         
-        public nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.searchHIProviderDirectoryForIndividualResponse searchHIProviderDirectoryForIndividual(ref nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.ProductType product, ref nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.SignatureContainerType signature, nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.TimestampType timestamp, nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.QualifiedId user, nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.QualifiedId hpio, nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.searchHIProviderDirectoryForIndividual searchHIProviderDirectoryForIndividual1)
+        public nehta.mcaR51.ProviderManageTdsProviderIndividual.manageTdsProviderIndividualResponse manageTdsProviderIndividual(ref nehta.mcaR51.ProviderManageTdsProviderIndividual.ProductType product, ref nehta.mcaR51.ProviderManageTdsProviderIndividual.SignatureContainerType signature, nehta.mcaR51.ProviderManageTdsProviderIndividual.TimestampType timestamp, nehta.mcaR51.ProviderManageTdsProviderIndividual.QualifiedId user, nehta.mcaR51.ProviderManageTdsProviderIndividual.providerIndividual[] manageTdsProviderIndividual1)
         {
-            nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.searchHIProviderDirectoryForIndividualRequest inValue = new nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.searchHIProviderDirectoryForIndividualRequest();
+            nehta.mcaR51.ProviderManageTdsProviderIndividual.manageTdsProviderIndividualRequest inValue = new nehta.mcaR51.ProviderManageTdsProviderIndividual.manageTdsProviderIndividualRequest();
             inValue.product = product;
             inValue.signature = signature;
             inValue.timestamp = timestamp;
             inValue.user = user;
-            inValue.hpio = hpio;
-            inValue.searchHIProviderDirectoryForIndividual = searchHIProviderDirectoryForIndividual1;
-            nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.searchHIProviderDirectoryForIndividualResponse1 retVal = ((nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.ProviderSearchHIProviderDirectoryForIndividualPortType)(this)).searchHIProviderDirectoryForIndividual(inValue);
+            inValue.manageTdsProviderIndividual = manageTdsProviderIndividual1;
+            nehta.mcaR51.ProviderManageTdsProviderIndividual.manageTdsProviderIndividualResponse1 retVal = ((nehta.mcaR51.ProviderManageTdsProviderIndividual.ProviderManageTdsProviderIndividualPortType)(this)).manageTdsProviderIndividual(inValue);
             product = retVal.product;
             signature = retVal.signature;
-            return retVal.searchHIProviderDirectoryForIndividualResponse;
+            return retVal.manageTdsProviderIndividualResponse;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.searchHIProviderDirectoryForIndividualResponse1> nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.ProviderSearchHIProviderDirectoryForIndividualPortType.searchHIProviderDirectoryForIndividualAsync(nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.searchHIProviderDirectoryForIndividualRequest request)
+        System.Threading.Tasks.Task<nehta.mcaR51.ProviderManageTdsProviderIndividual.manageTdsProviderIndividualResponse1> nehta.mcaR51.ProviderManageTdsProviderIndividual.ProviderManageTdsProviderIndividualPortType.manageTdsProviderIndividualAsync(nehta.mcaR51.ProviderManageTdsProviderIndividual.manageTdsProviderIndividualRequest request)
         {
-            return base.Channel.searchHIProviderDirectoryForIndividualAsync(request);
+            return base.Channel.manageTdsProviderIndividualAsync(request);
         }
         
-        public System.Threading.Tasks.Task<nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.searchHIProviderDirectoryForIndividualResponse1> searchHIProviderDirectoryForIndividualAsync(nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.ProductType product, nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.SignatureContainerType signature, nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.TimestampType timestamp, nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.QualifiedId user, nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.QualifiedId hpio, nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.searchHIProviderDirectoryForIndividual searchHIProviderDirectoryForIndividual)
+        public System.Threading.Tasks.Task<nehta.mcaR51.ProviderManageTdsProviderIndividual.manageTdsProviderIndividualResponse1> manageTdsProviderIndividualAsync(nehta.mcaR51.ProviderManageTdsProviderIndividual.ProductType product, nehta.mcaR51.ProviderManageTdsProviderIndividual.SignatureContainerType signature, nehta.mcaR51.ProviderManageTdsProviderIndividual.TimestampType timestamp, nehta.mcaR51.ProviderManageTdsProviderIndividual.QualifiedId user, nehta.mcaR51.ProviderManageTdsProviderIndividual.providerIndividual[] manageTdsProviderIndividual)
         {
-            nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.searchHIProviderDirectoryForIndividualRequest inValue = new nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.searchHIProviderDirectoryForIndividualRequest();
+            nehta.mcaR51.ProviderManageTdsProviderIndividual.manageTdsProviderIndividualRequest inValue = new nehta.mcaR51.ProviderManageTdsProviderIndividual.manageTdsProviderIndividualRequest();
             inValue.product = product;
             inValue.signature = signature;
             inValue.timestamp = timestamp;
             inValue.user = user;
-            inValue.hpio = hpio;
-            inValue.searchHIProviderDirectoryForIndividual = searchHIProviderDirectoryForIndividual;
-            return ((nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual.ProviderSearchHIProviderDirectoryForIndividualPortType)(this)).searchHIProviderDirectoryForIndividualAsync(inValue);
+            inValue.manageTdsProviderIndividual = manageTdsProviderIndividual;
+            return ((nehta.mcaR51.ProviderManageTdsProviderIndividual.ProviderManageTdsProviderIndividualPortType)(this)).manageTdsProviderIndividualAsync(inValue);
         }
     }
 }

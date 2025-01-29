@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation
+namespace nehta.mcaR3.ConsumerMergeProvisionalIHI
 {
     
     
@@ -174,120 +174,24 @@ namespace nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation
         }
     }
     
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/OrganisationDetails/5.1.0")]
-    public partial class BatchSearchForProviderOrganisationCriteriaType
-    {
-        
-        private string requestIdentifierField;
-        
-        private searchForProviderOrganisation searchForProviderOrganisationField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/ProviderCoreElements/5.1.0", Order=0)]
-        public string requestIdentifier
-        {
-            get
-            {
-                return this.requestIdentifierField;
-            }
-            set
-            {
-                this.requestIdentifierField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providermessages/SearchOrganisation/5.0." +
-            "0", Order=1)]
-        public searchForProviderOrganisation searchForProviderOrganisation
-        {
-            get
-            {
-                return this.searchForProviderOrganisationField;
-            }
-            set
-            {
-                this.searchForProviderOrganisationField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://ns.electronichealth.net.au/hi/xsd/providermessages/SearchOrganisation/5.0." +
-        "0")]
-    public partial class searchForProviderOrganisation
-    {
-        
-        private string hpioNumberField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/ProviderCoreElements/5.0.0", DataType="anyURI", Order=0)]
-        public string hpioNumber
-        {
-            get
-            {
-                return this.hpioNumberField;
-            }
-            set
-            {
-                this.hpioNumberField = value;
-            }
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://ns.electronichealth.net.au/hi/svc/ProviderBatchAsyncSearchForProviderOrgan" +
-        "isation/5.1.0", ConfigurationName="nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.SearchForProviderOrg" +
-        "anisationBatchAsyncPortType")]
-    public interface SearchForProviderOrganisationBatchAsyncPortType
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://ns.electronichealth.net.au/hi/svc/ConsumerMergeProvisionalIHI/3.0", ConfigurationName="nehta.mcaR3.ConsumerMergeProvisionalIHI.ConsumerMergeProvisionalIHIPortType")]
+    public interface ConsumerMergeProvisionalIHIPortType
     {
         
-        // CODEGEN: Generating message contract since the operation submitSearchForProviderOrganisation is neither RPC nor document wrapped.
-        [System.ServiceModel.OperationContractAttribute(Action="http://ns.electronichealth.net.au/hi/svc/ProviderBatchAsyncSearchForProviderOrgan" +
-            "isation/5.1.0/SearchForProviderOrganisationBatchAsyncPortType/submitSearchForPro" +
-            "viderOrganisationRequest", ReplyAction="http://ns.electronichealth.net.au/hi/svc/ProviderBatchAsyncSearchForProviderOrgan" +
-            "isation/5.1.0/SearchForProviderOrganisationBatchAsyncPortType/submitSearchForPro" +
-            "viderOrganisationResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.ServiceMessagesType), Action="http://ns.electronichealth.net.au/hi/svc/ProviderBatchAsyncSearchForProviderOrgan" +
-            "isation/5.1.0/SearchForProviderOrganisationBatchAsyncPortType/submitSearchForPro" +
-            "viderOrganisation/Fault/standardError", Name="serviceMessages", Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreElements/3.0")]
+        // CODEGEN: Generating message contract since the operation mergeProvisionalIHI is neither RPC nor document wrapped.
+        [System.ServiceModel.OperationContractAttribute(Action="http://ns.electronichealth.net.au/hi/svc/ConsumerMergeProvisionalIHI/3.0/Consumer" +
+            "MergeProvisionalIHIPortType/mergeProvisionalIHIRequest", ReplyAction="http://ns.electronichealth.net.au/hi/svc/ConsumerMergeProvisionalIHI/3.0/Consumer" +
+            "MergeProvisionalIHIPortType/mergeProvisionalIHIResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(nehta.mcaR3.ConsumerMergeProvisionalIHI.ServiceMessagesType), Action="http://ns.electronichealth.net.au/hi/svc/ConsumerMergeProvisionalIHI/3.0/Consumer" +
+            "MergeProvisionalIHIPortType/mergeProvisionalIHI/Fault/standardError", Name="serviceMessages", Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreElements/3.0")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.submitSearchForProviderOrganisationResponse1 submitSearchForProviderOrganisation(nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.submitSearchForProviderOrganisationRequest request);
+        nehta.mcaR3.ConsumerMergeProvisionalIHI.mergeProvisionalIHIResponse1 mergeProvisionalIHI(nehta.mcaR3.ConsumerMergeProvisionalIHI.mergeProvisionalIHIRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://ns.electronichealth.net.au/hi/svc/ProviderBatchAsyncSearchForProviderOrgan" +
-            "isation/5.1.0/SearchForProviderOrganisationBatchAsyncPortType/submitSearchForPro" +
-            "viderOrganisationRequest", ReplyAction="http://ns.electronichealth.net.au/hi/svc/ProviderBatchAsyncSearchForProviderOrgan" +
-            "isation/5.1.0/SearchForProviderOrganisationBatchAsyncPortType/submitSearchForPro" +
-            "viderOrganisationResponse")]
-        System.Threading.Tasks.Task<nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.submitSearchForProviderOrganisationResponse1> submitSearchForProviderOrganisationAsync(nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.submitSearchForProviderOrganisationRequest request);
-        
-        // CODEGEN: Generating message contract since the operation retrieveSearchForProviderOrganisation is neither RPC nor document wrapped.
-        [System.ServiceModel.OperationContractAttribute(Action="http://ns.electronichealth.net.au/hi/svc/ProviderBatchAsyncSearchForProviderOrgan" +
-            "isation/5.1.0/SearchForProviderOrganisationBatchAsyncPortType/retrieveSearchForP" +
-            "roviderOrganisationRequest", ReplyAction="http://ns.electronichealth.net.au/hi/svc/ProviderBatchAsyncSearchForProviderOrgan" +
-            "isation/5.1.0/SearchForProviderOrganisationBatchAsyncPortType/retrieveSearchForP" +
-            "roviderOrganisationResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.ServiceMessagesType), Action="http://ns.electronichealth.net.au/hi/svc/ProviderBatchAsyncSearchForProviderOrgan" +
-            "isation/5.1.0/SearchForProviderOrganisationBatchAsyncPortType/retrieveSearchForP" +
-            "roviderOrganisation/Fault/standardError", Name="serviceMessages", Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreElements/3.0")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.retrieveSearchForProviderOrganisationResponse1 retrieveSearchForProviderOrganisation(nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.retrieveSearchForProviderOrganisationRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://ns.electronichealth.net.au/hi/svc/ProviderBatchAsyncSearchForProviderOrgan" +
-            "isation/5.1.0/SearchForProviderOrganisationBatchAsyncPortType/retrieveSearchForP" +
-            "roviderOrganisationRequest", ReplyAction="http://ns.electronichealth.net.au/hi/svc/ProviderBatchAsyncSearchForProviderOrgan" +
-            "isation/5.1.0/SearchForProviderOrganisationBatchAsyncPortType/retrieveSearchForP" +
-            "roviderOrganisationResponse")]
-        System.Threading.Tasks.Task<nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.retrieveSearchForProviderOrganisationResponse1> retrieveSearchForProviderOrganisationAsync(nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.retrieveSearchForProviderOrganisationRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://ns.electronichealth.net.au/hi/svc/ConsumerMergeProvisionalIHI/3.0/Consumer" +
+            "MergeProvisionalIHIPortType/mergeProvisionalIHIRequest", ReplyAction="http://ns.electronichealth.net.au/hi/svc/ConsumerMergeProvisionalIHI/3.0/Consumer" +
+            "MergeProvisionalIHIPortType/mergeProvisionalIHIResponse")]
+        System.Threading.Tasks.Task<nehta.mcaR3.ConsumerMergeProvisionalIHI.mergeProvisionalIHIResponse1> mergeProvisionalIHIAsync(nehta.mcaR3.ConsumerMergeProvisionalIHI.mergeProvisionalIHIRequest request);
     }
     
     /// <remarks/>
@@ -1679,25 +1583,24 @@ namespace nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://ns.electronichealth.net.au/hi/svc/ProviderBatchAsyncSearchForProviderOrgan" +
-        "isation/5.1.0")]
-    public partial class submitSearchForProviderOrganisationResponse
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://ns.electronichealth.net.au/hi/svc/ConsumerMergeProvisionalIHI/3.0")]
+    public partial class mergeProvisionalIHIResponse
     {
         
-        private submitSearchForProviderOrganisationResult submitSearchForProviderOrganisationResultField;
+        private mergeProvisionalIHIResult mergeProvisionalIHIResultField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providermessages/SubmitSearchProviderOrg" +
-            "anisation/5.1.0", Order=0)]
-        public submitSearchForProviderOrganisationResult submitSearchForProviderOrganisationResult
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/consumermessages/MergeProvisionalIHI/3.0" +
+            "", Order=0)]
+        public mergeProvisionalIHIResult mergeProvisionalIHIResult
         {
             get
             {
-                return this.submitSearchForProviderOrganisationResultField;
+                return this.mergeProvisionalIHIResultField;
             }
             set
             {
-                this.submitSearchForProviderOrganisationResultField = value;
+                this.mergeProvisionalIHIResultField = value;
             }
         }
     }
@@ -1707,31 +1610,95 @@ namespace nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://ns.electronichealth.net.au/hi/xsd/providermessages/SubmitSearchProviderOrg" +
-        "anisation/5.1.0")]
-    public partial class submitSearchForProviderOrganisationResult
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://ns.electronichealth.net.au/hi/xsd/consumermessages/MergeProvisionalIHI/3.0" +
+        "")]
+    public partial class mergeProvisionalIHIResult
     {
         
-        private string batchIdentifierField;
+        private string ihiNumberField;
+        
+        private IHIRecordStatusType ihiRecordStatusField;
+        
+        private bool ihiRecordStatusFieldSpecified;
+        
+        private IHIStatusType ihiStatusField;
+        
+        private bool ihiStatusFieldSpecified;
         
         private ServiceMessagesType serviceMessagesField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/ProviderCoreElements/5.1.0", Order=0)]
-        public string batchIdentifier
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/consumercore/ConsumerCoreElements/3.0", DataType="anyURI", Order=0)]
+        public string ihiNumber
         {
             get
             {
-                return this.batchIdentifierField;
+                return this.ihiNumberField;
             }
             set
             {
-                this.batchIdentifierField = value;
+                this.ihiNumberField = value;
             }
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreElements/3.0", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/consumercore/ConsumerCoreElements/3.0", Order=1)]
+        public IHIRecordStatusType ihiRecordStatus
+        {
+            get
+            {
+                return this.ihiRecordStatusField;
+            }
+            set
+            {
+                this.ihiRecordStatusField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ihiRecordStatusSpecified
+        {
+            get
+            {
+                return this.ihiRecordStatusFieldSpecified;
+            }
+            set
+            {
+                this.ihiRecordStatusFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/consumercore/ConsumerCoreElements/3.0", Order=2)]
+        public IHIStatusType ihiStatus
+        {
+            get
+            {
+                return this.ihiStatusField;
+            }
+            set
+            {
+                this.ihiStatusField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ihiStatusSpecified
+        {
+            get
+            {
+                return this.ihiStatusFieldSpecified;
+            }
+            set
+            {
+                this.ihiStatusFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreElements/3.0", Order=3)]
         public ServiceMessagesType serviceMessages
         {
             get
@@ -1745,45 +1712,84 @@ namespace nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation
         }
     }
     
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/consumercore/ConsumerCoreDatatypes/3.0")]
+    public enum IHIRecordStatusType
+    {
+        
+        /// <remarks/>
+        Provisional,
+        
+        /// <remarks/>
+        Unverified,
+        
+        /// <remarks/>
+        Verified,
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/consumercore/ConsumerCoreDatatypes/3.0")]
+    public enum IHIStatusType
+    {
+        
+        /// <remarks/>
+        Active,
+        
+        /// <remarks/>
+        Deceased,
+        
+        /// <remarks/>
+        Expired,
+        
+        /// <remarks/>
+        Resolved,
+        
+        /// <remarks/>
+        Retired,
+    }
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class submitSearchForProviderOrganisationRequest
+    public partial class mergeProvisionalIHIRequest
     {
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreElements/3.0")]
-        public nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.ProductType product;
+        public nehta.mcaR3.ConsumerMergeProvisionalIHI.ProductType product;
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreElements/3.0")]
-        public nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.SignatureContainerType signature;
+        public nehta.mcaR3.ConsumerMergeProvisionalIHI.SignatureContainerType signature;
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreElements/3.0")]
-        public nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.TimestampType timestamp;
+        public nehta.mcaR3.ConsumerMergeProvisionalIHI.TimestampType timestamp;
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreElements/3.0")]
-        public nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.QualifiedId user;
+        public nehta.mcaR3.ConsumerMergeProvisionalIHI.QualifiedId user;
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreElements/3.0")]
-        public nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.QualifiedId hpio;
+        public nehta.mcaR3.ConsumerMergeProvisionalIHI.QualifiedId hpio;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ns.electronichealth.net.au/hi/svc/ProviderBatchAsyncSearchForProviderOrgan" +
-            "isation/5.1.0", Order=0)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("batchSearchForProviderOrganisationCriteria", Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/OrganisationDetails/5.1.0", IsNullable=false)]
-        public nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.BatchSearchForProviderOrganisationCriteriaType[] submitSearchForProviderOrganisation;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ns.electronichealth.net.au/hi/svc/ConsumerMergeProvisionalIHI/3.0", Order=0)]
+        [System.Xml.Serialization.XmlArrayItemAttribute("ihiNumber", Namespace="http://ns.electronichealth.net.au/hi/xsd/consumercore/ConsumerCoreElements/3.0", DataType="anyURI", IsNullable=false)]
+        public string[] mergeProvisionalIHI;
         
-        public submitSearchForProviderOrganisationRequest()
+        public mergeProvisionalIHIRequest()
         {
         }
         
-        public submitSearchForProviderOrganisationRequest(nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.ProductType product, nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.SignatureContainerType signature, nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.TimestampType timestamp, nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.QualifiedId user, nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.QualifiedId hpio, nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.BatchSearchForProviderOrganisationCriteriaType[] submitSearchForProviderOrganisation)
+        public mergeProvisionalIHIRequest(nehta.mcaR3.ConsumerMergeProvisionalIHI.ProductType product, nehta.mcaR3.ConsumerMergeProvisionalIHI.SignatureContainerType signature, nehta.mcaR3.ConsumerMergeProvisionalIHI.TimestampType timestamp, nehta.mcaR3.ConsumerMergeProvisionalIHI.QualifiedId user, nehta.mcaR3.ConsumerMergeProvisionalIHI.QualifiedId hpio, string[] mergeProvisionalIHI)
         {
             this.product = product;
             this.signature = signature;
             this.timestamp = timestamp;
             this.user = user;
             this.hpio = hpio;
-            this.submitSearchForProviderOrganisation = submitSearchForProviderOrganisation;
+            this.mergeProvisionalIHI = mergeProvisionalIHI;
         }
     }
     
@@ -1791,427 +1797,101 @@ namespace nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class submitSearchForProviderOrganisationResponse1
+    public partial class mergeProvisionalIHIResponse1
     {
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreElements/3.0")]
-        public nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.ProductType product;
+        public nehta.mcaR3.ConsumerMergeProvisionalIHI.ProductType product;
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreElements/3.0")]
-        public nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.SignatureContainerType signature;
+        public nehta.mcaR3.ConsumerMergeProvisionalIHI.SignatureContainerType signature;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ns.electronichealth.net.au/hi/svc/ProviderBatchAsyncSearchForProviderOrgan" +
-            "isation/5.1.0", Order=0)]
-        public nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.submitSearchForProviderOrganisationResponse submitSearchForProviderOrganisationResponse;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ns.electronichealth.net.au/hi/svc/ConsumerMergeProvisionalIHI/3.0", Order=0)]
+        public nehta.mcaR3.ConsumerMergeProvisionalIHI.mergeProvisionalIHIResponse mergeProvisionalIHIResponse;
         
-        public submitSearchForProviderOrganisationResponse1()
+        public mergeProvisionalIHIResponse1()
         {
         }
         
-        public submitSearchForProviderOrganisationResponse1(nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.ProductType product, nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.SignatureContainerType signature, nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.submitSearchForProviderOrganisationResponse submitSearchForProviderOrganisationResponse)
+        public mergeProvisionalIHIResponse1(nehta.mcaR3.ConsumerMergeProvisionalIHI.ProductType product, nehta.mcaR3.ConsumerMergeProvisionalIHI.SignatureContainerType signature, nehta.mcaR3.ConsumerMergeProvisionalIHI.mergeProvisionalIHIResponse mergeProvisionalIHIResponse)
         {
             this.product = product;
             this.signature = signature;
-            this.submitSearchForProviderOrganisationResponse = submitSearchForProviderOrganisationResponse;
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://ns.electronichealth.net.au/hi/svc/ProviderBatchAsyncSearchForProviderOrgan" +
-        "isation/5.1.0")]
-    public partial class retrieveSearchForProviderOrganisation
-    {
-        
-        private string batchIdentifierField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/ProviderCoreElements/5.1.0", Order=0)]
-        public string batchIdentifier
-        {
-            get
-            {
-                return this.batchIdentifierField;
-            }
-            set
-            {
-                this.batchIdentifierField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://ns.electronichealth.net.au/hi/svc/ProviderBatchAsyncSearchForProviderOrgan" +
-        "isation/5.1.0")]
-    public partial class retrieveSearchForProviderOrganisationResponse
-    {
-        
-        private retrieveSearchForProviderOrganisationResult retrieveSearchForProviderOrganisationResultField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providermessages/RetrieveSearchProviderO" +
-            "rganisation/5.1.0", Order=0)]
-        public retrieveSearchForProviderOrganisationResult retrieveSearchForProviderOrganisationResult
-        {
-            get
-            {
-                return this.retrieveSearchForProviderOrganisationResultField;
-            }
-            set
-            {
-                this.retrieveSearchForProviderOrganisationResultField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://ns.electronichealth.net.au/hi/xsd/providermessages/RetrieveSearchProviderO" +
-        "rganisation/5.1.0")]
-    public partial class retrieveSearchForProviderOrganisationResult
-    {
-        
-        private string batchIdentifierField;
-        
-        private BatchSearchForProviderOrganisationResultType[] batchSearchForProviderOrganisationResultField;
-        
-        private ServiceMessagesType serviceMessagesField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/ProviderCoreElements/5.1.0", Order=0)]
-        public string batchIdentifier
-        {
-            get
-            {
-                return this.batchIdentifierField;
-            }
-            set
-            {
-                this.batchIdentifierField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("batchSearchForProviderOrganisationResult", Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/OrganisationDetails/5.1.0", Order=1)]
-        public BatchSearchForProviderOrganisationResultType[] batchSearchForProviderOrganisationResult
-        {
-            get
-            {
-                return this.batchSearchForProviderOrganisationResultField;
-            }
-            set
-            {
-                this.batchSearchForProviderOrganisationResultField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreElements/3.0", Order=2)]
-        public ServiceMessagesType serviceMessages
-        {
-            get
-            {
-                return this.serviceMessagesField;
-            }
-            set
-            {
-                this.serviceMessagesField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/OrganisationDetails/5.1.0")]
-    public partial class BatchSearchForProviderOrganisationResultType
-    {
-        
-        private string requestIdentifierField;
-        
-        private searchForProviderOrganisationResult searchForProviderOrganisationResultField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/ProviderCoreElements/5.1.0", Order=0)]
-        public string requestIdentifier
-        {
-            get
-            {
-                return this.requestIdentifierField;
-            }
-            set
-            {
-                this.requestIdentifierField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providermessages/SearchOrganisation/5.0." +
-            "0", Order=1)]
-        public searchForProviderOrganisationResult searchForProviderOrganisationResult
-        {
-            get
-            {
-                return this.searchForProviderOrganisationResultField;
-            }
-            set
-            {
-                this.searchForProviderOrganisationResultField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.8.3928.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://ns.electronichealth.net.au/hi/xsd/providermessages/SearchOrganisation/5.0." +
-        "0")]
-    public partial class searchForProviderOrganisationResult
-    {
-        
-        private string hpioNumberField;
-        
-        private string statusField;
-        
-        private ServiceMessagesType serviceMessagesField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/ProviderCoreElements/5.0.0", DataType="anyURI", Order=0)]
-        public string hpioNumber
-        {
-            get
-            {
-                return this.hpioNumberField;
-            }
-            set
-            {
-                this.hpioNumberField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/providercore/ProviderCoreElements/5.0.0", Order=1)]
-        public string status
-        {
-            get
-            {
-                return this.statusField;
-            }
-            set
-            {
-                this.statusField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreElements/3.0", Order=2)]
-        public ServiceMessagesType serviceMessages
-        {
-            get
-            {
-                return this.serviceMessagesField;
-            }
-            set
-            {
-                this.serviceMessagesField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class retrieveSearchForProviderOrganisationRequest
-    {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreElements/3.0")]
-        public nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.ProductType product;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreElements/3.0")]
-        public nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.SignatureContainerType signature;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreElements/3.0")]
-        public nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.TimestampType timestamp;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreElements/3.0")]
-        public nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.QualifiedId user;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreElements/3.0")]
-        public nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.QualifiedId hpio;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ns.electronichealth.net.au/hi/svc/ProviderBatchAsyncSearchForProviderOrgan" +
-            "isation/5.1.0", Order=0)]
-        public nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.retrieveSearchForProviderOrganisation retrieveSearchForProviderOrganisation;
-        
-        public retrieveSearchForProviderOrganisationRequest()
-        {
-        }
-        
-        public retrieveSearchForProviderOrganisationRequest(nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.ProductType product, nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.SignatureContainerType signature, nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.TimestampType timestamp, nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.QualifiedId user, nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.QualifiedId hpio, nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.retrieveSearchForProviderOrganisation retrieveSearchForProviderOrganisation)
-        {
-            this.product = product;
-            this.signature = signature;
-            this.timestamp = timestamp;
-            this.user = user;
-            this.hpio = hpio;
-            this.retrieveSearchForProviderOrganisation = retrieveSearchForProviderOrganisation;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class retrieveSearchForProviderOrganisationResponse1
-    {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreElements/3.0")]
-        public nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.ProductType product;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://ns.electronichealth.net.au/hi/xsd/common/CommonCoreElements/3.0")]
-        public nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.SignatureContainerType signature;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ns.electronichealth.net.au/hi/svc/ProviderBatchAsyncSearchForProviderOrgan" +
-            "isation/5.1.0", Order=0)]
-        public nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.retrieveSearchForProviderOrganisationResponse retrieveSearchForProviderOrganisationResponse;
-        
-        public retrieveSearchForProviderOrganisationResponse1()
-        {
-        }
-        
-        public retrieveSearchForProviderOrganisationResponse1(nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.ProductType product, nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.SignatureContainerType signature, nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.retrieveSearchForProviderOrganisationResponse retrieveSearchForProviderOrganisationResponse)
-        {
-            this.product = product;
-            this.signature = signature;
-            this.retrieveSearchForProviderOrganisationResponse = retrieveSearchForProviderOrganisationResponse;
+            this.mergeProvisionalIHIResponse = mergeProvisionalIHIResponse;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface SearchForProviderOrganisationBatchAsyncPortTypeChannel : nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.SearchForProviderOrganisationBatchAsyncPortType, System.ServiceModel.IClientChannel
+    public interface ConsumerMergeProvisionalIHIPortTypeChannel : nehta.mcaR3.ConsumerMergeProvisionalIHI.ConsumerMergeProvisionalIHIPortType, System.ServiceModel.IClientChannel
     {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class SearchForProviderOrganisationBatchAsyncPortTypeClient : System.ServiceModel.ClientBase<nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.SearchForProviderOrganisationBatchAsyncPortType>, nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.SearchForProviderOrganisationBatchAsyncPortType
+    public partial class ConsumerMergeProvisionalIHIPortTypeClient : System.ServiceModel.ClientBase<nehta.mcaR3.ConsumerMergeProvisionalIHI.ConsumerMergeProvisionalIHIPortType>, nehta.mcaR3.ConsumerMergeProvisionalIHI.ConsumerMergeProvisionalIHIPortType
     {
         
-        public SearchForProviderOrganisationBatchAsyncPortTypeClient()
+        public ConsumerMergeProvisionalIHIPortTypeClient()
         {
         }
         
-        public SearchForProviderOrganisationBatchAsyncPortTypeClient(string endpointConfigurationName) : 
+        public ConsumerMergeProvisionalIHIPortTypeClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName)
         {
         }
         
-        public SearchForProviderOrganisationBatchAsyncPortTypeClient(string endpointConfigurationName, string remoteAddress) : 
+        public ConsumerMergeProvisionalIHIPortTypeClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress)
         {
         }
         
-        public SearchForProviderOrganisationBatchAsyncPortTypeClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ConsumerMergeProvisionalIHIPortTypeClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress)
         {
         }
         
-        public SearchForProviderOrganisationBatchAsyncPortTypeClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ConsumerMergeProvisionalIHIPortTypeClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress)
         {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.submitSearchForProviderOrganisationResponse1 nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.SearchForProviderOrganisationBatchAsyncPortType.submitSearchForProviderOrganisation(nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.submitSearchForProviderOrganisationRequest request)
+        nehta.mcaR3.ConsumerMergeProvisionalIHI.mergeProvisionalIHIResponse1 nehta.mcaR3.ConsumerMergeProvisionalIHI.ConsumerMergeProvisionalIHIPortType.mergeProvisionalIHI(nehta.mcaR3.ConsumerMergeProvisionalIHI.mergeProvisionalIHIRequest request)
         {
-            return base.Channel.submitSearchForProviderOrganisation(request);
+            return base.Channel.mergeProvisionalIHI(request);
         }
         
-        public nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.submitSearchForProviderOrganisationResponse submitSearchForProviderOrganisation(ref nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.ProductType product, ref nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.SignatureContainerType signature, nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.TimestampType timestamp, nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.QualifiedId user, nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.QualifiedId hpio, nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.BatchSearchForProviderOrganisationCriteriaType[] submitSearchForProviderOrganisation1)
+        public nehta.mcaR3.ConsumerMergeProvisionalIHI.mergeProvisionalIHIResponse mergeProvisionalIHI(ref nehta.mcaR3.ConsumerMergeProvisionalIHI.ProductType product, ref nehta.mcaR3.ConsumerMergeProvisionalIHI.SignatureContainerType signature, nehta.mcaR3.ConsumerMergeProvisionalIHI.TimestampType timestamp, nehta.mcaR3.ConsumerMergeProvisionalIHI.QualifiedId user, nehta.mcaR3.ConsumerMergeProvisionalIHI.QualifiedId hpio, string[] mergeProvisionalIHI1)
         {
-            nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.submitSearchForProviderOrganisationRequest inValue = new nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.submitSearchForProviderOrganisationRequest();
+            nehta.mcaR3.ConsumerMergeProvisionalIHI.mergeProvisionalIHIRequest inValue = new nehta.mcaR3.ConsumerMergeProvisionalIHI.mergeProvisionalIHIRequest();
             inValue.product = product;
             inValue.signature = signature;
             inValue.timestamp = timestamp;
             inValue.user = user;
             inValue.hpio = hpio;
-            inValue.submitSearchForProviderOrganisation = submitSearchForProviderOrganisation1;
-            nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.submitSearchForProviderOrganisationResponse1 retVal = ((nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.SearchForProviderOrganisationBatchAsyncPortType)(this)).submitSearchForProviderOrganisation(inValue);
+            inValue.mergeProvisionalIHI = mergeProvisionalIHI1;
+            nehta.mcaR3.ConsumerMergeProvisionalIHI.mergeProvisionalIHIResponse1 retVal = ((nehta.mcaR3.ConsumerMergeProvisionalIHI.ConsumerMergeProvisionalIHIPortType)(this)).mergeProvisionalIHI(inValue);
             product = retVal.product;
             signature = retVal.signature;
-            return retVal.submitSearchForProviderOrganisationResponse;
+            return retVal.mergeProvisionalIHIResponse;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.submitSearchForProviderOrganisationResponse1> nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.SearchForProviderOrganisationBatchAsyncPortType.submitSearchForProviderOrganisationAsync(nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.submitSearchForProviderOrganisationRequest request)
+        System.Threading.Tasks.Task<nehta.mcaR3.ConsumerMergeProvisionalIHI.mergeProvisionalIHIResponse1> nehta.mcaR3.ConsumerMergeProvisionalIHI.ConsumerMergeProvisionalIHIPortType.mergeProvisionalIHIAsync(nehta.mcaR3.ConsumerMergeProvisionalIHI.mergeProvisionalIHIRequest request)
         {
-            return base.Channel.submitSearchForProviderOrganisationAsync(request);
+            return base.Channel.mergeProvisionalIHIAsync(request);
         }
         
-        public System.Threading.Tasks.Task<nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.submitSearchForProviderOrganisationResponse1> submitSearchForProviderOrganisationAsync(nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.ProductType product, nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.SignatureContainerType signature, nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.TimestampType timestamp, nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.QualifiedId user, nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.QualifiedId hpio, nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.BatchSearchForProviderOrganisationCriteriaType[] submitSearchForProviderOrganisation)
+        public System.Threading.Tasks.Task<nehta.mcaR3.ConsumerMergeProvisionalIHI.mergeProvisionalIHIResponse1> mergeProvisionalIHIAsync(nehta.mcaR3.ConsumerMergeProvisionalIHI.ProductType product, nehta.mcaR3.ConsumerMergeProvisionalIHI.SignatureContainerType signature, nehta.mcaR3.ConsumerMergeProvisionalIHI.TimestampType timestamp, nehta.mcaR3.ConsumerMergeProvisionalIHI.QualifiedId user, nehta.mcaR3.ConsumerMergeProvisionalIHI.QualifiedId hpio, string[] mergeProvisionalIHI)
         {
-            nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.submitSearchForProviderOrganisationRequest inValue = new nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.submitSearchForProviderOrganisationRequest();
+            nehta.mcaR3.ConsumerMergeProvisionalIHI.mergeProvisionalIHIRequest inValue = new nehta.mcaR3.ConsumerMergeProvisionalIHI.mergeProvisionalIHIRequest();
             inValue.product = product;
             inValue.signature = signature;
             inValue.timestamp = timestamp;
             inValue.user = user;
             inValue.hpio = hpio;
-            inValue.submitSearchForProviderOrganisation = submitSearchForProviderOrganisation;
-            return ((nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.SearchForProviderOrganisationBatchAsyncPortType)(this)).submitSearchForProviderOrganisationAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.retrieveSearchForProviderOrganisationResponse1 nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.SearchForProviderOrganisationBatchAsyncPortType.retrieveSearchForProviderOrganisation(nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.retrieveSearchForProviderOrganisationRequest request)
-        {
-            return base.Channel.retrieveSearchForProviderOrganisation(request);
-        }
-        
-        public nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.retrieveSearchForProviderOrganisationResponse retrieveSearchForProviderOrganisation(ref nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.ProductType product, ref nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.SignatureContainerType signature, nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.TimestampType timestamp, nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.QualifiedId user, nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.QualifiedId hpio, nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.retrieveSearchForProviderOrganisation retrieveSearchForProviderOrganisation1)
-        {
-            nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.retrieveSearchForProviderOrganisationRequest inValue = new nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.retrieveSearchForProviderOrganisationRequest();
-            inValue.product = product;
-            inValue.signature = signature;
-            inValue.timestamp = timestamp;
-            inValue.user = user;
-            inValue.hpio = hpio;
-            inValue.retrieveSearchForProviderOrganisation = retrieveSearchForProviderOrganisation1;
-            nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.retrieveSearchForProviderOrganisationResponse1 retVal = ((nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.SearchForProviderOrganisationBatchAsyncPortType)(this)).retrieveSearchForProviderOrganisation(inValue);
-            product = retVal.product;
-            signature = retVal.signature;
-            return retVal.retrieveSearchForProviderOrganisationResponse;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.retrieveSearchForProviderOrganisationResponse1> nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.SearchForProviderOrganisationBatchAsyncPortType.retrieveSearchForProviderOrganisationAsync(nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.retrieveSearchForProviderOrganisationRequest request)
-        {
-            return base.Channel.retrieveSearchForProviderOrganisationAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.retrieveSearchForProviderOrganisationResponse1> retrieveSearchForProviderOrganisationAsync(nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.ProductType product, nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.SignatureContainerType signature, nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.TimestampType timestamp, nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.QualifiedId user, nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.QualifiedId hpio, nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.retrieveSearchForProviderOrganisation retrieveSearchForProviderOrganisation)
-        {
-            nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.retrieveSearchForProviderOrganisationRequest inValue = new nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.retrieveSearchForProviderOrganisationRequest();
-            inValue.product = product;
-            inValue.signature = signature;
-            inValue.timestamp = timestamp;
-            inValue.user = user;
-            inValue.hpio = hpio;
-            inValue.retrieveSearchForProviderOrganisation = retrieveSearchForProviderOrganisation;
-            return ((nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation.SearchForProviderOrganisationBatchAsyncPortType)(this)).retrieveSearchForProviderOrganisationAsync(inValue);
+            inValue.mergeProvisionalIHI = mergeProvisionalIHI;
+            return ((nehta.mcaR3.ConsumerMergeProvisionalIHI.ConsumerMergeProvisionalIHIPortType)(this)).mergeProvisionalIHIAsync(inValue);
         }
     }
 }

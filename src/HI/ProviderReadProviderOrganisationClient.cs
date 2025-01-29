@@ -13,6 +13,7 @@
  */
 
 using System;
+using System.Threading.Tasks;
 using System.ServiceModel.Channels;
 using System.Security.Cryptography.X509Certificates;
 using System.ServiceModel;
@@ -163,6 +164,40 @@ namespace Nehta.VendorLibrary.HI
             try
             {
                 response = providerReadProviderOrganisationClient.readProviderOrganisation(readProviderOrganisationRequest);
+            }
+            catch (Exception ex)
+            {
+                FaultHelper.ProcessAndThrowFault<ServiceMessagesType>(ex);
+            }
+
+            if (response != null && response.readProviderOrganisationResponse != null)
+                return response.readProviderOrganisationResponse;
+
+            throw new ApplicationException(Properties.Resources.UnexpectedServiceResponse);
+        }
+
+        /// <summary>
+        /// Asynchronous implementation of <see cref=" ReadProviderOrganisation" />.
+        /// </summary>
+        public async Task<readProviderOrganisationResponse> ReadProviderOrganisationAsync(readProviderOrganisation request)
+        {
+            var timestamp = new TimestampType
+            {
+                created = DateTime.Now.ToUniversalTime(),
+                expires = DateTime.Now.AddDays(30).ToUniversalTime(),
+                expiresSpecified = true
+            };
+
+            var readProviderOrganisationRequest = new readProviderOrganisationRequest(product, new SignatureContainerType(), timestamp, user, hpio, request);
+
+
+            LastSoapRequestTimestamp = readProviderOrganisationRequest.timestamp;
+
+            readProviderOrganisationResponse1 response = null;
+
+            try
+            {
+                response = await providerReadProviderOrganisationClient.readProviderOrganisationAsync(readProviderOrganisationRequest);
             }
             catch (Exception ex)
             {

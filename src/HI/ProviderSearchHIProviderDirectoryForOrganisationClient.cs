@@ -13,6 +13,7 @@
  */
 
 using System;
+using System.Threading.Tasks;
 using System.ServiceModel.Channels;
 using System.Security.Cryptography.X509Certificates;
 using System.ServiceModel;
@@ -190,6 +191,23 @@ namespace Nehta.VendorLibrary.HI
         }
 
         /// <summary>
+        /// Asynchronous implementation of <see cref="IdentifierSearch" />.
+        /// </summary>
+        public async Task<searchHIProviderDirectoryForOrganisationResponse> IdentifierSearchAsync(searchHIProviderDirectoryForOrganisation request)
+        {
+            //Validation.ValidateArgumentRequired("request.hpioNumber", request.hpioNumber);
+            Validation.ValidateArgumentNotAllowed("request.australianAddressCriteria", request.australianAddressCriteria);
+            Validation.ValidateArgumentNotAllowed("request.internationalAddressCriteria", request.internationalAddressCriteria);
+            Validation.ValidateArgumentNotAllowed("request.name", request.name);
+            //Validation.ValidateArgumentNotAllowed("request.organisationDetails", request.organisationDetails);
+            Validation.ValidateArgumentNotAllowed("request.organisationType", request.organisationType);
+            Validation.ValidateArgumentNotAllowed("request.serviceType", request.serviceType);
+            Validation.ValidateArgumentNotAllowed("request.unitType", request.unitType);
+
+            return await HISearchAsync(request);
+        }
+
+        /// <summary>
         /// Perform a demographic details search on the organisation search service. 
         /// </summary>
         /// <param name="request">
@@ -309,6 +327,34 @@ namespace Nehta.VendorLibrary.HI
         }
 
         /// <summary>
+        /// Asynchronous implementation of <see cref="DemographicSearch" />.
+        /// </summary>
+        public async Task<searchHIProviderDirectoryForOrganisationResponse> DemographicSearchAsync(searchHIProviderDirectoryForOrganisation request)
+        {
+            Validation.ValidateArgumentNotAllowed("request.hpioNumber", request.hpioNumber);
+            Validation.ValidateArgumentNotAllowed("request.linkSearchType", request.linkSearchType);
+
+            if (request.australianAddressCriteria != null)
+            {
+                Validation.ValidateArgumentNotAllowed("request.internationalAddressCriteria", request.internationalAddressCriteria);
+                Validation.ValidateArgumentRequired("request.australianAddressCriteria.suburb", request.australianAddressCriteria.suburb);
+                Validation.ValidateArgumentRequired("request.australianAddressCriteria.state", request.australianAddressCriteria.state);
+                Validation.ValidateArgumentRequired("request.australianAddressCriteria.postcode", request.australianAddressCriteria.postcode);
+            }
+
+            if (request.internationalAddressCriteria != null)
+            {
+                Validation.ValidateArgumentNotAllowed("request.australianAddressCriteria", request.australianAddressCriteria);
+                Validation.ValidateArgumentRequired("request.internationalAddressCriteria.internationalAddressLine", request.internationalAddressCriteria.internationalAddressLine);
+                Validation.ValidateArgumentRequired("request.internationalAddressCriteria.internationalStateProvince", request.internationalAddressCriteria.internationalStateProvince);
+                Validation.ValidateArgumentRequired("request.internationalAddressCriteria.internationalPostcode", request.internationalAddressCriteria.internationalPostcode);
+                Validation.ValidateArgumentRequired("request.internationalAddressCriteria.country", request.internationalAddressCriteria.country);
+            }
+
+            return await HISearchAsync(request);
+        }
+
+        /// <summary>
         /// Perform the service call.
         /// </summary>
         /// <param name="request">The search criteria in a searchHIProviderDirectoryForOrganisation object.</param>
@@ -338,6 +384,52 @@ namespace Nehta.VendorLibrary.HI
             try
             {
                 response1 = providerSearchHIProviderDirectoryForOrganisationClient.searchHIProviderDirectoryForOrganisation(envelope);
+            }
+            catch (Exception ex)
+            {
+                // Catch generic FaultException and call helper to throw a more specific fault
+                // (FaultException<ServiceMessagesType>
+                FaultHelper.ProcessAndThrowFault<ServiceMessagesType>(ex);
+            }
+
+            if (response1 != null && response1.searchHIProviderDirectoryForOrganisationResponse != null)
+            {
+                return response1.searchHIProviderDirectoryForOrganisationResponse;
+            }
+            else
+            {
+                throw new ApplicationException(Properties.Resources.UnexpectedServiceResponse);
+            }
+        }
+
+        /// <summary>
+        /// Asynchronous implementation of <see cref=" HISearch" />.
+        /// </summary>
+        private async Task<searchHIProviderDirectoryForOrganisationResponse> HISearchAsync(searchHIProviderDirectoryForOrganisation request)
+        {
+            searchHIProviderDirectoryForOrganisationRequest envelope = new searchHIProviderDirectoryForOrganisationRequest();
+
+            envelope.searchHIProviderDirectoryForOrganisation = request;
+            envelope.product = product;
+            envelope.user = user;
+            envelope.hpio = hpio;
+            envelope.signature = new SignatureContainerType();
+
+            envelope.timestamp = new TimestampType()
+            {
+                created = DateTime.Now,
+                expires = DateTime.Now.AddDays(30),
+                expiresSpecified = true
+            };
+
+            // Set LastSoapRequestTimestamp
+            LastSoapRequestTimestamp = envelope.timestamp;
+
+            searchHIProviderDirectoryForOrganisationResponse1 response1 = null;
+
+            try
+            {
+                response1 = await providerSearchHIProviderDirectoryForOrganisationClient.searchHIProviderDirectoryForOrganisationAsync(envelope);
             }
             catch (Exception ex)
             {

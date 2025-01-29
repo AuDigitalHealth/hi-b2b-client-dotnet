@@ -34,6 +34,110 @@ namespace Nehta.VendorLibrary.HI.Sample
     {
         public void Sample()
         {
+            //Set up Client
+            ProviderManageProviderOrganisationClient client = CreateClient();
+
+           // Create the request
+           var directoryEntry = new manageProviderOrganisation()
+            {
+                hpioNumber = "http://<anything>/id/<anything>/hpio/1.0/HPIO",
+                endpointLocatorServiceRecord = new[]
+                {
+                    new EndpointLocatorServiceRecord()
+                    {
+                        serviceIdentity = "<yourserviceidentity>",
+                        serviceAddress = "<yourserviceaddress>",
+
+                    },
+                }
+            };
+
+            // Submit the request  
+            try
+                {
+                    manageProviderOrganisationResult response = client.ManageProviderOrganisation(directoryEntry);
+                }
+                catch (FaultException fex)
+                {
+                    string returnError = "";
+                    MessageFault fault = fex.CreateMessageFault();
+                    if (fault.HasDetail)
+                    {
+                        ServiceMessagesType error = fault.GetDetail<ServiceMessagesType>();
+                        // Look at error details in here
+                        if (error.serviceMessage.Length > 0)
+                            returnError = error.serviceMessage[0].code + ": " + error.serviceMessage[0].reason;
+                    }
+
+                    // If an error is encountered, client.LastSoapResponse often provides a more
+                    // detailed description of the error.
+                    string soapResponse = client.SoapMessages.SoapResponse;
+                }
+                catch (Exception ex)
+                {
+                    // If an error is encountered, client.LastSoapResponse often provides a more
+                    // detailed description of the error.
+                    string soapResponse = client.SoapMessages.SoapResponse;
+                }
+
+            //Dispose client
+            client.Dispose();              
+        }
+
+        public async void SampleAsync()
+        {
+            //Set up Client
+            ProviderManageProviderOrganisationClient client = CreateClient();
+
+            // Create the request
+            var directoryEntry = new manageProviderOrganisation()
+            {
+                hpioNumber = "http://<anything>/id/<anything>/hpio/1.0/HPIO",
+                endpointLocatorServiceRecord = new[]
+                 {
+                    new EndpointLocatorServiceRecord()
+                    {
+                        serviceIdentity = "<yourserviceidentity>",
+                        serviceAddress = "<yourserviceaddress>",
+
+                    },
+                }
+            };
+
+            // Submit the request  
+            try
+            {
+                manageProviderOrganisationResult response = await client.ManageProviderOrganisationAsync(directoryEntry);
+            }
+            catch (FaultException fex)
+            {
+                string returnError = "";
+                MessageFault fault = fex.CreateMessageFault();
+                if (fault.HasDetail)
+                {
+                    ServiceMessagesType error = fault.GetDetail<ServiceMessagesType>();
+                    // Look at error details in here
+                    if (error.serviceMessage.Length > 0)
+                        returnError = error.serviceMessage[0].code + ": " + error.serviceMessage[0].reason;
+                }
+
+                // If an error is encountered, client.LastSoapResponse often provides a more
+                // detailed description of the error.
+                string soapResponse = client.SoapMessages.SoapResponse;
+            }
+            catch (Exception ex)
+            {
+                // If an error is encountered, client.LastSoapResponse often provides a more
+                // detailed description of the error.
+                string soapResponse = client.SoapMessages.SoapResponse;
+            }
+
+            //Dispose client
+            client.Dispose();
+        }
+
+        public ProviderManageProviderOrganisationClient CreateClient()
+        {
             // ------------------------------------------------------------------------------
             // Set up
             // ------------------------------------------------------------------------------
@@ -83,60 +187,19 @@ namespace Nehta.VendorLibrary.HI.Sample
             };
 
             // ------------------------------------------------------------------------------
-            // Client instantiation and invocation
+            // Client instantiation
             // ------------------------------------------------------------------------------
 
-            // Create the request
-            var directoryEntry = new manageProviderOrganisation()
-            {
-                hpioNumber = "http://<anything>/id/<anything>/hpio/1.0/HPIO",
-                endpointLocatorServiceRecord = new[]
-                {
-                    new EndpointLocatorServiceRecord()
-                    {
-                        serviceIdentity = "<yourserviceidentity>",
-                        serviceAddress = "<yourserviceaddress>",
-                        
-                    }, 
-                }
-            };
-
             // Instantiate the client
-            using (var client = new ProviderManageProviderOrganisationClient(new Uri("https://HIServiceEndpoint"), product, user, hpio, signingCert, tlsCert))
-            {
-                // Submit the request  
-                try
-                {
-                    manageProviderOrganisationResult response = client.ManageProviderOrganisation(directoryEntry);
-                }
-                catch (FaultException fex)
-                {
-                    string returnError = "";
-                    MessageFault fault = fex.CreateMessageFault();
-                    if (fault.HasDetail)
-                    {
-                        ServiceMessagesType error = fault.GetDetail<ServiceMessagesType>();
-                        // Look at error details in here
-                        if (error.serviceMessage.Length > 0)
-                            returnError = error.serviceMessage[0].code + ": " + error.serviceMessage[0].reason;
-                    }
+            var client = new ProviderManageProviderOrganisationClient(
+                new Uri("https://HIServiceEndpoint"),
+                product,
+                user,
+                hpio,
+                signingCert,
+                tlsCert);
 
-                    // If an error is encountered, client.LastSoapResponse often provides a more
-                    // detailed description of the error.
-                    string soapResponse = client.SoapMessages.SoapResponse;
-                }
-                catch (Exception ex)
-                {
-                    // If an error is encountered, client.LastSoapResponse often provides a more
-                    // detailed description of the error.
-                    string soapResponse = client.SoapMessages.SoapResponse;
-                }
-
-            }
-
-
-
-
+            return client;
         }
     }
 }

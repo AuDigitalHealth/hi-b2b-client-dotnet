@@ -35,6 +35,88 @@ namespace Nehta.VendorLibrary.HI.Sample
     {
         public void Sample()
         {
+            //Set up client
+            ProviderSearchForProviderIndividualClient client = CreateClient();
+
+            // Create the search request 
+            var request = new searchForProviderIndividual()
+            {
+                hpiiNumber = HIQualifiers.HPIIQualifier + "HPII TO TO SEARCH",
+                familyName = "Family name of provider",
+            };
+
+            try
+            {
+                // Invokes the batch search
+                var response = client.ProviderIndividualSearch(request);
+            }
+            catch (FaultException fex)
+            {
+                string returnError = "";
+                MessageFault fault = fex.CreateMessageFault();
+                if (fault.HasDetail)
+                {
+                    ServiceMessagesType error = fault.GetDetail<ServiceMessagesType>();
+                    // Look at error details in here
+                    if (error.serviceMessage.Length > 0)
+                        returnError = error.serviceMessage[0].code + ": " + error.serviceMessage[0].reason;
+                }
+
+                // If an error is encountered, client.LastSoapResponse often provides a more
+                // detailed description of the error.
+                string soapResponse = client.SoapMessages.SoapResponse;
+            }
+            catch (Exception ex)
+            {
+                // If an error is encountered, client.LastSoapResponse often provides a more
+                // detailed description of the error.
+                string soapResponse = client.SoapMessages.SoapResponse;
+            }
+        }
+
+        public async void SampleAsync()
+        {
+            //Set up client
+            ProviderSearchForProviderIndividualClient client = CreateClient();
+
+            // Create the search request 
+            var request = new searchForProviderIndividual()
+            {
+                hpiiNumber = HIQualifiers.HPIIQualifier + "HPII TO TO SEARCH",
+                familyName = "Family name of provider",
+            };
+
+            try
+            {
+                // Invokes the batch search
+                var response = await client.ProviderIndividualSearchAsync(request);
+            }
+            catch (FaultException fex)
+            {
+                string returnError = "";
+                MessageFault fault = fex.CreateMessageFault();
+                if (fault.HasDetail)
+                {
+                    ServiceMessagesType error = fault.GetDetail<ServiceMessagesType>();
+                    // Look at error details in here
+                    if (error.serviceMessage.Length > 0)
+                        returnError = error.serviceMessage[0].code + ": " + error.serviceMessage[0].reason;
+                }
+
+                // If an error is encountered, client.LastSoapResponse often provides a more
+                // detailed description of the error.
+                string soapResponse = client.SoapMessages.SoapResponse;
+            }
+            catch (Exception ex)
+            {
+                // If an error is encountered, client.LastSoapResponse often provides a more
+                // detailed description of the error.
+                string soapResponse = client.SoapMessages.SoapResponse;
+            }
+        }
+
+        public ProviderSearchForProviderIndividualClient CreateClient() 
+        {
             // ------------------------------------------------------------------------------
             // Set up
             // ------------------------------------------------------------------------------
@@ -83,7 +165,7 @@ namespace Nehta.VendorLibrary.HI.Sample
             };
 
             // ------------------------------------------------------------------------------
-            // Client instantiation and invocation
+            // Client instantiation 
             // ------------------------------------------------------------------------------
 
             // Instantiate the client
@@ -95,40 +177,7 @@ namespace Nehta.VendorLibrary.HI.Sample
                 signingCert,
                 tlsCert);
 
-            // Create the search request 
-            var request = new searchForProviderIndividual()
-            {
-                hpiiNumber = HIQualifiers.HPIIQualifier + "HPII TO TO SEARCH",
-                familyName = "Family name of provider",
-            };
-
-            try
-            {
-                // Invokes the batch search
-                var response = client.ProviderIndividualSearch(request);
-            }
-            catch (FaultException fex)
-            {
-                string returnError = "";
-                MessageFault fault = fex.CreateMessageFault();
-                if (fault.HasDetail)
-                {
-                    ServiceMessagesType error = fault.GetDetail<ServiceMessagesType>();
-                    // Look at error details in here
-                    if (error.serviceMessage.Length > 0)
-                        returnError = error.serviceMessage[0].code + ": " + error.serviceMessage[0].reason;
-                }
-
-                // If an error is encountered, client.LastSoapResponse often provides a more
-                // detailed description of the error.
-                string soapResponse = client.SoapMessages.SoapResponse;
-            }
-            catch (Exception ex)
-            {
-                // If an error is encountered, client.LastSoapResponse often provides a more
-                // detailed description of the error.
-                string soapResponse = client.SoapMessages.SoapResponse;
-            }
+            return client;
         }
     }
 }

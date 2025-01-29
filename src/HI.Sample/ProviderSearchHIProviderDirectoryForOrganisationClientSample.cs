@@ -35,6 +35,82 @@ namespace Nehta.VendorLibrary.HI.Sample
     {
         public void Sample()
         {
+            //Set up client
+            ProviderSearchHIProviderDirectoryForOrganisationClient client = CreateClient();
+
+            // Set up the request
+            searchHIProviderDirectoryForOrganisation request = new searchHIProviderDirectoryForOrganisation();
+            request.hpioNumber = HIQualifiers.HPIOQualifier + "8003624166667003";
+
+            try
+            {
+                // Invokes an identifier search
+                searchHIProviderDirectoryForOrganisationResponse response = client.IdentifierSearch(request);
+            }
+            catch (FaultException fex)
+            {
+                string returnError = "";
+                MessageFault fault = fex.CreateMessageFault();
+                if (fault.HasDetail)
+                {
+                    ServiceMessagesType error = fault.GetDetail<ServiceMessagesType>();
+                    // Look at error details in here
+                    if (error.serviceMessage.Length > 0)
+                        returnError = error.serviceMessage[0].code + ": " + error.serviceMessage[0].reason;
+                }
+
+                // If an error is encountered, client.LastSoapResponse often provides a more
+                // detailed description of the error.
+                string soapResponse = client.SoapMessages.SoapResponse;
+            }
+            catch (Exception ex)
+            {
+                // If an error is encountered, client.LastSoapResponse often provides a more
+                // detailed description of the error.
+                string soapResponse = client.SoapMessages.SoapResponse;
+            }
+        }
+
+        public async void SampleAsync()
+        {
+            //Set up client
+            ProviderSearchHIProviderDirectoryForOrganisationClient client = CreateClient();
+
+            // Set up the request
+            searchHIProviderDirectoryForOrganisation request = new searchHIProviderDirectoryForOrganisation();
+            request.hpioNumber = HIQualifiers.HPIOQualifier + "8003624166667003";
+
+            try
+            {
+                // Invokes an identifier search
+                searchHIProviderDirectoryForOrganisationResponse response = await client.IdentifierSearchAsync(request);
+            }
+            catch (FaultException fex)
+            {
+                string returnError = "";
+                MessageFault fault = fex.CreateMessageFault();
+                if (fault.HasDetail)
+                {
+                    ServiceMessagesType error = fault.GetDetail<ServiceMessagesType>();
+                    // Look at error details in here
+                    if (error.serviceMessage.Length > 0)
+                        returnError = error.serviceMessage[0].code + ": " + error.serviceMessage[0].reason;
+                }
+
+                // If an error is encountered, client.LastSoapResponse often provides a more
+                // detailed description of the error.
+                string soapResponse = client.SoapMessages.SoapResponse;
+            }
+            catch (Exception ex)
+            {
+                // If an error is encountered, client.LastSoapResponse often provides a more
+                // detailed description of the error.
+                string soapResponse = client.SoapMessages.SoapResponse;
+            }
+        }
+
+        public ProviderSearchHIProviderDirectoryForOrganisationClient CreateClient()
+        {
             // ------------------------------------------------------------------------------
             // Set up
             // ------------------------------------------------------------------------------
@@ -83,7 +159,7 @@ namespace Nehta.VendorLibrary.HI.Sample
             };
 
             // ------------------------------------------------------------------------------
-            // Client instantiation and invocation
+            // Client instantiation
             // ------------------------------------------------------------------------------
 
             // Instantiate the client
@@ -95,37 +171,7 @@ namespace Nehta.VendorLibrary.HI.Sample
                 signingCert,
                 tlsCert);
 
-            // Set up the request
-            searchHIProviderDirectoryForOrganisation request = new searchHIProviderDirectoryForOrganisation();
-            request.hpioNumber = HIQualifiers.HPIOQualifier + "8003624166667003";
-
-            try
-            {
-                // Invokes an identifier search
-                searchHIProviderDirectoryForOrganisationResponse response = client.IdentifierSearch(request);
-            }
-            catch (FaultException fex)
-            {
-                string returnError = "";
-                MessageFault fault = fex.CreateMessageFault();
-                if (fault.HasDetail)
-                {
-                    ServiceMessagesType error = fault.GetDetail<ServiceMessagesType>();
-                    // Look at error details in here
-                    if (error.serviceMessage.Length > 0)
-                        returnError = error.serviceMessage[0].code + ": " + error.serviceMessage[0].reason;
-                }
-
-                // If an error is encountered, client.LastSoapResponse often provides a more
-                // detailed description of the error.
-                string soapResponse = client.SoapMessages.SoapResponse;
-            }
-            catch (Exception ex)
-            {
-                // If an error is encountered, client.LastSoapResponse often provides a more
-                // detailed description of the error.
-                string soapResponse = client.SoapMessages.SoapResponse;
-            }
+            return client;
         }
     }
 }

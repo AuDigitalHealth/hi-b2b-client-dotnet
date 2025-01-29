@@ -1,5 +1,13 @@
 ### Change Log/Revision History
 
+1.9.0
+-----
+* Updated packages to highest compatible version
+  - AutoMapper 6.2.2 --> 7.0.1
+  - System.ServiceModel.Http 4.9.0 --> 4.10.3
+
+* Async implemtation added.
+
 1.8.2
 -----
 * Fix order of elements in IHISearch

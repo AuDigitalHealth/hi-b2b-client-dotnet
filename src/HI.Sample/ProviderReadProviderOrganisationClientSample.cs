@@ -35,6 +35,88 @@ namespace Nehta.VendorLibrary.HI.Sample
     {
         public void Sample()
         {
+            //Set up client
+            ProviderReadProviderOrganisationClient client = CreateClient();
+
+            // Create the request
+            var directoryEntry = new readProviderOrganisation
+            {
+                hpioNumber = "http://ns.electronichealth.net.au/id/hi/hpio/1.0/" + "HPIO Number Here",
+                linkSearchType = "link Search Type Here"
+            };
+
+            // Submit the request  
+            try
+            {
+                var response = client.ReadProviderOrganisation(directoryEntry);
+            }
+            catch (FaultException fex)
+            {
+                string returnError = "";
+                MessageFault fault = fex.CreateMessageFault();
+                if (fault.HasDetail)
+                {
+                    ServiceMessagesType error = fault.GetDetail<ServiceMessagesType>();
+                    // Look at error details in here
+                    if (error.serviceMessage.Length > 0)
+                        returnError = error.serviceMessage[0].code + ": " + error.serviceMessage[0].reason;
+                }
+
+                // If an error is encountered, client.LastSoapResponse often provides a more
+                // detailed description of the error.
+                string soapResponse = client.SoapMessages.SoapResponse;
+            }
+            catch (Exception x)
+            {
+                // If an error is encountered, client.LastSoapResponse often provides a more
+                // detailed description of the error.
+                string soapResponse = client.SoapMessages.SoapResponse;
+            }
+        }
+
+        public async void SampleAsync()
+        {
+            //Set up client
+            ProviderReadProviderOrganisationClient client = CreateClient();
+
+            // Create the request
+            var directoryEntry = new readProviderOrganisation
+            {
+                hpioNumber = "http://ns.electronichealth.net.au/id/hi/hpio/1.0/" + "HPIO Number Here",
+                linkSearchType = "link Search Type Here"
+            };
+
+            // Submit the request  
+            try
+            {
+                var response = await client.ReadProviderOrganisationAsync(directoryEntry);
+            }
+            catch (FaultException fex)
+            {
+                string returnError = "";
+                MessageFault fault = fex.CreateMessageFault();
+                if (fault.HasDetail)
+                {
+                    ServiceMessagesType error = fault.GetDetail<ServiceMessagesType>();
+                    // Look at error details in here
+                    if (error.serviceMessage.Length > 0)
+                        returnError = error.serviceMessage[0].code + ": " + error.serviceMessage[0].reason;
+                }
+
+                // If an error is encountered, client.LastSoapResponse often provides a more
+                // detailed description of the error.
+                string soapResponse = client.SoapMessages.SoapResponse;
+            }
+            catch (Exception x)
+            {
+                // If an error is encountered, client.LastSoapResponse often provides a more
+                // detailed description of the error.
+                string soapResponse = client.SoapMessages.SoapResponse;
+            }
+        }
+
+        public ProviderReadProviderOrganisationClient CreateClient()
+        {
             // ------------------------------------------------------------------------------
             // Set up
             // ------------------------------------------------------------------------------
@@ -84,7 +166,7 @@ namespace Nehta.VendorLibrary.HI.Sample
             };
 
             // ------------------------------------------------------------------------------
-            // Client instantiation and invocation
+            // Client instantiation
             // ------------------------------------------------------------------------------
 
             // Instantiate the client
@@ -96,42 +178,10 @@ namespace Nehta.VendorLibrary.HI.Sample
                 signingCert,
                 tlsCert
                 );
+            
+            return client;
 
-            // Create the request
-            var directoryEntry = new readProviderOrganisation
-            {
-                hpioNumber = "http://ns.electronichealth.net.au/id/hi/hpio/1.0/" + "HPIO Number Here",
-                linkSearchType = "link Search Type Here"
-            };
-
-            // Submit the request  
-            try
-            {
-                var response = client.ReadProviderOrganisation(directoryEntry);
-            }
-            catch (FaultException fex)
-            {
-                string returnError = "";
-                MessageFault fault = fex.CreateMessageFault();
-                if (fault.HasDetail)
-                {
-                    ServiceMessagesType error = fault.GetDetail<ServiceMessagesType>();
-                    // Look at error details in here
-                    if (error.serviceMessage.Length > 0)
-                        returnError = error.serviceMessage[0].code + ": " + error.serviceMessage[0].reason;
-                }
-
-                // If an error is encountered, client.LastSoapResponse often provides a more
-                // detailed description of the error.
-                string soapResponse = client.SoapMessages.SoapResponse;
-            }
-            catch (Exception x)
-            {
-                // If an error is encountered, client.LastSoapResponse often provides a more
-                // detailed description of the error.
-                string soapResponse = client.SoapMessages.SoapResponse;
-            }
         }
-         
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Security.Cryptography.X509Certificates;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
@@ -8,6 +9,7 @@ using Nehta.VendorLibrary.Common;
 using ProductType = nehta.mcaR32.ProviderManageProviderOrganisation.ProductType;
 using QualifiedId = nehta.mcaR32.ProviderManageProviderOrganisation.QualifiedId;
 using TimestampType = nehta.mcaR32.ProviderManageProviderOrganisation.TimestampType;
+using System.Security.Cryptography.Xml;
 
 namespace Nehta.VendorLibrary.HI
 {
@@ -203,6 +205,44 @@ namespace Nehta.VendorLibrary.HI
 
 
             if (response != null && response.manageProviderOrganisationResult != null)
+                return response.manageProviderOrganisationResult;
+            else
+                throw new ApplicationException(Properties.Resources.UnexpectedServiceResponse);
+        }
+
+        /// <summary>
+        /// Asynchronous implementation of <see cref="ManageProviderOrganisation" />.
+        /// </summary>
+        public async Task<manageProviderOrganisationResult> ManageProviderOrganisationAsync(manageProviderOrganisation manageProviderOrganisation)
+        {
+            manageProviderOrganisationResponse1 response1 = null;
+            manageProviderOrganisationResponse response = null;
+
+            try
+            {
+                var sig = new SignatureContainerType();
+
+                var timestamp = new TimestampType()
+                {
+                    created = DateTime.Now,
+                    expires = DateTime.Now.AddDays(30),
+                    expiresSpecified = true
+                };
+
+                response1 = await providerSearchForProviderOrganisationClient.manageProviderOrganisationAsync(
+                    _product, sig, timestamp, _user, _hpio, manageProviderOrganisation);
+
+                response = response1.manageProviderOrganisationResponse;
+            }
+            catch (Exception ex)
+            {
+                // Catch generic FaultException and call helper to throw a more specific fault
+                // (FaultException<ServiceMessagesType>
+                FaultHelper.ProcessAndThrowFault<ServiceMessagesType>(ex);
+            }
+
+            if (response != null && response.manageProviderOrganisationResult != null)
+
                 return response.manageProviderOrganisationResult;
             else
                 throw new ApplicationException(Properties.Resources.UnexpectedServiceResponse);

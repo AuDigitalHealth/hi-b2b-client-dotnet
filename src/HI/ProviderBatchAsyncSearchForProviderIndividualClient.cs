@@ -13,6 +13,7 @@
  */
 
 using System;
+using System.Threading.Tasks;
 using System.Security.Cryptography.X509Certificates;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
@@ -182,6 +183,49 @@ namespace Nehta.VendorLibrary.HI
                 throw new ApplicationException(Properties.Resources.UnexpectedServiceResponse);
         }
 
+        /// <summary>
+        /// Asynchronous implementation of <see cref="BatchSubmitProviderIndividuals" />.
+        /// </summary>
+        public async Task<submitSearchForProviderIndividualResponse> BatchSubmitProviderIndividualsAsync(BatchSearchForProviderIndividualCriteriaType[] request)
+        {
+            var envelope = new submitSearchForProviderIndividualRequest()
+            {
+                submitSearchForProviderIndividual = request,
+                product = product,
+                user = user,
+                hpio = hpio,
+                signature = new SignatureContainerType()
+            };
+
+            envelope.timestamp = new TimestampType()
+            {
+                created = DateTime.Now,
+                expires = DateTime.Now.AddDays(30),
+                expiresSpecified = true
+            };
+
+            // Set LastSoapRequestTimestamp
+            LastSoapRequestTimestamp = envelope.timestamp;
+
+            submitSearchForProviderIndividualResponse1 response1 = null;
+
+            try
+            {
+                response1 = await providerBatchAsyncSearchForProviderIndividualClient.submitSearchForProviderIndividualAsync(envelope);
+            }
+            catch (Exception ex)
+            {
+                // Catch generic FaultException and call helper to throw a more specific fault
+                // (FaultException<ServiceMessagesType>
+                FaultHelper.ProcessAndThrowFault<ServiceMessagesType>(ex);
+            }
+
+            if (response1 != null && response1.submitSearchForProviderIndividualResponse != null)
+                return response1.submitSearchForProviderIndividualResponse;
+            else
+                throw new ApplicationException(Properties.Resources.UnexpectedServiceResponse);
+        }
+
 
         /// <summary>
         /// Perform the service call.
@@ -214,6 +258,49 @@ namespace Nehta.VendorLibrary.HI
             try
             {
                 response1 = providerBatchAsyncSearchForProviderIndividualClient.retrieveSearchForProviderIndividual(envelope);
+            }
+            catch (Exception ex)
+            {
+                // Catch generic FaultException and call helper to throw a more specific fault
+                // (FaultException<ServiceMessagesType>
+                FaultHelper.ProcessAndThrowFault<ServiceMessagesType>(ex);
+            }
+
+            if (response1 != null && response1.retrieveSearchForProviderIndividualResponse != null)
+                return response1.retrieveSearchForProviderIndividualResponse;
+            else
+                throw new ApplicationException(Properties.Resources.UnexpectedServiceResponse);
+        }
+
+        /// <summary>
+        /// Asynchronous implementation of <see cref="BatchRetrieveProviderIndividuals" />.
+        /// </summary>
+        public async Task<retrieveSearchForProviderIndividualResponse> BatchRetrieveProviderIndividualsAsync(retrieveSearchForProviderIndividual request)
+        {
+            var envelope = new retrieveSearchForProviderIndividualRequest()
+            {
+                retrieveSearchForProviderIndividual = request,
+                product = product,
+                user = user,
+                hpio = hpio,
+                signature = new SignatureContainerType()
+            };
+
+            envelope.timestamp = new TimestampType()
+            {
+                created = DateTime.Now,
+                expires = DateTime.Now.AddDays(30),
+                expiresSpecified = true
+            };
+
+            // Set LastSoapRequestTimestamp
+            LastSoapRequestTimestamp = envelope.timestamp;
+
+            retrieveSearchForProviderIndividualResponse1 response1 = null;
+
+            try
+            {
+                response1 = await providerBatchAsyncSearchForProviderIndividualClient.retrieveSearchForProviderIndividualAsync(envelope);
             }
             catch (Exception ex)
             {

@@ -13,6 +13,7 @@
  */
 
 using System;
+using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.ServiceModel.Channels;
 using System.Security.Cryptography.X509Certificates;
@@ -184,6 +185,49 @@ namespace Nehta.VendorLibrary.HI
         }
 
         /// <summary>
+        /// Asynchronous implementation of <see cref="SubmitSearchIHIBatch" />.
+        /// </summary>
+        public async Task<submitSearchIHIBatchResponse1> SubmitSearchIHIBatchAsync(List<CommonSearchIHIRequestType> searches)
+        {
+            Validation.ValidateArgumentRequired("searches", searches);
+
+            var envelope = new submitSearchIHIBatchRequest();
+
+            var mappedSearches = Utility.Mapper.Map<List<CommonSearchIHIRequestType>, List<SearchIHIRequestType>>(searches);
+
+            envelope.submitSearchIHIBatch = mappedSearches.ToArray();
+            envelope.product = product;
+            envelope.user = user;
+            envelope.hpio = hpio;
+            envelope.signature = new SignatureContainerType();
+
+            envelope.timestamp = new TimestampType()
+            {
+                created = DateTime.Now,
+                expires = DateTime.Now.AddDays(30),
+                expiresSpecified = true
+            };
+
+            // Set LastSoapRequestTimestamp
+            LastSoapRequestTimestamp = envelope.timestamp;
+
+            submitSearchIHIBatchResponse1 response = null;
+
+            try
+            {
+                response = await ihiBatchClient.submitSearchIHIBatchAsync(envelope);
+            }
+            catch (Exception ex)
+            {
+                // Catch generic FaultException and call helper to throw a more specific fault
+                // (FaultException<ServiceMessagesType>
+                FaultHelper.ProcessAndThrowFault<ServiceMessagesType>(ex);
+            }
+
+            return response;
+        }
+
+        /// <summary>
         /// Retrieve the status of a batch search.
         /// </summary>
         /// <param name="batchIdentifier">The batch search identifier.</param>
@@ -218,6 +262,50 @@ namespace Nehta.VendorLibrary.HI
             try
             {
                 response = ihiBatchClient.getSearchIHIBatchStatus(envelope);
+            }
+            catch (Exception ex)
+            {
+                // Catch generic FaultException and call helper to throw a more specific fault
+                // (FaultException<ServiceMessagesType>
+                FaultHelper.ProcessAndThrowFault<ServiceMessagesType>(ex);
+            }
+
+            return response;
+        }
+
+        /// <summary>
+        /// Asynchronous implementation of <see cref="GetSearchIHIBatchStatus" />.
+        /// </summary>
+        public async Task<getSearchIHIBatchStatusResponse1> GetSearchIHIBatchStatusAsync(string batchIdentifier)
+        {
+            Validation.ValidateArgumentRequired("batchIdentifier", batchIdentifier);
+
+            var envelope = new getSearchIHIBatchStatusRequest();
+
+            envelope.getSearchIHIBatchStatus = new getSearchIHIBatchStatus()
+            {
+                batchIdentifier = batchIdentifier
+            };
+            envelope.product = product;
+            envelope.user = user;
+            envelope.hpio = hpio;
+            envelope.signature = new SignatureContainerType();
+
+            envelope.timestamp = new TimestampType()
+            {
+                created = DateTime.Now,
+                expires = DateTime.Now.AddDays(30),
+                expiresSpecified = true
+            };
+
+            // Set LastSoapRequestTimestamp
+            LastSoapRequestTimestamp = envelope.timestamp;
+
+            getSearchIHIBatchStatusResponse1 response = null;
+
+            try
+            {
+                response = await ihiBatchClient.getSearchIHIBatchStatusAsync(envelope);
             }
             catch (Exception ex)
             {
@@ -276,6 +364,50 @@ namespace Nehta.VendorLibrary.HI
         }
 
         /// <summary>
+        /// Asynchronous implementation of <see cref="RetrieveSearchIHIBatch" />.
+        /// </summary>
+        public async Task<retrieveSearchIHIBatchResponse1> RetrieveSearchIHIBatchAsync(string batchIdentifier)
+        {
+            Validation.ValidateArgumentRequired("batchIdentifier", batchIdentifier);
+
+            var envelope = new retrieveSearchIHIBatchRequest();
+
+            envelope.retrieveSearchIHIBatch = new retrieveSearchIHIBatch()
+            {
+                batchIdentifier = batchIdentifier
+            };
+            envelope.product = product;
+            envelope.user = user;
+            envelope.hpio = hpio;
+            envelope.signature = new SignatureContainerType();
+
+            envelope.timestamp = new TimestampType()
+            {
+                created = DateTime.Now,
+                expires = DateTime.Now.AddDays(30),
+                expiresSpecified = true
+            };
+
+            // Set LastSoapRequestTimestamp
+            LastSoapRequestTimestamp = envelope.timestamp;
+
+            retrieveSearchIHIBatchResponse1 response = null;
+
+            try
+            {
+                response = await ihiBatchClient.retrieveSearchIHIBatchAsync(envelope);
+            }
+            catch (Exception ex)
+            {
+                // Catch generic FaultException and call helper to throw a more specific fault
+                // (FaultException<ServiceMessagesType>
+                FaultHelper.ProcessAndThrowFault<ServiceMessagesType>(ex);
+            }
+
+            return response;
+        }
+
+        /// <summary>
         /// Remove the results of a batch IHI search after the results have been retrieved.
         /// </summary>
         /// <param name="batchIdentifier">The batch search identifier for the batch results to be deleted.</param>
@@ -310,6 +442,50 @@ namespace Nehta.VendorLibrary.HI
             try
             {
                 response = ihiBatchClient.deleteSearchIHIBatch(envelope);
+            }
+            catch (Exception ex)
+            {
+                // Catch generic FaultException and call helper to throw a more specific fault
+                // (FaultException<ServiceMessagesType>
+                FaultHelper.ProcessAndThrowFault<ServiceMessagesType>(ex);
+            }
+
+            return response;
+        }
+
+        /// <summary>
+        /// Asynchronous implementation of <see cref="DeleteSearchIHIBatch" />.
+        /// </summary>
+        public async  Task<deleteSearchIHIBatchResponse1> DeleteSearchIHIBatchAsync(string batchIdentifier)
+        {
+            Validation.ValidateArgumentRequired("batchIdentifier", batchIdentifier);
+
+            var envelope = new deleteSearchIHIBatchRequest();
+
+            envelope.deleteSearchIHIBatch = new deleteSearchIHIBatch()
+            {
+                batchIdentifier = batchIdentifier
+            };
+            envelope.product = product;
+            envelope.user = user;
+            envelope.hpio = hpio;
+            envelope.signature = new SignatureContainerType();
+
+            envelope.timestamp = new TimestampType()
+            {
+                created = DateTime.Now,
+                expires = DateTime.Now.AddDays(30),
+                expiresSpecified = true
+            };
+
+            // Set LastSoapRequestTimestamp
+            LastSoapRequestTimestamp = envelope.timestamp;
+
+            deleteSearchIHIBatchResponse1 response = null;
+
+            try
+            {
+                response = await ihiBatchClient.deleteSearchIHIBatchAsync(envelope);
             }
             catch (Exception ex)
             {

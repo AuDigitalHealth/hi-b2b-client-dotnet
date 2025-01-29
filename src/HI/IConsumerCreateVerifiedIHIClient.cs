@@ -1,4 +1,5 @@
 ﻿using nehta.mcaR40.CreateVerifiedIHI;
+using System.Threading.Tasks;
 
 namespace Nehta.VendorLibrary.HI
 {
@@ -25,5 +26,10 @@ namespace Nehta.VendorLibrary.HI
         /// </list>
         /// </returns>
         createVerifiedIHIResponse CreateVerifiedIhi(createVerifiedIHI request);
+
+        /// <summary>
+        /// Asynchronous implementation of <see cref="CreateVerifiedIhi" />.
+        /// </summary>
+        Task<createVerifiedIHIResponse> CreateVerifiedIhiAsync(createVerifiedIHI request);
     }
 }

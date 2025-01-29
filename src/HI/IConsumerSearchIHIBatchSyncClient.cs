@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using nehta.mcaR3.ConsumerSearchIHIBatchSync;
 using Nehta.VendorLibrary.HI.Common;
+using System.Threading.Tasks;
 
 namespace Nehta.VendorLibrary.HI
 {
@@ -22,5 +23,10 @@ namespace Nehta.VendorLibrary.HI
         /// </list>
         /// </returns>
         searchIHIBatchResponse SearchIHIBatchSync(List<CommonSearchIHIRequestType> searches);
+
+        /// <summary>
+        /// Asynchronous implementation of <see cref="SearchIHIBatchSync" />.
+        /// </summary>
+        Task<searchIHIBatchResponse> SearchIHIBatchSyncAsync(List<CommonSearchIHIRequestType> searches);
     }
 }

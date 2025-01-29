@@ -13,6 +13,7 @@
  */
 
 using System;
+using System.Threading.Tasks;
 using System.ServiceModel.Channels;
 using System.Security.Cryptography.X509Certificates;
 using System.ServiceModel;
@@ -29,7 +30,7 @@ namespace Nehta.VendorLibrary.HI
     public class ConsumerCreateVerifiedIHIModClient : IConsumerCreateVerifiedIHIModClient
     {
         internal ConsumerCreateVerifiedIHIPortType createVerifiedIhiClient;
-
+        
         /// <summary>
         /// SOAP messages for the last client call.
         /// </summary>
@@ -169,6 +170,40 @@ namespace Nehta.VendorLibrary.HI
             return IHICreateVerified(request);
         }
 
+        /// <summary>
+        /// Create an asynchronous Verified IHI service call.
+        /// </summary>
+        /// <param name="request" />
+        /// The create criteria. The following fields are expected:
+        /// <list type="bullet">
+        /// <item><description>familyName (Mandatory)</description></item>
+        /// <item><description>givenName (Optional)</description></item>
+        /// <item><description>dateOfBirth (Mandatory)</description></item>
+        /// <item><description>sex (Mandatory)</description></item>
+        /// </list>
+        /// <returns>
+        /// An asynchronous task returning a createVerifiedIHIResponse instance containing:
+        /// <list type="bullet">
+        /// <item><description>IHI number</description></item>
+        /// <item><description>IHI record status</description></item>
+        /// <item><description>IHI status</description></item>
+        /// <item><description>serviceMessage (optional)</description></item>
+        /// </list>
+        /// </returns>
+        public async Task<createVerifiedIHIResponse> CreateVerifiedIhiAsync(createVerifiedIHI request)
+        {
+            Validation.ValidateArgumentRequired("request", request);
+            Validation.ValidateDateTime("request.dateOfBirth", request.dateOfBirth);
+            Validation.ValidateArgumentRequired("request.dateOfBirthAccuracyIndicator", request.dateOfBirthAccuracyIndicator);
+            Validation.ValidateArgumentRequired("request.sex", request.sex);
+            Validation.ValidateArgumentRequired("request.familyName", request.familyName);
+            Validation.ValidateArgumentRequired("request.usage", request.usage);
+            Validation.ValidateArgumentRequired("request.address", request.address);
+            Validation.ValidateArgumentRequired("request.privacyNotification", request.privacyNotification);
+
+            return await IHICreateVerifiedAsync(request);
+        }
+
 
         #region Private and internal methods
 
@@ -202,6 +237,51 @@ namespace Nehta.VendorLibrary.HI
             try
             {
                 response1 = createVerifiedIhiClient.createVerifiedIHI(envelope);
+            }
+            catch (Exception ex)
+            {
+                // Catch generic FaultException and call helper to throw a more specific fault
+                // (FaultException<ServiceMessagesType>
+                FaultHelper.ProcessAndThrowFault<ServiceMessagesType>(ex);
+            }
+
+            if (response1 != null && response1.createVerifiedIHIResponse != null)
+                return response1.createVerifiedIHIResponse;
+            else
+                throw new ApplicationException(Properties.Resources.UnexpectedServiceResponse);
+        }
+
+        /// <summary>
+        /// Perform the asynchronous IHI service call.
+        /// </summary>
+        /// <param name="request">The criteria in a createVerifiedIHI object.</param>
+        /// <returns>The IHI create results.</returns>
+        private async Task<createVerifiedIHIResponse> IHICreateVerifiedAsync(createVerifiedIHI request)
+        {
+            createVerifiedIHIRequest envelope = new createVerifiedIHIRequest();
+
+            envelope.createVerifiedIHI = request;
+            envelope.product = product;
+            envelope.user = user;
+            envelope.hpio = hpio;
+            envelope.signature = new SignatureContainerType();
+
+            envelope.timestamp = new TimestampType()
+            {
+                created = DateTime.Now.ToUniversalTime(),
+                expires = DateTime.Now.AddDays(30).ToUniversalTime(),
+                expiresSpecified = true
+            };
+
+            // Set LastSoapRequestTimestamp
+            LastSoapRequestTimestamp = envelope.timestamp;
+
+            createVerifiedIHIResponse1 response1 = null;
+
+            try
+            {   
+                //Todo needs async
+                response1 = await createVerifiedIhiClient.createVerifiedIHIAsync(envelope);
             }
             catch (Exception ex)
             {

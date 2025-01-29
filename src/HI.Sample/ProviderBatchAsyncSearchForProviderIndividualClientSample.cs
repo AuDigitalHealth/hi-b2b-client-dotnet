@@ -33,7 +33,65 @@ namespace Nehta.VendorLibrary.HI.Sample
     {
         public void Sample()
         {
+            //Set up client
+            ProviderBatchAsyncSearchForProviderIndividualClient client = CreateClient();
 
+            // Create the search request
+            var search1 = new BatchSearchForProviderIndividualCriteriaType()
+            {
+                requestIdentifier = Guid.NewGuid().ToString(),
+                searchForProviderIndividual = new searchForProviderIndividual()
+                {
+                    hpiiNumber = HIQualifiers.HPIIQualifier + "HPII TO SEARCH",
+                    familyName = "FAMILY NAME"
+                }
+            };
+
+            // Submit the batch search request  
+            var submitResponse =
+                client.BatchSubmitProviderIndividuals(new BatchSearchForProviderIndividualCriteriaType[]
+                {
+                    search1
+                });
+
+            // Retrieve the batch result
+            var retrieveResponse = client.BatchRetrieveProviderIndividuals(new retrieveSearchForProviderIndividual()
+            {
+                batchIdentifier = submitResponse.submitSearchForProviderIndividualResult.batchIdentifier
+            });
+        }
+
+        public async void SampleAsync()
+        {
+            //Set up client
+            ProviderBatchAsyncSearchForProviderIndividualClient client = CreateClient();
+
+            // Create the search request
+            var search1 = new BatchSearchForProviderIndividualCriteriaType()
+            {
+                requestIdentifier = Guid.NewGuid().ToString(),
+                searchForProviderIndividual = new searchForProviderIndividual()
+                {
+                    hpiiNumber = HIQualifiers.HPIIQualifier + "HPII TO SEARCH",
+                    familyName = "FAMILY NAME"
+                }
+            };
+
+            // Submit the batch search request  
+            var submitResponse = await client.BatchSubmitProviderIndividualsAsync(new BatchSearchForProviderIndividualCriteriaType[]
+            {
+                search1
+            });
+
+            // Retrieve the batch result
+            var retrieveResponse = await client.BatchRetrieveProviderIndividualsAsync(new retrieveSearchForProviderIndividual()
+            {
+                batchIdentifier = submitResponse.submitSearchForProviderIndividualResult.batchIdentifier
+            });
+        }
+
+        public ProviderBatchAsyncSearchForProviderIndividualClient CreateClient() 
+        {
             // ------------------------------------------------------------------------------
             // Set up
             // ------------------------------------------------------------------------------
@@ -95,29 +153,7 @@ namespace Nehta.VendorLibrary.HI.Sample
                 signingCert,
                 tlsCert);
 
-            // Create the search request
-            var search1 = new BatchSearchForProviderIndividualCriteriaType()
-            {
-                requestIdentifier = Guid.NewGuid().ToString(),
-                searchForProviderIndividual = new searchForProviderIndividual()
-                {
-                    hpiiNumber = HIQualifiers.HPIIQualifier + "HPII TO SEARCH",
-                    familyName = "FAMILY NAME"
-                }
-            };
-
-            // Submit the batch search request  
-            var submitResponse =
-                client.BatchSubmitProviderIndividuals(new BatchSearchForProviderIndividualCriteriaType[]
-                {
-                    search1
-                });
-
-            // Retrieve the batch result
-            var retrieveResponse = client.BatchRetrieveProviderIndividuals(new retrieveSearchForProviderIndividual()
-            {
-                batchIdentifier = submitResponse.submitSearchForProviderIndividualResult.batchIdentifier
-            });
+            return client;
         }
     }
 }

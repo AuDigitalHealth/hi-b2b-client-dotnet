@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using nehta.mcaR3.ConsumerSearchIHIBatchAsync;
 using Nehta.VendorLibrary.HI.Common;
+using System.Threading.Tasks;
 
 namespace Nehta.VendorLibrary.HI
 {
@@ -33,5 +34,25 @@ namespace Nehta.VendorLibrary.HI
         /// <param name="batchIdentifier">The batch search identifier for the batch results to be deleted.</param>
         /// <returns>The status of the delete operation.</returns>
         deleteSearchIHIBatchResponse1 DeleteSearchIHIBatch(string batchIdentifier);
+
+        /// <summary>
+        /// Asynchronous implementation of <see cref="SubmitSearchIHIBatch" />.
+        /// </summary>
+        Task<submitSearchIHIBatchResponse1> SubmitSearchIHIBatchAsync(List<CommonSearchIHIRequestType> searches);
+
+        /// <summary>
+        /// Asynchronous implementation of <see cref="GetSearchIHIBatchStatus" />.
+        /// </summary>
+        Task<getSearchIHIBatchStatusResponse1> GetSearchIHIBatchStatusAsync(string batchIdentifier);
+
+        /// <summary>
+        /// Asynchronous implementation of <see cref="RetrieveSearchIHIBatch" />.
+        /// </summary>
+        Task<retrieveSearchIHIBatchResponse1> RetrieveSearchIHIBatchAsync(string batchIdentifier);
+
+        /// <summary>
+        /// Asynchronous implementation of <see cref="DeleteSearchIHIBatch" />.
+        /// </summary>
+        Task<deleteSearchIHIBatchResponse1> DeleteSearchIHIBatchAsync(string batchIdentifier);
     }
 }

@@ -13,6 +13,7 @@
  */
 
 using System;
+using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.ServiceModel.Channels;
 using System.Security.Cryptography.X509Certificates;
@@ -182,6 +183,52 @@ namespace Nehta.VendorLibrary.HI
             try
             {
                 response = ihiBatchClient.searchIHIBatchSync(envelope);
+            }
+            catch (Exception ex)
+            {
+                // Catch generic FaultException and call helper to throw a more specific fault
+                // (FaultException<ServiceMessagesType>
+                FaultHelper.ProcessAndThrowFault<ServiceMessagesType>(ex);
+            }
+
+            if (response != null && response.searchIHIBatchResponse != null)
+                return response.searchIHIBatchResponse;
+            else
+                throw new ApplicationException(Properties.Resources.UnexpectedServiceResponse);
+        }
+
+        /// <summary>
+        /// Asynchronous implementation of <see cref="SearchIHIBatchSync" />.
+        /// </summary>
+        public async Task<searchIHIBatchResponse> SearchIHIBatchSyncAsync(List<CommonSearchIHIRequestType> searches)
+        {
+            Validation.ValidateArgumentRequired("searches", searches);
+
+            searchIHIBatchSyncRequest envelope = new searchIHIBatchSyncRequest();
+
+            var mappedSearches = Utility.Mapper.Map<List<CommonSearchIHIRequestType>, List<SearchIHIRequestType>>(searches);
+
+            envelope.searchIHIBatchSync = mappedSearches.ToArray();
+            envelope.product = product;
+            envelope.user = user;
+            envelope.hpio = hpio;
+            envelope.signature = new SignatureContainerType();
+
+            envelope.timestamp = new TimestampType()
+            {
+                created = DateTime.Now,
+                expires = DateTime.Now.AddDays(30),
+                expiresSpecified = true
+            };
+
+            // Set LastSoapRequestTimestamp
+            LastSoapRequestTimestamp = envelope.timestamp;
+
+            searchIHIBatchSyncResponse response = null;
+
+            try
+            {
+                response = await ihiBatchClient.searchIHIBatchSyncAsync(envelope);
             }
             catch (Exception ex)
             {

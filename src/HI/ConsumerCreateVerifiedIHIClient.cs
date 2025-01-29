@@ -13,6 +13,7 @@
  */
 
 using System;
+using System.Threading.Tasks;
 using System.ServiceModel.Channels;
 using System.Security.Cryptography.X509Certificates;
 using System.ServiceModel;
@@ -169,6 +170,22 @@ namespace Nehta.VendorLibrary.HI
             return IHICreateVerified(request);
         }
 
+        /// <summary>
+        /// Asynchronous implementation of <see cref="CreateVerifiedIhi" />.
+        /// </summary>
+        public async Task<createVerifiedIHIResponse> CreateVerifiedIhiAsync(createVerifiedIHI request)
+        {
+            Validation.ValidateArgumentRequired("request", request);
+            Validation.ValidateDateTime("request.dateOfBirth", request.dateOfBirth);
+            Validation.ValidateArgumentRequired("request.dateOfBirthAccuracyIndicator", request.dateOfBirthAccuracyIndicator);
+            Validation.ValidateArgumentRequired("request.sex", request.sex);
+            Validation.ValidateArgumentRequired("request.familyName", request.familyName);
+            Validation.ValidateArgumentRequired("request.usage", request.usage);
+            Validation.ValidateArgumentRequired("request.address", request.address);
+            Validation.ValidateArgumentRequired("request.privacyNotification", request.privacyNotification);
+
+            return await IHICreateVerifiedAsync(request);
+        }
 
         #region Private and internal methods
 
@@ -202,6 +219,48 @@ namespace Nehta.VendorLibrary.HI
             try
             {
                 response1 = createVerifiedIhiClient.createVerifiedIHI(envelope);
+            }
+            catch (Exception ex)
+            {
+                // Catch generic FaultException and call helper to throw a more specific fault
+                // (FaultException<ServiceMessagesType>
+                FaultHelper.ProcessAndThrowFault<ServiceMessagesType>(ex);
+            }
+
+            if (response1 != null && response1.createVerifiedIHIResponse != null)
+                return response1.createVerifiedIHIResponse;
+            else
+                throw new ApplicationException(Properties.Resources.UnexpectedServiceResponse);
+        }
+
+        /// <summary>
+        /// Asynchronous implementation of <see cref="IHICreateVerified" />.
+        /// </summary>
+        private async Task<createVerifiedIHIResponse> IHICreateVerifiedAsync(createVerifiedIHI request)
+        {
+            createVerifiedIHIRequest envelope = new createVerifiedIHIRequest();
+
+            envelope.createVerifiedIHI = request;
+            envelope.product = product;
+            envelope.user = user;
+            envelope.hpio = hpio;
+            envelope.signature = new SignatureContainerType();
+
+            envelope.timestamp = new TimestampType()
+            {
+                created = DateTime.Now.ToUniversalTime(),
+                expires = DateTime.Now.AddDays(30).ToUniversalTime(),
+                expiresSpecified = true
+            };
+
+            // Set LastSoapRequestTimestamp
+            LastSoapRequestTimestamp = envelope.timestamp;
+
+            createVerifiedIHIResponse1 response1 = null;
+           
+            try
+            {
+                response1 = await createVerifiedIhiClient.createVerifiedIHIAsync(envelope);
             }
             catch (Exception ex)
             {

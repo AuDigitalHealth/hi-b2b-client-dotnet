@@ -13,6 +13,7 @@
  */
 
 using System;
+using System.Threading.Tasks;
 using System.ServiceModel.Channels;
 using System.Security.Cryptography.X509Certificates;
 using System.ServiceModel;
@@ -190,6 +191,24 @@ namespace Nehta.VendorLibrary.HI
         }
 
         /// <summary>
+        /// Asynchronous implementation of <see cref="IdentifierSearch" />.
+        /// </summary>
+        public async Task<searchHIProviderDirectoryForIndividualResponse> IdentifierSearchAsync(searchHIProviderDirectoryForIndividual request)
+        {
+            Validation.ValidateArgumentRequired("request.hpiiNumber", request.hpiiNumber);
+            Validation.ValidateArgumentNotAllowed("request.australianAddressCriteria", request.australianAddressCriteria);
+            Validation.ValidateArgumentNotAllowed("request.familyName", request.familyName);
+            Validation.ValidateArgumentNotAllowed("request.givenName", request.givenName);
+            Validation.ValidateArgumentNotAllowed("request.internationalAddressCriteria", request.internationalAddressCriteria);
+            Validation.ValidateArgumentNotAllowed("request.providerSpecialisation", request.providerSpecialisation);
+            Validation.ValidateArgumentNotAllowed("request.providerSpecialty", request.providerSpecialty);
+            Validation.ValidateArgumentNotAllowed("request.providerTypeCode", request.providerTypeCode);
+            Validation.ValidateArgumentNotAllowed("request.sexSpecified", request.sexSpecified);
+
+            return await HISearchAsync(request);
+        }
+
+        /// <summary>
         /// Perform a demographic details search on the provider search service.
         /// </summary>
         /// <param name="request">
@@ -308,6 +327,33 @@ namespace Nehta.VendorLibrary.HI
             return HISearch(request);
         }
 
+        /// <summary>
+        /// Asynchronous implementation of <see cref="DemographicSearch" />.
+        /// </summary>
+        public async Task<searchHIProviderDirectoryForIndividualResponse> DemographicSearchAsync(searchHIProviderDirectoryForIndividual request)
+        {
+            Validation.ValidateArgumentNotAllowed("request.hpiiNumber", request.hpiiNumber);
+
+            if (request.australianAddressCriteria != null)
+            {
+                Validation.ValidateArgumentNotAllowed("request.internationalAddressCriteria", request.internationalAddressCriteria);
+                Validation.ValidateArgumentRequired("request.australianAddressCriteria.suburb", request.australianAddressCriteria.suburb);
+                Validation.ValidateArgumentRequired("request.australianAddressCriteria.state", request.australianAddressCriteria.state);
+                Validation.ValidateArgumentRequired("request.australianAddressCriteria.postcode", request.australianAddressCriteria.postcode);
+            }
+
+            if (request.internationalAddressCriteria != null)
+            {
+                Validation.ValidateArgumentNotAllowed("request.australianAddressCriteria", request.australianAddressCriteria);
+                Validation.ValidateArgumentRequired("request.internationalAddressCriteria.internationalAddressLine", request.internationalAddressCriteria.internationalAddressLine);
+                Validation.ValidateArgumentRequired("request.internationalAddressCriteria.internationalStateProvince", request.internationalAddressCriteria.internationalStateProvince);
+                Validation.ValidateArgumentRequired("request.internationalAddressCriteria.internationalPostcode", request.internationalAddressCriteria.internationalPostcode);
+                Validation.ValidateArgumentRequired("request.internationalAddressCriteria.country", request.internationalAddressCriteria.country);
+            }
+
+            return await HISearchAsync(request);
+        }
+
         #region Private and internal methods
 
         /// <summary>
@@ -341,6 +387,49 @@ namespace Nehta.VendorLibrary.HI
             try
             {
                 response1 = providerSearchHIProviderDirectoryForIndividualClient.searchHIProviderDirectoryForIndividual(envelope);
+            }
+            catch (Exception ex)
+            {
+                // Catch generic FaultException and call helper to throw a more specific fault
+                // (FaultException<ServiceMessagesType>
+                FaultHelper.ProcessAndThrowFault<ServiceMessagesType>(ex);
+            }
+
+            if (response1 != null && response1.searchHIProviderDirectoryForIndividualResponse != null)
+                return response1.searchHIProviderDirectoryForIndividualResponse;
+            else
+                throw new ApplicationException(Properties.Resources.UnexpectedServiceResponse);
+        }
+
+        /// <summary>
+        /// Asynchronous implementation of <see cref="HISearch" />.
+        /// </summary>
+        private async Task<searchHIProviderDirectoryForIndividualResponse> HISearchAsync(searchHIProviderDirectoryForIndividual request)
+        {
+            searchHIProviderDirectoryForIndividualRequest envelope = new searchHIProviderDirectoryForIndividualRequest();
+
+            envelope.searchHIProviderDirectoryForIndividual = request;
+            envelope.product = product;
+            envelope.user = user;
+            envelope.hpio = hpio;
+            envelope.signature = new SignatureContainerType();
+
+
+            envelope.timestamp = new TimestampType()
+            {
+                created = DateTime.Now,
+                expires = DateTime.Now.AddDays(30),
+                expiresSpecified = true
+            };
+
+            // Set LastSoapRequestTimestamp
+            LastSoapRequestTimestamp = envelope.timestamp;
+
+            searchHIProviderDirectoryForIndividualResponse1 response1 = null;
+
+            try
+            {
+                response1 = await providerSearchHIProviderDirectoryForIndividualClient.searchHIProviderDirectoryForIndividualAsync(envelope);
             }
             catch (Exception ex)
             {

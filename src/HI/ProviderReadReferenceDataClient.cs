@@ -13,6 +13,7 @@
  */
 
 using System;
+using System.Threading.Tasks;
 using System.ServiceModel.Channels;
 using System.Security.Cryptography.X509Certificates;
 using System.ServiceModel;
@@ -179,6 +180,50 @@ namespace Nehta.VendorLibrary.HI
             try
             {
                 response1 = providerReadReferenceDataClient.readReferenceData(envelope);
+            }
+            catch (Exception ex)
+            {
+                // Catch generic FaultException and call helper to throw a more specific fault
+                // (FaultException<ServiceMessagesType>
+                FaultHelper.ProcessAndThrowFault<ServiceMessagesType>(ex);
+            }
+
+            if (response1 != null && response1.readReferenceDataResponse != null)
+                return response1.readReferenceDataResponse;
+            else
+                throw new ApplicationException(Properties.Resources.UnexpectedServiceResponse);
+        }
+
+        /// <summary>
+        /// Asynchronous implementation of <see cref="ReadReferenceData" />.
+        /// </summary>
+        public async Task<readReferenceDataResponse> ReadReferenceDataAsync(string[] referenceList)
+        {
+            Validation.ValidateArgumentRequired("referenceList", referenceList);
+
+            readReferenceDataRequest envelope = new readReferenceDataRequest();
+
+            envelope.readReferenceData = referenceList;
+            envelope.product = product;
+            envelope.user = user;
+            envelope.hpio = hpio;
+            envelope.signature = new SignatureContainerType();
+
+            envelope.timestamp = new TimestampType()
+            {
+                created = DateTime.Now.ToUniversalTime(),
+                expires = DateTime.Now.AddDays(30).ToUniversalTime(),
+                expiresSpecified = true
+            };
+
+            // Set LastSoapRequestTimestamp
+            LastSoapRequestTimestamp = envelope.timestamp;
+
+            readReferenceDataResponse1 response1 = null;
+
+            try
+            {
+                response1 = await providerReadReferenceDataClient.readReferenceDataAsync(envelope);
             }
             catch (Exception ex)
             {

@@ -1,4 +1,5 @@
-﻿using nehta.mcaR32.ProviderReadReferenceData;
+﻿using System.Threading.Tasks;
+using nehta.mcaR32.ProviderReadReferenceData;
 
 namespace Nehta.VendorLibrary.HI
 {
@@ -21,5 +22,10 @@ namespace Nehta.VendorLibrary.HI
         /// <param name="referenceList">A string array of request elements to look up.</param>
         /// <returns>The current reference data values for the specified elements.</returns>
         readReferenceDataResponse ReadReferenceData(string[] referenceList);
+
+        /// <summary>
+        /// Asynchronous implementation of <see cref="ReadReferenceData" />.
+        /// </summary>
+        Task<readReferenceDataResponse> ReadReferenceDataAsync(string[] referenceList);
     }
 }

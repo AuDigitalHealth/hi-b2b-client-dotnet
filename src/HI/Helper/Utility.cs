@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using AutoMapper;
+﻿using AutoMapper;
 using Nehta.VendorLibrary.HI.Common;
 using Async = nehta.mcaR3.ConsumerSearchIHIBatchAsync;
 using Sync = nehta.mcaR3.ConsumerSearchIHIBatchSync;

@@ -1,4 +1,5 @@
 ﻿using nehta.mcaR3.ConsumerSearchIHI;
+using System.Threading.Tasks;
 
 namespace Nehta.VendorLibrary.HI
 {
@@ -296,5 +297,45 @@ namespace Nehta.VendorLibrary.HI
         /// </list>
         /// </returns>
         searchIHIResponse InternationalAddressSearch(searchIHI request);
+
+        /// <summary>
+        /// Asynchronous implementation of <see cref="BasicSearch" />.
+        /// </summary>
+        Task<searchIHIResponse> BasicSearchAsync(searchIHI request);
+
+        /// <summary>
+        /// Asynchronous implementation of <see cref="BasicMedicareSearch" />.
+        /// </summary>
+        Task<searchIHIResponse> BasicMedicareSearchAsync(searchIHI request);
+
+        /// <summary>
+        /// Asynchronous implementation of <see cref="BasicDvaSearch" />.
+        /// </summary>
+        Task<searchIHIResponse> BasicDvaSearchAsync(searchIHI request);
+
+        /// <summary>
+        /// Asynchronous implementation of <see cref="DetailedSearch" />.
+        /// </summary>
+        Task<searchIHIResponse> DetailedSearchAsync(searchIHI request);
+
+        /// <summary>
+        /// Asynchronous implementation of <see cref="AustralianPostalAddressSearch" />.
+        /// </summary>
+        Task<searchIHIResponse> AustralianPostalAddressSearchAsync(searchIHI request);
+
+        /// <summary>
+        /// Asynchronous implementation of <see cref="AustralianStreetAddressSearch" />.
+        /// </summary>
+        Task<searchIHIResponse> AustralianStreetAddressSearchAsync(searchIHI request);
+
+        /// <summary>
+        /// Asynchronous implementation of <see cref="AustralianUnstructuredAddressSearch" />.
+        /// </summary>
+        Task<searchIHIResponse> AustralianUnstructuredAddressSearchAsync(searchIHI request);
+
+        /// <summary>
+        /// Asynchronous implementation of <see cref="InternationalAddressSearch" />.
+        /// </summary>
+        Task<searchIHIResponse> InternationalAddressSearchAsync(searchIHI request);
     }
 }

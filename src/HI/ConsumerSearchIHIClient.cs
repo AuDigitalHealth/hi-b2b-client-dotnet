@@ -13,6 +13,7 @@
  */
 
 using System;
+using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.ServiceModel.Channels;
 using System.Security.Cryptography.X509Certificates;
@@ -180,6 +181,26 @@ namespace Nehta.VendorLibrary.HI
         }
 
         /// <summary>
+        /// Asynchronous implementation of <see cref="BasicSearch" />.
+        /// </summary>
+        public async Task<searchIHIResponse> BasicSearchAsync(searchIHI request)
+        {
+            Validation.ValidateArgumentRequired("request", request);
+            Validation.ValidateArgumentRequired("request.ihiNumber", request.ihiNumber);
+            Validation.ValidateArgumentRequired("request.familyName", request.familyName);
+            Validation.ValidateDateTime("request.dateOfBirth", request.dateOfBirth);
+
+            Validation.ValidateArgumentNotAllowed("request.australianPostalAddress", request.australianPostalAddress);
+            Validation.ValidateArgumentNotAllowed("request.australianStreetAddress", request.australianStreetAddress);
+            Validation.ValidateArgumentNotAllowed("request.dvaFileNumber", request.dvaFileNumber);
+            Validation.ValidateArgumentNotAllowed("request.internationalAddress", request.internationalAddress);
+            Validation.ValidateArgumentNotAllowed("request.medicareCardNumber", request.medicareCardNumber);
+            Validation.ValidateArgumentNotAllowed("request.medicareIRN", request.medicareIRN);
+
+            return await IHISearchAsync(request);
+        }
+
+        /// <summary>
         /// Perform a basic medicare search on the ConsumerSearchIHI service.
         /// </summary>
         /// <param name="request">
@@ -221,6 +242,24 @@ namespace Nehta.VendorLibrary.HI
             Validation.ValidateArgumentNotAllowed("request.internationalAddress", request.internationalAddress);
 
             return IHISearch(request);
+        }
+
+        /// <summary>
+        /// Asynchronous implementation of <see cref="BasicMedicareSearch" />.
+        /// </summary>
+        public async Task<searchIHIResponse> BasicMedicareSearchAsync(searchIHI request)
+        {
+            Validation.ValidateArgumentRequired("request.medicareCardNumber", request.medicareCardNumber);
+            Validation.ValidateArgumentRequired("request.familyName", request.familyName);
+            Validation.ValidateDateTime("request.dateOfBirth", request.dateOfBirth);
+
+            Validation.ValidateArgumentNotAllowed("request.ihiNumber", request.ihiNumber);
+            Validation.ValidateArgumentNotAllowed("request.dvaFileNumber", request.dvaFileNumber);
+            Validation.ValidateArgumentNotAllowed("request.australianPostalAddress", request.australianPostalAddress);
+            Validation.ValidateArgumentNotAllowed("request.australianStreetAddress", request.australianStreetAddress);
+            Validation.ValidateArgumentNotAllowed("request.internationalAddress", request.internationalAddress);
+
+            return await IHISearchAsync(request);
         }
 
         /// <summary>
@@ -268,6 +307,26 @@ namespace Nehta.VendorLibrary.HI
         }
 
         /// <summary>
+        /// Asynchronous implementation of <see cref="BasicDvaSearch" />.
+        /// </summary>
+        public async Task<searchIHIResponse> BasicDvaSearchAsync(searchIHI request)
+        {
+            Validation.ValidateArgumentRequired("request", request);
+            Validation.ValidateArgumentRequired("request.dvaFileNumber", request.dvaFileNumber);
+            Validation.ValidateArgumentRequired("request.familyName", request.familyName);
+            Validation.ValidateDateTime("request.dateOfBirth", request.dateOfBirth);
+
+            Validation.ValidateArgumentNotAllowed("request.medicareCardNumber", request.medicareCardNumber);
+            Validation.ValidateArgumentNotAllowed("request.medicareIRN", request.medicareIRN);
+            Validation.ValidateArgumentNotAllowed("request.ihiNumber", request.ihiNumber);
+            Validation.ValidateArgumentNotAllowed("request.australianPostalAddress", request.australianPostalAddress);
+            Validation.ValidateArgumentNotAllowed("request.australianStreetAddress", request.australianStreetAddress);
+            Validation.ValidateArgumentNotAllowed("request.internationalAddress", request.internationalAddress);
+
+            return await IHISearchAsync(request);
+        }
+
+        /// <summary>
         /// Perform a detailed search on the ConsumerSearchIHI service.
         /// </summary>
         /// <param name="request">
@@ -307,6 +366,26 @@ namespace Nehta.VendorLibrary.HI
             Validation.ValidateArgumentNotAllowed("request.internationalAddress", request.internationalAddress);        
 
             return IHISearch(request);
+        }
+
+        /// <summary>
+        /// Asynchronous implementation of <see cref="DetailedSearch" />.
+        /// </summary>
+        public async Task<searchIHIResponse> DetailedSearchAsync(searchIHI request)
+        {
+            Validation.ValidateArgumentRequired("request", request);
+            Validation.ValidateArgumentRequired("request.familyName", request.familyName);
+            Validation.ValidateDateTime("request.dateOfBirth", request.dateOfBirth);
+
+            Validation.ValidateArgumentNotAllowed("request.medicareCardNumber", request.medicareCardNumber);
+            Validation.ValidateArgumentNotAllowed("request.medicareIRN", request.medicareIRN);
+            Validation.ValidateArgumentNotAllowed("request.ihiNumber", request.ihiNumber);
+            Validation.ValidateArgumentNotAllowed("request.australianPostalAddress", request.australianPostalAddress);
+            Validation.ValidateArgumentNotAllowed("request.australianStreetAddress", request.australianStreetAddress);
+            Validation.ValidateArgumentNotAllowed("request.dvaFileNumber", request.dvaFileNumber);
+            Validation.ValidateArgumentNotAllowed("request.internationalAddress", request.internationalAddress);
+
+            return await IHISearchAsync(request);
         }
 
         /// <summary>
@@ -371,6 +450,31 @@ namespace Nehta.VendorLibrary.HI
             Validation.ValidateArgumentNotAllowed("request.internationalAddress", request.internationalAddress);    
 
             return IHISearch(request);
+        }
+
+        /// <summary>
+        /// Asynchronous implementation of <see cref="AustralianPostalAddressSearch" />.
+        /// </summary>
+        public async Task<searchIHIResponse> AustralianPostalAddressSearchAsync(searchIHI request)
+        {
+            Validation.ValidateArgumentRequired("request", request);
+            Validation.ValidateArgumentRequired("request.familyName", request.familyName);
+            Validation.ValidateDateTime("request.dateOfBirth", request.dateOfBirth);
+
+            // Check australian postal address
+            Validation.ValidateArgumentRequired("request.australianPostalAddress", request.australianPostalAddress);
+            Validation.ValidateArgumentRequired("request.australianPostalAddress.postalDeliveryGroup", request.australianPostalAddress.postalDeliveryGroup);
+            Validation.ValidateArgumentRequired("request.australianPostalAddress.suburb", request.australianPostalAddress.suburb);
+            Validation.ValidateArgumentRequired("request.australianPostalAddress.postcode", request.australianPostalAddress.postcode);
+
+            Validation.ValidateArgumentNotAllowed("request.medicareCardNumber", request.medicareCardNumber);
+            Validation.ValidateArgumentNotAllowed("request.medicareIRN", request.medicareIRN);
+            Validation.ValidateArgumentNotAllowed("request.ihiNumber", request.ihiNumber);
+            Validation.ValidateArgumentNotAllowed("request.australianStreetAddress", request.australianStreetAddress);
+            Validation.ValidateArgumentNotAllowed("request.dvaFileNumber", request.dvaFileNumber);
+            Validation.ValidateArgumentNotAllowed("request.internationalAddress", request.internationalAddress);
+
+            return await IHISearchAsync(request);
         }
 
         /// <summary>
@@ -458,6 +562,35 @@ namespace Nehta.VendorLibrary.HI
         }
 
         /// <summary>
+        /// Asynchronous implementation of <see cref="AustralianPostalAddressSearch" />.
+        /// </summary>
+        public async Task<searchIHIResponse> AustralianStreetAddressSearchAsync(searchIHI request)
+        {
+            Validation.ValidateArgumentRequired("request", request);
+            Validation.ValidateArgumentRequired("request.familyName", request.familyName);
+            Validation.ValidateDateTime("request.dateOfBirth", request.dateOfBirth);
+
+            // Check australian street address
+            Dictionary<string, object> c1 = new Dictionary<string, object>();
+            c1.Add("request.australianStreetAddress.streetNumber", request.australianStreetAddress.streetNumber);
+            c1.Add("request.australianStreetAddress.lotNumber", request.australianStreetAddress.lotNumber);
+            Validation.ValidateArgumentAtLeastOneRequired(c1);
+            Validation.ValidateArgumentRequired("request.australianStreetAddress", request.australianStreetAddress);
+            Validation.ValidateArgumentRequired("request.australianStreetAddress.postcode", request.australianStreetAddress.postcode);
+            Validation.ValidateArgumentRequired("request.australianStreetAddress.suburb", request.australianStreetAddress.suburb);
+            Validation.ValidateArgumentRequired("request.australianStreetAddress.streetName", request.australianStreetAddress.streetName);
+
+            Validation.ValidateArgumentNotAllowed("request.medicareCardNumber", request.medicareCardNumber);
+            Validation.ValidateArgumentNotAllowed("request.medicareIRN", request.medicareIRN);
+            Validation.ValidateArgumentNotAllowed("request.ihiNumber", request.ihiNumber);
+            Validation.ValidateArgumentNotAllowed("request.australianPostalAddress", request.australianPostalAddress);
+            Validation.ValidateArgumentNotAllowed("request.dvaFileNumber", request.dvaFileNumber);
+            Validation.ValidateArgumentNotAllowed("request.internationalAddress", request.internationalAddress);
+
+            return await IHISearchAsync(request);
+        }
+
+        /// <summary>
         /// Perform an australian unstructured street address search on the ConsumerSearchIHI service.
         /// </summary>
         /// <param name="request">
@@ -513,7 +646,32 @@ namespace Nehta.VendorLibrary.HI
 
             return IHISearch(request);
         }
-        
+
+        /// <summary>
+        /// Asynchronous implementation of <see cref="AustralianUnstructuredAddressSearch" />.
+        /// </summary>
+        public async Task<searchIHIResponse> AustralianUnstructuredAddressSearchAsync(searchIHI request)
+        {
+            Validation.ValidateArgumentRequired("request", request);
+            Validation.ValidateArgumentRequired("request.familyName", request.familyName);
+            Validation.ValidateDateTime("request.dateOfBirth", request.dateOfBirth);
+
+            // Check australian unstructured address
+            Validation.ValidateArgumentRequired("request.australianUnstructuredStreetAddress.suburb", request.australianUnstructuredStreetAddress.suburb);
+            Validation.ValidateArgumentRequired("request.australianUnstructuredStreetAddress.state", request.australianUnstructuredStreetAddress.state);
+            Validation.ValidateArgumentRequired("request.australianUnstructuredStreetAddress.postcode", request.australianUnstructuredStreetAddress.postcode);
+
+            Validation.ValidateArgumentNotAllowed("request.medicareCardNumber", request.medicareCardNumber);
+            Validation.ValidateArgumentNotAllowed("request.medicareIRN", request.medicareIRN);
+            Validation.ValidateArgumentNotAllowed("request.ihiNumber", request.ihiNumber);
+            Validation.ValidateArgumentNotAllowed("request.australianPostalAddress", request.australianPostalAddress);
+            Validation.ValidateArgumentNotAllowed("request.dvaFileNumber", request.dvaFileNumber);
+            Validation.ValidateArgumentNotAllowed("request.internationalAddress", request.internationalAddress);
+            Validation.ValidateArgumentNotAllowed("request.australianStreetAddress", request.australianStreetAddress);
+
+            return await IHISearchAsync(request);
+        }
+
         /// <summary>
         /// Perform an international address search on the ConsumerSearchIHI service.
         /// </summary>
@@ -570,7 +728,32 @@ namespace Nehta.VendorLibrary.HI
 
             return IHISearch(request);
         }
-        
+
+        /// <summary>
+        /// Asynchronous implementation of <see cref="InternationalAddressSearch" />.
+        /// </summary>
+        public async Task<searchIHIResponse> InternationalAddressSearchAsync(searchIHI request)
+        {
+            Validation.ValidateArgumentRequired("request", request);
+            Validation.ValidateArgumentRequired("request.familyName", request.familyName);
+            Validation.ValidateDateTime("request.dateOfBirth", request.dateOfBirth);
+
+            // Check international address
+            Validation.ValidateArgumentRequired("request.internationalAddress", request.internationalAddress);
+            Validation.ValidateArgumentRequired("request.internationalAddress.internationalStateProvince", request.internationalAddress.internationalStateProvince);
+            Validation.ValidateArgumentRequired("request.internationalAddress.internationalPostcode", request.internationalAddress.internationalPostcode);
+            Validation.ValidateArgumentRequired("request.internationalAddress.internationalAddressLine", request.internationalAddress.internationalAddressLine);
+
+            Validation.ValidateArgumentNotAllowed("request.medicareCardNumber", request.medicareCardNumber);
+            Validation.ValidateArgumentNotAllowed("request.medicareIRN", request.medicareIRN);
+            Validation.ValidateArgumentNotAllowed("request.ihiNumber", request.ihiNumber);
+            Validation.ValidateArgumentNotAllowed("request.australianPostalAddress", request.australianPostalAddress);
+            Validation.ValidateArgumentNotAllowed("request.australianStreetAddress", request.australianStreetAddress);
+            Validation.ValidateArgumentNotAllowed("request.dvaFileNumber", request.dvaFileNumber);
+
+            return await IHISearchAsync(request);
+        }
+
         #region Private and internal methods
 
         /// <summary>
@@ -603,6 +786,48 @@ namespace Nehta.VendorLibrary.HI
             try
             {
                 response1 = searchIhiClient.searchIHI(envelope);
+            }
+            catch (Exception ex)
+            {
+                // Catch generic FaultException and call helper to throw a more specific fault
+                // (FaultException<ServiceMessagesType>
+                FaultHelper.ProcessAndThrowFault<ServiceMessagesType>(ex);
+            }
+
+            if (response1 != null && response1.searchIHIResponse != null)
+                return response1.searchIHIResponse;
+            else
+                throw new ApplicationException(Properties.Resources.UnexpectedServiceResponse);
+        }
+
+        /// <summary>
+        /// Asynchronous implementation of <see cref="IHISearch" />.
+        /// </summary>
+        private async Task<searchIHIResponse> IHISearchAsync(searchIHI request)
+        {
+            searchIHIRequest envelope = new searchIHIRequest();
+
+            envelope.searchIHI = request;
+            envelope.product = product;
+            envelope.user = user;
+            envelope.hpio = hpio;
+            envelope.signature = new SignatureContainerType();
+
+            envelope.timestamp = new TimestampType()
+            {
+                created = DateTime.Now.ToUniversalTime(),
+                expires = DateTime.Now.AddDays(30).ToUniversalTime(),
+                expiresSpecified = true
+            };
+
+            // Set LastSoapRequestTimestamp
+            LastSoapRequestTimestamp = envelope.timestamp;
+
+            searchIHIResponse1 response1 = null;
+
+            try
+            {
+                response1 = await searchIhiClient.searchIHIAsync(envelope);
             }
             catch (Exception ex)
             {

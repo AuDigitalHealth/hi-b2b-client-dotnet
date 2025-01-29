@@ -35,6 +35,89 @@ namespace Nehta.VendorLibrary.HI.Sample
     {
         public void Sample()
         {
+            //Set up the client
+            ConsumerSearchIHIClient client = CreateClient();
+
+            // Set up the request
+            searchIHI request = new searchIHI();
+            request.ihiNumber = "http://ns.electronichealth.net.au/id/hi/ihi/1.0/8003601240022579";
+            request.dateOfBirth = DateTime.Parse("12 Dec 2002");
+            request.givenName = "Jessica";
+            request.familyName = "Wood";
+            request.sex = SexType.F;
+
+            try
+            {
+                // Invokes a basic search
+                searchIHIResponse ihiResponse = client.BasicSearch(request);
+            }
+            catch (FaultException fex)
+            {
+                string returnError = "";
+                MessageFault fault = fex.CreateMessageFault();
+                if (fault.HasDetail)
+                {
+                    ServiceMessagesType error = fault.GetDetail<ServiceMessagesType>();
+                    // Look at error details in here
+                    if (error.serviceMessage.Length > 0)
+                        returnError = error.serviceMessage[0].code + ": " + error.serviceMessage[0].reason;
+                }
+
+                // If an error is encountered, client.LastSoapResponse often provides a more
+                // detailed description of the error.
+                string soapResponse = client.SoapMessages.SoapResponse;
+            }
+            catch (Exception ex)
+            {
+                // If an error is encountered, client.LastSoapResponse often provides a more
+                // detailed description of the error.
+                string soapResponse = client.SoapMessages.SoapResponse;
+            }
+        }
+
+        public async void SampleAsync()
+        {
+            //Set up the client
+            ConsumerSearchIHIClient client = CreateClient();
+
+            // Set up the request
+            searchIHI request = new searchIHI();
+            request.ihiNumber = "http://ns.electronichealth.net.au/id/hi/ihi/1.0/8003601240022579";
+            request.dateOfBirth = DateTime.Parse("12 Dec 2002");
+            request.givenName = "Jessica";
+            request.familyName = "Wood";
+            request.sex = SexType.F;
+
+            try
+            {
+                // Invokes a basic search
+                searchIHIResponse ihiResponse = await client.BasicSearchAsync(request);
+            }
+            catch (FaultException fex)
+            {
+                string returnError = "";
+                MessageFault fault = fex.CreateMessageFault();
+                if (fault.HasDetail)
+                {
+                    ServiceMessagesType error = fault.GetDetail<ServiceMessagesType>();
+                    // Look at error details in here
+                    if (error.serviceMessage.Length > 0)
+                        returnError = error.serviceMessage[0].code + ": " + error.serviceMessage[0].reason;
+                }
+
+                // If an error is encountered, client.LastSoapResponse often provides a more
+                // detailed description of the error.
+                string soapResponse = client.SoapMessages.SoapResponse;
+            }
+            catch (Exception ex)
+            {
+                // If an error is encountered, client.LastSoapResponse often provides a more
+                // detailed description of the error.
+                string soapResponse = client.SoapMessages.SoapResponse;
+            }
+        }
+
+        public ConsumerSearchIHIClient CreateClient() {
             // ------------------------------------------------------------------------------
             // Set up
             // ------------------------------------------------------------------------------
@@ -85,7 +168,7 @@ namespace Nehta.VendorLibrary.HI.Sample
             // ------------------------------------------------------------------------------
             // Client instantiation and invocation
             // ------------------------------------------------------------------------------
-            
+
             // Instantiate the client
             ConsumerSearchIHIClient client = new ConsumerSearchIHIClient(
                 new Uri("https://HIServiceEndpoint"),
@@ -95,41 +178,7 @@ namespace Nehta.VendorLibrary.HI.Sample
                 signingCert,
                 tlsCert);
 
-            // Set up the request
-            searchIHI request = new searchIHI();
-            request.ihiNumber = "http://ns.electronichealth.net.au/id/hi/ihi/1.0/8003601240022579";
-            request.dateOfBirth = DateTime.Parse("12 Dec 2002");
-            request.givenName = "Jessica";
-            request.familyName = "Wood";
-            request.sex = SexType.F;
-
-            try
-            {
-                // Invokes a basic search
-                searchIHIResponse ihiResponse = client.BasicSearch(request);
-            }
-            catch (FaultException fex)
-            {
-                string returnError = "";
-                MessageFault fault = fex.CreateMessageFault();
-                if (fault.HasDetail)
-                {
-                    ServiceMessagesType error = fault.GetDetail<ServiceMessagesType>();
-                    // Look at error details in here
-                    if (error.serviceMessage.Length > 0)
-                        returnError = error.serviceMessage[0].code + ": " + error.serviceMessage[0].reason;
-                }
-
-                // If an error is encountered, client.LastSoapResponse often provides a more
-                // detailed description of the error.
-                string soapResponse = client.SoapMessages.SoapResponse;
-            }
-            catch (Exception ex)
-            {
-                // If an error is encountered, client.LastSoapResponse often provides a more
-                // detailed description of the error.
-                string soapResponse = client.SoapMessages.SoapResponse;
-            }
+            return client;
         }
     }
 }

@@ -13,6 +13,7 @@
  */
 
 using System;
+using System.Threading.Tasks;
 using System.Security.Cryptography.X509Certificates;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
@@ -186,6 +187,53 @@ namespace Nehta.VendorLibrary.HI
             }
         }
 
+        /// <summary>
+        /// Asynchronous implementation of <see cref="BatchSubmitProviderOrganisations" />.
+        /// </summary>
+        public async Task<submitSearchForProviderOrganisationResponse> BatchSubmitProviderOrganisationsAsync(BatchSearchForProviderOrganisationCriteriaType[] request)
+        {
+            var envelope = new submitSearchForProviderOrganisationRequest()
+            {
+                submitSearchForProviderOrganisation = request,
+                product = product,
+                user = user,
+                hpio = hpio,
+                signature = new SignatureContainerType()
+            };
+
+            envelope.timestamp = new TimestampType()
+            {
+                created = DateTime.Now,
+                expires = DateTime.Now.AddDays(30),
+                expiresSpecified = true
+            };
+
+            // Set LastSoapRequestTimestamp
+            LastSoapRequestTimestamp = envelope.timestamp;
+
+            submitSearchForProviderOrganisationResponse1 response1 = null;
+
+            try
+            {
+                response1 = await providerBatchAsyncSearchForProviderOrganisationClient.submitSearchForProviderOrganisationAsync(envelope);
+            }
+            catch (Exception ex)
+            {
+                // Catch generic FaultException and call helper to throw a more specific fault
+                // (FaultException<ServiceMessagesType>
+                FaultHelper.ProcessAndThrowFault<ServiceMessagesType>(ex);
+            }
+
+            if (response1 != null && response1.submitSearchForProviderOrganisationResponse != null)
+            {
+                return response1.submitSearchForProviderOrganisationResponse;
+            }
+            else
+            {
+                throw new ApplicationException(Properties.Resources.UnexpectedServiceResponse);
+            }
+        }
+
 
         /// <summary>
         /// Perform the service call.
@@ -218,6 +266,53 @@ namespace Nehta.VendorLibrary.HI
             try
             {
                 response1 = providerBatchAsyncSearchForProviderOrganisationClient.retrieveSearchForProviderOrganisation(envelope);
+            }
+            catch (Exception ex)
+            {
+                // Catch generic FaultException and call helper to throw a more specific fault
+                // (FaultException<ServiceMessagesType>
+                FaultHelper.ProcessAndThrowFault<ServiceMessagesType>(ex);
+            }
+
+            if (response1 != null && response1.retrieveSearchForProviderOrganisationResponse != null)
+            {
+                return response1.retrieveSearchForProviderOrganisationResponse;
+            }
+            else
+            {
+                throw new ApplicationException(Properties.Resources.UnexpectedServiceResponse);
+            }
+        }
+
+        /// <summary>
+        /// Asynchronous implementation of <see cref="BatchRetrieveProviderOrganisations" />.
+        /// </summary>
+        public async Task<retrieveSearchForProviderOrganisationResponse> BatchRetrieveProviderOrganisationsAsync(retrieveSearchForProviderOrganisation request)
+        {
+            var envelope = new retrieveSearchForProviderOrganisationRequest()
+            {
+                retrieveSearchForProviderOrganisation = request,
+                product = product,
+                user = user,
+                hpio = hpio,
+                signature = new SignatureContainerType()
+            };
+
+            envelope.timestamp = new TimestampType()
+            {
+                created = DateTime.Now,
+                expires = DateTime.Now.AddDays(30),
+                expiresSpecified = true
+            };
+
+            // Set LastSoapRequestTimestamp
+            LastSoapRequestTimestamp = envelope.timestamp;
+
+            retrieveSearchForProviderOrganisationResponse1 response1 = null;
+
+            try
+            {
+                response1 = await providerBatchAsyncSearchForProviderOrganisationClient.retrieveSearchForProviderOrganisationAsync(envelope);
             }
             catch (Exception ex)
             {

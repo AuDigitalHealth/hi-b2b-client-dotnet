@@ -35,6 +35,86 @@ namespace Nehta.VendorLibrary.HI.Sample
     {
         public void Sample()
         {
+            //Set up client
+            ProviderSearchForProviderOrganisationClient client = CreateClient();
+            
+            // Create the search request 
+            var request = new searchForProviderOrganisation()
+            {
+                hpioNumber = HIQualifiers.HPIOQualifier + "HPIO TO SEARCH"
+            };
+
+            try
+            {
+                // Invokes the batch search
+                var response = client.ProviderOrganisationSearch(request);
+            }
+            catch (FaultException fex)
+            {
+                string returnError = "";
+                MessageFault fault = fex.CreateMessageFault();
+                if (fault.HasDetail)
+                {
+                    ServiceMessagesType error = fault.GetDetail<ServiceMessagesType>();
+                    // Look at error details in here
+                    if (error.serviceMessage.Length > 0)
+                        returnError = error.serviceMessage[0].code + ": " + error.serviceMessage[0].reason;
+                }
+
+                // If an error is encountered, client.LastSoapResponse often provides a more
+                // detailed description of the error.
+                string soapResponse = client.SoapMessages.SoapResponse;
+            }
+            catch (Exception ex)
+            {
+                // If an error is encountered, client.LastSoapResponse often provides a more
+                // detailed description of the error.
+                string soapResponse = client.SoapMessages.SoapResponse;
+            }
+        }
+
+        public async void SampleAsync()
+        {
+            //Set up client
+            ProviderSearchForProviderOrganisationClient client = CreateClient();
+
+            // Create the search request 
+            var request = new searchForProviderOrganisation()
+            {
+                hpioNumber = HIQualifiers.HPIOQualifier + "HPIO TO SEARCH"
+            };
+
+            try
+            {
+                // Invokes the batch search
+                var response = await client.ProviderOrganisationSearchAsync(request);
+            }
+            catch (FaultException fex)
+            {
+                string returnError = "";
+                MessageFault fault = fex.CreateMessageFault();
+                if (fault.HasDetail)
+                {
+                    ServiceMessagesType error = fault.GetDetail<ServiceMessagesType>();
+                    // Look at error details in here
+                    if (error.serviceMessage.Length > 0)
+                        returnError = error.serviceMessage[0].code + ": " + error.serviceMessage[0].reason;
+                }
+
+                // If an error is encountered, client.LastSoapResponse often provides a more
+                // detailed description of the error.
+                string soapResponse = client.SoapMessages.SoapResponse;
+            }
+            catch (Exception ex)
+            {
+                // If an error is encountered, client.LastSoapResponse often provides a more
+                // detailed description of the error.
+                string soapResponse = client.SoapMessages.SoapResponse;
+            }
+        }
+
+        public ProviderSearchForProviderOrganisationClient CreateClient()
+        {
             // ------------------------------------------------------------------------------
             // Set up
             // ------------------------------------------------------------------------------
@@ -83,7 +163,7 @@ namespace Nehta.VendorLibrary.HI.Sample
             };
 
             // ------------------------------------------------------------------------------
-            // Client instantiation and invocation
+            // Client instantiation
             // ------------------------------------------------------------------------------
 
             // Instantiate the client
@@ -95,39 +175,7 @@ namespace Nehta.VendorLibrary.HI.Sample
                 signingCert,
                 tlsCert);
 
-            // Create the search request 
-            var request = new searchForProviderOrganisation()
-            {
-                hpioNumber = HIQualifiers.HPIOQualifier + "HPIO TO SEARCH"
-            };
-
-            try
-            {
-                // Invokes the batch search
-                var response = client.ProviderOrganisationSearch(request);
-            }
-            catch (FaultException fex)
-            {
-                string returnError = "";
-                MessageFault fault = fex.CreateMessageFault();
-                if (fault.HasDetail)
-                {
-                    ServiceMessagesType error = fault.GetDetail<ServiceMessagesType>();
-                    // Look at error details in here
-                    if (error.serviceMessage.Length > 0)
-                        returnError = error.serviceMessage[0].code + ": " + error.serviceMessage[0].reason;
-                }
-
-                // If an error is encountered, client.LastSoapResponse often provides a more
-                // detailed description of the error.
-                string soapResponse = client.SoapMessages.SoapResponse;
-            }
-            catch (Exception ex)
-            {
-                // If an error is encountered, client.LastSoapResponse often provides a more
-                // detailed description of the error.
-                string soapResponse = client.SoapMessages.SoapResponse;
-            }
+            return client;
         }
     }
 }

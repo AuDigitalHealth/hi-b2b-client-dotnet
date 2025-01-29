@@ -1,4 +1,5 @@
-﻿using nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual;
+﻿using System.Threading.Tasks;
+using nehta.mcaR32.ProviderSearchHIProviderDirectoryForIndividual;
 
 namespace Nehta.VendorLibrary.HI
 {
@@ -141,5 +142,15 @@ namespace Nehta.VendorLibrary.HI
         /// </list>
         /// </returns>
         searchHIProviderDirectoryForIndividualResponse DemographicSearch(searchHIProviderDirectoryForIndividual request);
+
+        /// <summary>
+        /// Asynchronous implementation of <see cref="IdentifierSearch" />.
+        /// </summary>
+        Task<searchHIProviderDirectoryForIndividualResponse> IdentifierSearchAsync(searchHIProviderDirectoryForIndividual request);
+
+        /// <summary>
+        /// Asynchronous implementation of <see cref="DemographicSearch" />.
+        /// </summary>
+        Task<searchHIProviderDirectoryForIndividualResponse> DemographicSearchAsync(searchHIProviderDirectoryForIndividual request);
     }
 }

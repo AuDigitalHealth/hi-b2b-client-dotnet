@@ -1,4 +1,5 @@
-﻿using nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation;
+﻿using System.Threading.Tasks;
+using nehta.mcaR51.ProviderBatchAsyncSearchForProviderOrganisation;
 
 namespace Nehta.VendorLibrary.HI
 {
@@ -17,5 +18,15 @@ namespace Nehta.VendorLibrary.HI
         /// <param name="request">The search criteria in a retrieveSearchForProviderOrganisationRequest object.</param>
         /// <returns>The search results in a retrieveSearchForProviderOrganisationResponse object.</returns>
         retrieveSearchForProviderOrganisationResponse BatchRetrieveProviderOrganisations(retrieveSearchForProviderOrganisation request);
+
+        /// <summary>
+        /// Asynchronous implementation of <see cref="BatchSubmitProviderOrganisations" />.
+        /// </summary>
+        Task<submitSearchForProviderOrganisationResponse> BatchSubmitProviderOrganisationsAsync(BatchSearchForProviderOrganisationCriteriaType[] request);
+
+        /// <summary>
+        /// Asynchronous implementation of <see cref="BatchRetrieveProviderOrganisations" />.
+        /// </summary>
+        Task<retrieveSearchForProviderOrganisationResponse> BatchRetrieveProviderOrganisationsAsync(retrieveSearchForProviderOrganisation request);
     }
 }

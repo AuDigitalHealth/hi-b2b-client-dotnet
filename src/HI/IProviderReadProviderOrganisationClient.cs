@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using nehta.mcaR32.ProviderReadProviderOrganisation;
 
 namespace Nehta.VendorLibrary.HI
@@ -12,5 +13,10 @@ namespace Nehta.VendorLibrary.HI
         /// <returns>The response returned from the ReadProviderOrganisation call.</returns>
         /// <exception cref="ApplicationException">Any exceptions returned from the call.</exception>
         readProviderOrganisationResponse ReadProviderOrganisation(readProviderOrganisation request);
+
+        /// <summary>
+        /// Asynchronous implementation of <see cref="ReadProviderOrganisation" />.
+        /// </summary>
+        Task<readProviderOrganisationResponse> ReadProviderOrganisationAsync(readProviderOrganisation request);
     }
 }

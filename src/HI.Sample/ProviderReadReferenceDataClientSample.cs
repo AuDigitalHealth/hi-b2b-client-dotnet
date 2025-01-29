@@ -35,6 +35,92 @@ namespace Nehta.VendorLibrary.HI.Sample
     {
         public void Sample()
         {
+            //Set up client
+            ProviderReadReferenceDataClient client = CreateClient();
+
+            try
+            {
+                // Invokes the read operation
+                readReferenceDataResponse readReferenceDataResponse =
+                    client.ReadReferenceData(new string[]
+                    {
+                        "providerTypeCode", 
+                        "providerSpecialty",
+                        "providerSpecialisation",
+                        "organisationTypeCode",
+                        "organisationService",
+                        "organisationServiceUnit",
+                    });
+            }
+            catch (FaultException fex)
+            {
+                string returnError = "";
+                MessageFault fault = fex.CreateMessageFault();
+                if (fault.HasDetail)
+                {
+                    ServiceMessagesType error = fault.GetDetail<ServiceMessagesType>();
+                    // Look at error details in here
+                    if (error.serviceMessage.Length > 0)
+                        returnError = error.serviceMessage[0].code + ": " + error.serviceMessage[0].reason;
+                }
+
+                // If an error is encountered, client.LastSoapResponse often provides a more
+                // detailed description of the error.
+                string soapResponse = client.SoapMessages.SoapResponse;
+            }
+            catch (Exception ex)
+            {
+                // If an error is encountered, client.LastSoapResponse often provides a more
+                // detailed description of the error.
+                string soapResponse = client.SoapMessages.SoapResponse;
+            }
+        }
+
+        public async void SampleAsync()
+        {
+            //Set up client
+            ProviderReadReferenceDataClient client = CreateClient();
+
+            try
+            {
+                // Invokes the read operation
+                readReferenceDataResponse readReferenceDataResponse =
+                    await client.ReadReferenceDataAsync(new string[]
+                    {
+                        "providerTypeCode",
+                        "providerSpecialty",
+                        "providerSpecialisation",
+                        "organisationTypeCode",
+                        "organisationService",
+                        "organisationServiceUnit",
+                    });
+            }
+            catch (FaultException fex)
+            {
+                string returnError = "";
+                MessageFault fault = fex.CreateMessageFault();
+                if (fault.HasDetail)
+                {
+                    ServiceMessagesType error = fault.GetDetail<ServiceMessagesType>();
+                    // Look at error details in here
+                    if (error.serviceMessage.Length > 0)
+                        returnError = error.serviceMessage[0].code + ": " + error.serviceMessage[0].reason;
+                }
+
+                // If an error is encountered, client.LastSoapResponse often provides a more
+                // detailed description of the error.
+                string soapResponse = client.SoapMessages.SoapResponse;
+            }
+            catch (Exception ex)
+            {
+                // If an error is encountered, client.LastSoapResponse often provides a more
+                // detailed description of the error.
+                string soapResponse = client.SoapMessages.SoapResponse;
+            }
+        }
+
+        public ProviderReadReferenceDataClient CreateClient()
+        {
             // ------------------------------------------------------------------------------
             // Set up
             // ------------------------------------------------------------------------------
@@ -84,7 +170,7 @@ namespace Nehta.VendorLibrary.HI.Sample
 
 
             // ------------------------------------------------------------------------------
-            // Client instantiation and invocation
+            // Client instantiation
             // ------------------------------------------------------------------------------
 
             // Instantiate the client
@@ -96,42 +182,7 @@ namespace Nehta.VendorLibrary.HI.Sample
                 signingCert,
                 tlsCert);
 
-            try
-            {
-                // Invokes the read operation
-                readReferenceDataResponse readReferenceDataResponse =
-                    client.ReadReferenceData(new string[]
-                                    {
-                                      "providerTypeCode", 
-                                      "providerSpecialty",
-                                      "providerSpecialisation",
-                                      "organisationTypeCode",
-                                      "organisationService",
-                                      "organisationServiceUnit",
-                                    });
-            }
-            catch (FaultException fex)
-            {
-                string returnError = "";
-                MessageFault fault = fex.CreateMessageFault();
-                if (fault.HasDetail)
-                {
-                    ServiceMessagesType error = fault.GetDetail<ServiceMessagesType>();
-                    // Look at error details in here
-                    if (error.serviceMessage.Length > 0)
-                        returnError = error.serviceMessage[0].code + ": " + error.serviceMessage[0].reason;
-                }
-
-                // If an error is encountered, client.LastSoapResponse often provides a more
-                // detailed description of the error.
-                string soapResponse = client.SoapMessages.SoapResponse;
-            }
-            catch (Exception ex)
-            {
-                // If an error is encountered, client.LastSoapResponse often provides a more
-                // detailed description of the error.
-                string soapResponse = client.SoapMessages.SoapResponse;
-            }
+            return client;
         }
     }
 }

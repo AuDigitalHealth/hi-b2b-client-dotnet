@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Security.Cryptography.X509Certificates;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
@@ -152,6 +153,41 @@ namespace Nehta.VendorLibrary.HI
             if (response != null && response.manageProviderDirectoryEntryResponse != null)
                 return response.manageProviderDirectoryEntryResponse;
             
+            throw new ApplicationException(Properties.Resources.UnexpectedServiceResponse);
+        }
+
+        /// <summary>
+        /// Asynchronous implementation of <see cref="ManageProviderDirectoryEntry" />.
+        /// </summary>
+        public async Task<manageProviderDirectoryEntryResponse> ManageProviderDirectoryEntryAsync(manageProviderDirectoryEntry request)
+        {
+            var timestamp = new TimestampType
+            {
+                created = DateTime.Now.ToUniversalTime(),
+                expires = DateTime.Now.AddDays(30).ToUniversalTime(),
+                expiresSpecified = true
+            };
+
+            var directoryEntryRequest = new manageProviderDirectoryEntryRequest(
+                product, new SignatureContainerType(), timestamp, user, hpio, request);
+
+
+            LastSoapRequestTimestamp = directoryEntryRequest.timestamp;
+
+            manageProviderDirectoryEntryResponse1 response = null;
+
+            try
+            {
+                response = await providerDirectoryEntryClient.manageProviderDirectoryEntryAsync(directoryEntryRequest);
+            }
+            catch (Exception ex)
+            {
+                FaultHelper.ProcessAndThrowFault<ServiceMessagesType>(ex);
+            }
+
+            if (response != null && response.manageProviderDirectoryEntryResponse != null)
+                return response.manageProviderDirectoryEntryResponse;
+
             throw new ApplicationException(Properties.Resources.UnexpectedServiceResponse);
         }
 

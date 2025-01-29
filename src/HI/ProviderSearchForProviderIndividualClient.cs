@@ -13,6 +13,7 @@
  */
 
 using System;
+using System.Threading.Tasks;
 using System.ServiceModel.Channels;
 using System.Security.Cryptography.X509Certificates;
 using System.ServiceModel;
@@ -168,6 +169,49 @@ namespace Nehta.VendorLibrary.HI
             try
             {
                 response1 = providerSearchForProviderIndividualClient.searchForProviderIndividual(envelope);
+            }
+            catch (Exception ex)
+            {
+                // Catch generic FaultException and call helper to throw a more specific fault
+                // (FaultException<ServiceMessagesType>
+                FaultHelper.ProcessAndThrowFault<ServiceMessagesType>(ex);
+            }
+
+            if (response1 != null && response1.searchForProviderIndividualResponse != null)
+                return response1.searchForProviderIndividualResponse;
+            else
+                throw new ApplicationException(Properties.Resources.UnexpectedServiceResponse);
+        }
+
+        /// <summary>
+        /// Asynchronous implementation of <see cref="ProviderIndividualSearch" />.
+        /// </summary>
+        public async Task<searchForProviderIndividualResponse> ProviderIndividualSearchAsync(searchForProviderIndividual request)
+        {
+            var envelope = new searchForProviderIndividualRequest()
+            {
+                searchForProviderIndividual = request,
+                product = product,
+                user = user,
+                hpio = hpio,
+                signature = new SignatureContainerType()
+            };
+
+            envelope.timestamp = new TimestampType()
+            {
+                created = DateTime.Now,
+                expires = DateTime.Now.AddDays(30),
+                expiresSpecified = true
+            };
+
+            // Set LastSoapRequestTimestamp
+            LastSoapRequestTimestamp = envelope.timestamp;
+
+            searchForProviderIndividualResponse1 response1 = null;
+
+            try
+            {
+                response1 = await providerSearchForProviderIndividualClient.searchForProviderIndividualAsync(envelope);
             }
             catch (Exception ex)
             {
