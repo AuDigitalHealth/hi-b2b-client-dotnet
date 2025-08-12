@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Nehta.VendorLibrary.HI.Common
+﻿namespace Nehta.VendorLibrary.HI.Common
 {
     public partial class CommonSearchIHIRequestType
     {
@@ -13,26 +8,14 @@ namespace Nehta.VendorLibrary.HI.Common
 
         public CommonSearchIHI searchIHI
         {
-            get
-            {
-                return this.searchIHIField;
-            }
-            set
-            {
-                this.searchIHIField = value;
-            }
+            get { return this.searchIHIField; }
+            set { this.searchIHIField = value; }
         }
 
         public string requestIdentifier
         {
-            get
-            {
-                return this.requestIdentifierField;
-            }
-            set
-            {
-                this.requestIdentifierField = value;
-            }
+            get { return this.requestIdentifierField; }
+            set { this.requestIdentifierField = value; }
         }
     }
 
@@ -58,6 +41,8 @@ namespace Nehta.VendorLibrary.HI.Common
 
         private string givenNameField;
 
+        private CommonElectronicCommunicationType electronicCommunicationField;
+
         private CommonAustralianPostalAddressType australianPostalAddressField;
 
         private CommonAustralianStreetAddressType australianStreetAddressField;
@@ -72,194 +57,104 @@ namespace Nehta.VendorLibrary.HI.Common
 
         public string ihiNumber
         {
-            get
-            {
-                return this.ihiNumberField;
-            }
-            set
-            {
-                this.ihiNumberField = value;
-            }
+            get { return this.ihiNumberField; }
+            set { this.ihiNumberField = value; }
         }
 
         public string medicareCardNumber
         {
-            get
-            {
-                return this.medicareCardNumberField;
-            }
-            set
-            {
-                this.medicareCardNumberField = value;
-            }
+            get { return this.medicareCardNumberField; }
+            set { this.medicareCardNumberField = value; }
         }
 
         public string medicareIRN
         {
-            get
-            {
-                return this.medicareIRNField;
-            }
-            set
-            {
-                this.medicareIRNField = value;
-            }
+            get { return this.medicareIRNField; }
+            set { this.medicareIRNField = value; }
         }
 
         public string dvaFileNumber
         {
-            get
-            {
-                return this.dvaFileNumberField;
-            }
-            set
-            {
-                this.dvaFileNumberField = value;
-            }
+            get { return this.dvaFileNumberField; }
+            set { this.dvaFileNumberField = value; }
         }
 
         public System.DateTime dateOfBirth
         {
-            get
-            {
-                return this.dateOfBirthField;
-            }
-            set
-            {
-                this.dateOfBirthField = value;
-            }
+            get { return this.dateOfBirthField; }
+            set { this.dateOfBirthField = value; }
         }
 
         public bool dateOfBirthSpecified
         {
-            get
-            {
-                return this.dateOfBirthFieldSpecified;
-            }
-            set
-            {
-                this.dateOfBirthFieldSpecified = value;
-            }
+            get { return this.dateOfBirthFieldSpecified; }
+            set { this.dateOfBirthFieldSpecified = value; }
         }
 
         public CommonSexType sex
         {
-            get
-            {
-                return this.sexField;
-            }
-            set
-            {
-                this.sexField = value;
-            }
+            get { return this.sexField; }
+            set { this.sexField = value; }
         }
 
         public bool sexSpecified
         {
-            get
-            {
-                return this.sexFieldSpecified;
-            }
-            set
-            {
-                this.sexFieldSpecified = value;
-            }
+            get { return this.sexFieldSpecified; }
+            set { this.sexFieldSpecified = value; }
         }
 
         public string familyName
         {
-            get
-            {
-                return this.familyNameField;
-            }
-            set
-            {
-                this.familyNameField = value;
-            }
+            get { return this.familyNameField; }
+            set { this.familyNameField = value; }
         }
 
         public string givenName
         {
-            get
-            {
-                return this.givenNameField;
-            }
-            set
-            {
-                this.givenNameField = value;
-            }
+            get { return this.givenNameField; }
+            set { this.givenNameField = value; }
         }
 
-        public CommonAustralianPostalAddressType australianPostalAddress
+        public CommonElectronicCommunicationType electronicCommunication
         {
-            get
-            {
-                return this.australianPostalAddressField;
-            }
-            set
-            {
-                this.australianPostalAddressField = value;
-            }
+            get { return this.electronicCommunicationField; }
+            set { this.electronicCommunicationField = value; }
         }
 
         public CommonAustralianStreetAddressType australianStreetAddress
         {
-            get
-            {
-                return this.australianStreetAddressField;
-            }
-            set
-            {
-                this.australianStreetAddressField = value;
-            }
+            get { return this.australianStreetAddressField; }
+            set { this.australianStreetAddressField = value; }
         }
 
         public CommonInternationalAddressType internationalAddress
         {
-            get
-            {
-                return this.internationalAddressField;
-            }
-            set
-            {
-                this.internationalAddressField = value;
-            }
+            get { return this.internationalAddressField; }
+            set { this.internationalAddressField = value; }
         }
 
         public CommonAustralianUnstructuredStreetAddressType australianUnstructuredStreetAddress
         {
-            get
-            {
-                return this.australianUnstructuredStreetAddressField;
-            }
-            set
-            {
-                this.australianUnstructuredStreetAddressField = value;
-            }
+            get { return this.australianUnstructuredStreetAddressField; }
+            set { this.australianUnstructuredStreetAddressField = value; }
         }
 
         public CommonTrueFalseType history
         {
-            get
-            {
-                return this.historyField;
-            }
-            set
-            {
-                this.historyField = value;
-            }
+            get { return this.historyField; }
+            set { this.historyField = value; }
         }
 
         public bool historySpecified
         {
-            get
-            {
-                return this.historyFieldSpecified;
-            }
-            set
-            {
-                this.historyFieldSpecified = value;
-            }
+            get { return this.historyFieldSpecified; }
+            set { this.historyFieldSpecified = value; }
+        }
+
+        public CommonAustralianPostalAddressType australianPostalAddress
+        {
+            get { return this.australianPostalAddressField; }
+            set { this.australianPostalAddressField = value; }
         }
     }
 
@@ -294,62 +189,32 @@ namespace Nehta.VendorLibrary.HI.Common
 
         public CommonStateType state
         {
-            get
-            {
-                return this.stateField;
-            }
-            set
-            {
-                this.stateField = value;
-            }
+            get { return this.stateField; }
+            set { this.stateField = value; }
         }
 
         public bool stateSpecified
         {
-            get
-            {
-                return this.stateFieldSpecified;
-            }
-            set
-            {
-                this.stateFieldSpecified = value;
-            }
+            get { return this.stateFieldSpecified; }
+            set { this.stateFieldSpecified = value; }
         }
 
         public string postcode
         {
-            get
-            {
-                return this.postcodeField;
-            }
-            set
-            {
-                this.postcodeField = value;
-            }
+            get { return this.postcodeField; }
+            set { this.postcodeField = value; }
         }
 
         public string suburb
         {
-            get
-            {
-                return this.suburbField;
-            }
-            set
-            {
-                this.suburbField = value;
-            }
+            get { return this.suburbField; }
+            set { this.suburbField = value; }
         }
 
         public CommonPostalDeliveryGroupType postalDeliveryGroup
         {
-            get
-            {
-                return this.postalDeliveryGroupField;
-            }
-            set
-            {
-                this.postalDeliveryGroupField = value;
-            }
+            get { return this.postalDeliveryGroupField; }
+            set { this.postalDeliveryGroupField = value; }
         }
     }
 
@@ -385,170 +250,86 @@ namespace Nehta.VendorLibrary.HI.Common
 
         public CommonStateType state
         {
-            get
-            {
-                return this.stateField;
-            }
-            set
-            {
-                this.stateField = value;
-            }
+            get { return this.stateField; }
+            set { this.stateField = value; }
         }
 
         public bool stateSpecified
         {
-            get
-            {
-                return this.stateFieldSpecified;
-            }
-            set
-            {
-                this.stateFieldSpecified = value;
-            }
+            get { return this.stateFieldSpecified; }
+            set { this.stateFieldSpecified = value; }
         }
 
         public string postcode
         {
-            get
-            {
-                return this.postcodeField;
-            }
-            set
-            {
-                this.postcodeField = value;
-            }
+            get { return this.postcodeField; }
+            set { this.postcodeField = value; }
         }
 
         public string suburb
         {
-            get
-            {
-                return this.suburbField;
-            }
-            set
-            {
-                this.suburbField = value;
-            }
+            get { return this.suburbField; }
+            set { this.suburbField = value; }
         }
 
         public string addressSiteName
         {
-            get
-            {
-                return this.addressSiteNameField;
-            }
-            set
-            {
-                this.addressSiteNameField = value;
-            }
+            get { return this.addressSiteNameField; }
+            set { this.addressSiteNameField = value; }
         }
 
         public CommonUnitGroupType unitGroup
         {
-            get
-            {
-                return this.unitGroupField;
-            }
-            set
-            {
-                this.unitGroupField = value;
-            }
+            get { return this.unitGroupField; }
+            set { this.unitGroupField = value; }
         }
 
         public CommonLevelGroupType levelGroup
         {
-            get
-            {
-                return this.levelGroupField;
-            }
-            set
-            {
-                this.levelGroupField = value;
-            }
+            get { return this.levelGroupField; }
+            set { this.levelGroupField = value; }
         }
 
         public string lotNumber
         {
-            get
-            {
-                return this.lotNumberField;
-            }
-            set
-            {
-                this.lotNumberField = value;
-            }
+            get { return this.lotNumberField; }
+            set { this.lotNumberField = value; }
         }
 
         public string streetNumber
         {
-            get
-            {
-                return this.streetNumberField;
-            }
-            set
-            {
-                this.streetNumberField = value;
-            }
+            get { return this.streetNumberField; }
+            set { this.streetNumberField = value; }
         }
 
         public string streetName
         {
-            get
-            {
-                return this.streetNameField;
-            }
-            set
-            {
-                this.streetNameField = value;
-            }
+            get { return this.streetNameField; }
+            set { this.streetNameField = value; }
         }
 
         public CommonStreetType streetType
         {
-            get
-            {
-                return this.streetTypeField;
-            }
-            set
-            {
-                this.streetTypeField = value;
-            }
+            get { return this.streetTypeField; }
+            set { this.streetTypeField = value; }
         }
 
         public bool streetTypeSpecified
         {
-            get
-            {
-                return this.streetTypeFieldSpecified;
-            }
-            set
-            {
-                this.streetTypeFieldSpecified = value;
-            }
+            get { return this.streetTypeFieldSpecified; }
+            set { this.streetTypeFieldSpecified = value; }
         }
 
         public CommonStreetSuffixType streetSuffix
         {
-            get
-            {
-                return this.streetSuffixField;
-            }
-            set
-            {
-                this.streetSuffixField = value;
-            }
+            get { return this.streetSuffixField; }
+            set { this.streetSuffixField = value; }
         }
 
         public bool streetSuffixSpecified
         {
-            get
-            {
-                return this.streetSuffixFieldSpecified;
-            }
-            set
-            {
-                this.streetSuffixFieldSpecified = value;
-            }
+            get { return this.streetSuffixFieldSpecified; }
+            set { this.streetSuffixFieldSpecified = value; }
         }
     }
 
@@ -567,62 +348,32 @@ namespace Nehta.VendorLibrary.HI.Common
 
         public string addressLineOne
         {
-            get
-            {
-                return this.addressLineOneField;
-            }
-            set
-            {
-                this.addressLineOneField = value;
-            }
+            get { return this.addressLineOneField; }
+            set { this.addressLineOneField = value; }
         }
 
         public string addressLineTwo
         {
-            get
-            {
-                return this.addressLineTwoField;
-            }
-            set
-            {
-                this.addressLineTwoField = value;
-            }
+            get { return this.addressLineTwoField; }
+            set { this.addressLineTwoField = value; }
         }
 
         public string suburb
         {
-            get
-            {
-                return this.suburbField;
-            }
-            set
-            {
-                this.suburbField = value;
-            }
+            get { return this.suburbField; }
+            set { this.suburbField = value; }
         }
 
         public CommonStateType state
         {
-            get
-            {
-                return this.stateField;
-            }
-            set
-            {
-                this.stateField = value;
-            }
+            get { return this.stateField; }
+            set { this.stateField = value; }
         }
 
         public string postcode
         {
-            get
-            {
-                return this.postcodeField;
-            }
-            set
-            {
-                this.postcodeField = value;
-            }
+            get { return this.postcodeField; }
+            set { this.postcodeField = value; }
         }
     }
 
@@ -1321,28 +1072,16 @@ namespace Nehta.VendorLibrary.HI.Common
         [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
         public CommonPostalDeliveryType postalDeliveryType
         {
-            get
-            {
-                return this.postalDeliveryTypeField;
-            }
-            set
-            {
-                this.postalDeliveryTypeField = value;
-            }
+            get { return this.postalDeliveryTypeField; }
+            set { this.postalDeliveryTypeField = value; }
         }
 
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
         public string postalDeliveryNumber
         {
-            get
-            {
-                return this.postalDeliveryNumberField;
-            }
-            set
-            {
-                this.postalDeliveryNumberField = value;
-            }
+            get { return this.postalDeliveryNumberField; }
+            set { this.postalDeliveryNumberField = value; }
         }
     }
 
@@ -1389,50 +1128,26 @@ namespace Nehta.VendorLibrary.HI.Common
 
         public string internationalStateProvince
         {
-            get
-            {
-                return this.internationalStateProvinceField;
-            }
-            set
-            {
-                this.internationalStateProvinceField = value;
-            }
+            get { return this.internationalStateProvinceField; }
+            set { this.internationalStateProvinceField = value; }
         }
 
         public CommonCountryType country
         {
-            get
-            {
-                return this.countryField;
-            }
-            set
-            {
-                this.countryField = value;
-            }
+            get { return this.countryField; }
+            set { this.countryField = value; }
         }
 
         public string internationalPostcode
         {
-            get
-            {
-                return this.internationalPostcodeField;
-            }
-            set
-            {
-                this.internationalPostcodeField = value;
-            }
+            get { return this.internationalPostcodeField; }
+            set { this.internationalPostcodeField = value; }
         }
 
         public string internationalAddressLine
         {
-            get
-            {
-                return this.internationalAddressLineField;
-            }
-            set
-            {
-                this.internationalAddressLineField = value;
-            }
+            get { return this.internationalAddressLineField; }
+            set { this.internationalAddressLineField = value; }
         }
     }
 
@@ -1694,26 +1409,14 @@ namespace Nehta.VendorLibrary.HI.Common
 
         public CommonLevelType levelType
         {
-            get
-            {
-                return this.levelTypeField;
-            }
-            set
-            {
-                this.levelTypeField = value;
-            }
+            get { return this.levelTypeField; }
+            set { this.levelTypeField = value; }
         }
 
         public string levelNumber
         {
-            get
-            {
-                return this.levelNumberField;
-            }
-            set
-            {
-                this.levelNumberField = value;
-            }
+            get { return this.levelNumberField; }
+            set { this.levelNumberField = value; }
         }
     }
 
@@ -1775,26 +1478,14 @@ namespace Nehta.VendorLibrary.HI.Common
 
         public CommonUnitType unitType
         {
-            get
-            {
-                return this.unitTypeField;
-            }
-            set
-            {
-                this.unitTypeField = value;
-            }
+            get { return this.unitTypeField; }
+            set { this.unitTypeField = value; }
         }
 
         public string unitNumber
         {
-            get
-            {
-                return this.unitNumberField;
-            }
-            set
-            {
-                this.unitNumberField = value;
-            }
+            get { return this.unitNumberField; }
+            set { this.unitNumberField = value; }
         }
     }
 
@@ -1951,4 +1642,70 @@ namespace Nehta.VendorLibrary.HI.Common
         F,
         T,
     }
+
+    public partial class CommonElectronicCommunicationType
+    {
+        private CommonMediumType mediumField;
+
+        private CommonUsageType usageField;
+
+        private string detailsField;
+
+        public CommonMediumType medium
+        {
+            get { return this.mediumField; }
+            set { this.mediumField = value; }
+        }
+
+        public CommonUsageType usage
+        {
+            get { return this.usageField; }
+            set { this.usageField = value; }
+        }
+
+        public string details
+        {
+            get { return this.detailsField; }
+            set { this.detailsField = value; }
+        }
+    }
+
+    public enum CommonMediumType
+    {
+
+        /// <remarks/>
+        E,
+
+        /// <remarks/>
+        F,
+
+        /// <remarks/>
+        M,
+
+        /// <remarks/>
+        O,
+
+        /// <remarks/>
+        P,
+
+        /// <remarks/>
+        T,
+
+        /// <remarks/>
+        U,
+    }
+
+    public enum CommonUsageType
+    {
+
+        /// <remarks/>
+        A,
+
+        /// <remarks/>
+        B,
+
+        /// <remarks/>
+        P,
+    }
+
 }

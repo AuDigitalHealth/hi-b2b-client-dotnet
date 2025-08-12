@@ -178,6 +178,21 @@ namespace Nehta.VendorLibrary.HI.Sample
                 }
             });
 
+            // Add a basic mobile search
+            searches.AddDetailedSearch(Guid.NewGuid().ToString(), new CommonSearchIHI()
+            {
+                dateOfBirth = DateTime.Parse("11 Nov 1989"),
+                givenName = "Anna",
+                familyName = "Hodge",
+                sex = CommonSexType.M,
+                electronicCommunication = new CommonElectronicCommunicationType
+                {
+                    details = "0401100200",
+                    medium = CommonMediumType.M,
+                    usage = CommonUsageType.A
+                }
+            });
+
             try
             {
                 // Invokes the batch search

@@ -34,6 +34,7 @@ namespace Nehta.VendorLibrary.HI
                     cfg.CreateMap<CommonTrueFalseType, Async.TrueFalseType>();
                     cfg.CreateMap<CommonUnitGroupType, Async.UnitGroupType>();
                     cfg.CreateMap<CommonUnitType, Async.UnitType>();
+                    cfg.CreateMap<CommonElectronicCommunicationType, Async.ElectronicCommunicationType>();
 
                     // Set up mappings for sync search
                     cfg.CreateMap<CommonSearchIHIRequestType, Sync.SearchIHIRequestType>();
@@ -54,6 +55,7 @@ namespace Nehta.VendorLibrary.HI
                     cfg.CreateMap<CommonTrueFalseType, Sync.TrueFalseType>();
                     cfg.CreateMap<CommonUnitGroupType, Sync.UnitGroupType>();
                     cfg.CreateMap<CommonUnitType, Sync.UnitType>();
+                    cfg.CreateMap<CommonElectronicCommunicationType, Sync.ElectronicCommunicationType>();
                 });
 
                 Mapper = new Mapper(config);

@@ -1,5 +1,13 @@
 ### Change Log/Revision History
 
+1.11.0
+------
+* added ElectronicCommunication for BatchIHI
+
+1.10.0
+------
+* added client for R32-ProviderReadProviderAdministrativeIndividual
+
 1.9.0
 -----
 * Updated packages to highest compatible version
@@ -7,7 +15,7 @@
   - System.ServiceModel.Http 4.9.0 --> 4.10.3
 
 * Async implemtation added.
-
+	
 1.8.2
 -----
 * Fix order of elements in IHISearch

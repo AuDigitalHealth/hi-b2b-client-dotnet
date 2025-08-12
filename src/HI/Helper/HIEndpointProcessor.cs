@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Security.Cryptography.X509Certificates;
 using System.ServiceModel;
@@ -9,7 +8,6 @@ using System.ServiceModel.Description;
 using System.Xml;
 using System.IO;
 using System.Security.Cryptography.Xml;
-using System.Xml.Linq;
 using System.ServiceModel.Dispatcher;
 using Nehta.VendorLibrary.Common;
 
