@@ -1,5 +1,9 @@
 ### Change Log/Revision History
 
+1.12.0
+------
+* added support for client for R32-ConsumerUpdateIHI
+
 1.11.0
 ------
 * added ElectronicCommunication for BatchIHI
