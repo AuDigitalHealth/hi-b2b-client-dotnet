@@ -18,7 +18,6 @@ The Read Reference Data is an additional interface that provides all the “stat
 - IHI Inquiry Search via B2B - 3.0 [SIS.6]
 - Consumer Search IHI Batch Synchronous - 3.0 [SIS.12]
 - Consumer Search IHI Batch Asynchronous - 3.0 [SIS.30]
-- Update IHI via B2B – 3.2.0 [SIS.5]
 - Healthcare Provider Directory – Search for Individual Provider Directory Entry – 3.2.0 [SIS.17]
 - Healthcare Provider Directory – Search for Organisation Provider Directory Entry – 3.2.0 [SIS.18]
 - Search for Provider Individual Details – 5.0.0 [SIS.31]
@@ -41,6 +40,10 @@ The Provider Maintenance Interfaces allow a vendor’s software to control and m
 - Match Provider or Administrative Individual Details – 6.0.0 [SIS.36]
 
 ### Consumer Maintenance Interfaces
+Emergency departments and maternity units are prime locations for these types of interfaces, but are still being worked out from a workflow perspective.
+- Update IHI via B2B – 3.2.0 [SIS.5]
+
+### Consumer Maintenance Interfaces - still being developed
 The use cases for the Consumer Maintenance Interfaces are still being developed. Emergency departments and maternity units are prime locations for these types of interfaces, but are still being worked out from a workflow perspective.
 - Create Provisional IHI via B2B – 3.0 [SIS.10]
 - Update Provisional IHI via B2B – 3.0 [SIS.3]
