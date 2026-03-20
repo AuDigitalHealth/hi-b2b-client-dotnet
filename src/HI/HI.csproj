@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net45;netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>net472;netstandard2.0</TargetFrameworks>
     <OutputType>Library</OutputType>
     <RootNamespace>Nehta.VendorLibrary.HI</RootNamespace>
     <AssemblyName>Nehta.VendorLibrary.HI</AssemblyName>
@@ -12,33 +12,27 @@
   </PropertyGroup>
   <!-- Package and assembly information -->
   <PropertyGroup>
-    <Version>1.12.0.0</Version>
+    <Version>1.14.0.0</Version>
     <Description>A library for communicating with the HI Service</Description>
     <Company>Australian Digital Health Agency</Company>
     <Authors>$(Company)</Authors>
-    <Copyright>Copyright ©2024</Copyright>
+    <Copyright>Copyright ©2026</Copyright>
     <PackageReleaseNotes>Added netstandard2.0 compatible version of library</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/AuDigitalHealth/hi-b2b-client-dotnet</PackageProjectUrl>
     <PackageTags>ADHA Digital Health Nehta</PackageTags>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net45|AnyCPU'">
+  <PropertyGroup>
     <WarningLevel>0</WarningLevel>
+	  <!-- Suppress specific warnings -->
     <NoWarn>1701;1702;CS1591;</NoWarn>
   </PropertyGroup>
-  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-    <PackageReference Include="System.ServiceModel.Http" Version="4.10.3" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)' == 'net45'">
-    <Reference Include="System.Security" />
-    <Reference Include="System.ServiceModel" />
-  </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="7.0.1" />
+    <PackageReference Include="AutoMapper" Version="16.1.1" />
     <PackageReference Include="Nehta.VendorLibrary.Common" Version="4.3.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Remove="Helper\ConsumerSearchIHIBatchSyncExtensions.cs" />
+    <PackageReference Include="System.Formats.Asn1" Version="10.0.5" />
+    <PackageReference Include="System.Security.Cryptography.Pkcs" Version="10.0.5" />
+    <PackageReference Include="System.ServiceModel.Http" Version="4.10.3" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">

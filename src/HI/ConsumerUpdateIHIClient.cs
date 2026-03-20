@@ -134,14 +134,13 @@ namespace Nehta.VendorLibrary.HI
             InitializeClient(null, endpointConfigurationName, signingCert, tlsCert, product, user, hpio, initialisationCallback);
         }
 
-        #endregion
+		#endregion
 
-        /// <summary>
-        /// Create a Verified IHI service call.
-        /// </summary>
-        /// <param name="request" />
-        /// </returns>
-        public updateIHIResponse UpdateIhi(updateIHI request)
+		/// <summary>
+		/// Create a Verified IHI service call.
+		/// <param name="request" />
+		/// </summary>
+		public updateIHIResponse UpdateIhi(updateIHI request)
         {
             Validation.ValidateArgumentRequired("request", request);
             Validation.ValidateArgumentRequired("request.ihiNumber", request.ihiNumber);

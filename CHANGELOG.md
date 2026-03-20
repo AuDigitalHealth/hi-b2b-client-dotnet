@@ -1,5 +1,15 @@
 ### Change Log/Revision History
 
+1.14.0
+------
+* moved from fw45 to fw472 to update vulnerable packages
+* Updated packages to highest compatible version
+  - AutoMapper 7.0.1 --> 16.1.1
+
+1.13.0
+------
+* Added 'Open' OrganisationSearch
+
 1.12.0
 ------
 * added support for client for R32-ConsumerUpdateIHI

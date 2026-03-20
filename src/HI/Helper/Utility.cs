@@ -11,9 +11,9 @@ namespace Nehta.VendorLibrary.HI
 
         public static void SetUpMapping()
         {
-            if (Mapper is null)
+			if (Mapper is null)
             {
-                var config = new MapperConfiguration(cfg =>
+				var config = new MapperConfiguration(cfg =>
                 {
                     // Set up mappings for async search
                     cfg.CreateMap<CommonSearchIHIRequestType, Async.SearchIHIRequestType>();
@@ -56,7 +56,7 @@ namespace Nehta.VendorLibrary.HI
                     cfg.CreateMap<CommonUnitGroupType, Sync.UnitGroupType>();
                     cfg.CreateMap<CommonUnitType, Sync.UnitType>();
                     cfg.CreateMap<CommonElectronicCommunicationType, Sync.ElectronicCommunicationType>();
-                });
+                }, null);
 
                 Mapper = new Mapper(config);
             }
