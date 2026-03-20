@@ -22,7 +22,6 @@ using System.ServiceModel.Description;
 using Nehta.VendorLibrary.Common;
 using nehta.mcaR3.ConsumerSearchIHIBatchSync;
 using Nehta.VendorLibrary.HI.Common;
-using AutoMapper;
 
 namespace Nehta.VendorLibrary.HI
 {
@@ -160,7 +159,15 @@ namespace Nehta.VendorLibrary.HI
 
             searchIHIBatchSyncRequest envelope = new searchIHIBatchSyncRequest();
 
-            var mappedSearches = Utility.Mapper.Map<List<CommonSearchIHIRequestType>, List<SearchIHIRequestType>>(searches);
+            var mappedSearches = new List<SearchIHIRequestType>();
+            foreach (var search in searches)
+            {
+                mappedSearches.Add(new SearchIHIRequestType
+                {
+                    requestIdentifier = search.requestIdentifier,
+                    searchIHI = MapCommonSearchIHIToSearchIHI(search.searchIHI)
+                });
+            }
 
             envelope.searchIHIBatchSync = mappedSearches.ToArray();
             envelope.product = product;
@@ -206,7 +213,15 @@ namespace Nehta.VendorLibrary.HI
 
             searchIHIBatchSyncRequest envelope = new searchIHIBatchSyncRequest();
 
-            var mappedSearches = Utility.Mapper.Map<List<CommonSearchIHIRequestType>, List<SearchIHIRequestType>>(searches);
+            var mappedSearches = new List<SearchIHIRequestType>();
+            foreach (var search in searches)
+            {
+                mappedSearches.Add(new SearchIHIRequestType
+                {
+                    requestIdentifier = search.requestIdentifier,
+                    searchIHI = MapCommonSearchIHIToSearchIHI(search.searchIHI)
+                });
+            }
 
             envelope.searchIHIBatchSync = mappedSearches.ToArray();
             envelope.product = product;
@@ -258,8 +273,6 @@ namespace Nehta.VendorLibrary.HI
         /// <param name="initialisationCallback">Callback for additional configuration after creation.</param>
         private void InitializeClient(string endpointUrl, string endpointConfigurationName, X509Certificate2 signingCert, X509Certificate2 tlsCert, ProductType product, QualifiedId user, QualifiedId hpio, Action<ServiceEndpoint> initialisationCallback = null)
         {
-            Utility.SetUpMapping();
-
             Validation.ValidateArgumentRequired("product", product);
             Validation.ValidateArgumentRequired("user", user);
             Validation.ValidateArgumentRequired("signingCert", signingCert);
@@ -353,5 +366,102 @@ namespace Nehta.VendorLibrary.HI
         }
 
         #endregion
+
+		// Add this private static method to map CommonSearchIHI to searchIHI
+		private static searchIHI MapCommonSearchIHIToSearchIHI(CommonSearchIHI common)
+		{
+			if (common == null) return null;
+
+			return new searchIHI
+            {
+                ihiNumber = common.ihiNumber,
+                medicareCardNumber = common.medicareCardNumber,
+                medicareIRN = common.medicareIRN,
+                dvaFileNumber = common.dvaFileNumber,
+                dateOfBirth = common.dateOfBirth,
+                familyName = common.familyName,
+                givenName = common.givenName,
+                sex = MapEnum<CommonSexType, SexType>(common.sex),
+                electronicCommunication = common.electronicCommunication != null ? new ElectronicCommunicationType
+                {
+                    medium = MapEnum<CommonMediumType, MediumType>(common.electronicCommunication.medium),
+                    usage = MapEnum<CommonUsageType, UsageType>(common.electronicCommunication.usage),
+                    details = common.electronicCommunication.details
+                } : null,
+                australianPostalAddress = common.australianPostalAddress != null ? new AustralianPostalAddressType
+                {
+                    state = MapEnum<CommonStateType, StateType>(common.australianPostalAddress.state),
+                    postcode = common.australianPostalAddress.postcode,
+                    suburb = common.australianPostalAddress.suburb,
+                    postalDeliveryGroup = common.australianPostalAddress.postalDeliveryGroup != null ? new PostalDeliveryGroupType
+                    {
+                        postalDeliveryType = MapEnum<CommonPostalDeliveryType, PostalDeliveryType>(common.australianPostalAddress.postalDeliveryGroup.postalDeliveryType),
+                        postalDeliveryNumber = common.australianPostalAddress.postalDeliveryGroup.postalDeliveryNumber
+                    } : null
+                } : null,
+                australianStreetAddress = common.australianStreetAddress != null ? new AustralianStreetAddressType
+                {
+                    state = MapEnum<CommonStateType, StateType>(common.australianStreetAddress.state),
+                    postcode = common.australianStreetAddress.postcode,
+                    suburb = common.australianStreetAddress.suburb,
+                    addressSiteName = common.australianStreetAddress.addressSiteName,
+                    unitGroup = common.australianStreetAddress.unitGroup != null ? new UnitGroupType
+                    {
+                        unitType = MapEnum<CommonUnitType, UnitType>(common.australianStreetAddress.unitGroup.unitType),
+                        unitNumber = common.australianStreetAddress.unitGroup.unitNumber
+                    } : null,
+                    levelGroup = common.australianStreetAddress.levelGroup != null ? new LevelGroupType
+                    {
+                        levelType = MapEnum<CommonLevelType, LevelType>(common.australianStreetAddress.levelGroup.levelType),
+                        levelNumber = common.australianStreetAddress.levelGroup.levelNumber
+                    } : null,
+                    lotNumber = common.australianStreetAddress.lotNumber,
+                    streetNumber = common.australianStreetAddress.streetNumber,
+                    streetName = common.australianStreetAddress.streetName,
+                    streetType = MapEnum<CommonStreetType, StreetType>(common.australianStreetAddress.streetType),
+                    streetTypeSpecified = common.australianStreetAddress.streetTypeSpecified,
+                    streetSuffix = MapEnum<CommonStreetSuffixType, StreetSuffixType>(common.australianStreetAddress.streetSuffix),
+                    streetSuffixSpecified = common.australianStreetAddress.streetSuffixSpecified
+                } : null,
+                internationalAddress = common.internationalAddress != null ? new InternationalAddressType
+                {
+                    internationalStateProvince = common.internationalAddress.internationalStateProvince,
+                    country = MapEnum<CommonCountryType, CountryType>(common.internationalAddress.country),
+                    internationalPostcode = common.internationalAddress.internationalPostcode,
+                    internationalAddressLine = common.internationalAddress.internationalAddressLine
+                } : null,
+                australianUnstructuredStreetAddress = common.australianUnstructuredStreetAddress != null ? new AustralianUnstructuredStreetAddressType
+                {
+                    addressLineOne = common.australianUnstructuredStreetAddress.addressLineOne,
+                    addressLineTwo = common.australianUnstructuredStreetAddress.addressLineTwo,
+                    suburb = common.australianUnstructuredStreetAddress.suburb,
+                    state = MapEnum<CommonStateType, StateType>(common.australianUnstructuredStreetAddress.state),
+                    postcode = common.australianUnstructuredStreetAddress.postcode
+                } : null,
+                history = MapEnum<CommonTrueFalseType, TrueFalseType>(common.history),
+                historySpecified = common.historySpecified
+            };
+        }
+
+        /// <summary>
+        /// Generic method to safely map between enums by name.
+        /// </summary>
+        /// <typeparam name="TTarget">The target enum type.</typeparam>
+        /// <typeparam name="TSource">The source enum type.</typeparam>
+        /// <param name="sourceValue">The source enum value.</param>
+        /// <returns>The corresponding target enum value.</returns>
+        private static TTarget MapEnum<TSource, TTarget>(TSource sourceValue) 
+            where TSource : Enum 
+            where TTarget : struct, Enum
+        {
+            if (Enum.TryParse<TTarget>(sourceValue.ToString(), out TTarget result))
+            {
+                return result;
+            }
+
+            // Return the first value of the target enum as fallback
+            var values = Enum.GetValues(typeof(TTarget));
+            return (TTarget)values.GetValue(0);
+        }
     }
 }

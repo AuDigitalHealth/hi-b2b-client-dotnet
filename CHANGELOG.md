@@ -1,5 +1,9 @@
 ### Change Log/Revision History
 
+1.15.0
+------
+* Removed AutoMapper as licenced
+
 1.14.0
 ------
 * moved from fw45 to fw472 to update vulnerable packages
