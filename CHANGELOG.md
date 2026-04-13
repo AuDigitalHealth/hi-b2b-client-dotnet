@@ -1,5 +1,11 @@
 ### Change Log/Revision History
 
+2.0.0
+------
+* Net10.0 added to target frameworks
+* Removed R40-CreateVerifiedIHI-Mod.cs  - HIPS dont need
+* No longer support using app.settings for configuration
+
 1.15.0
 ------
 * Removed AutoMapper as licenced

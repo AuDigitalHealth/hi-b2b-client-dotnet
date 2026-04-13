@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright 2011 NEHTA
+ * Copyright 2014 NEHTA
  *
  * Licensed under the NEHTA Open Source (Apache) License; you may not use this
  * file except in compliance with the License. A copy of the License is in the
@@ -17,7 +17,7 @@ using System.Net;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Security.Cryptography.X509Certificates;
-using nehta.mcaR40Mod.CreateVerifiedIHI;
+using nehta.mcaR32.ProviderReadProviderAdministrativeIndividual;
 using Nehta.VendorLibrary.Common;
 
 namespace Nehta.VendorLibrary.HI.Sample
@@ -29,40 +29,25 @@ namespace Nehta.VendorLibrary.HI.Sample
     /// b) The TLS Web Service endpoint URL for the HI service.
     /// c) Details for the client product information (PCIN) - These include a QualifiedId for the product, 
     ///    the product name and version, and the product platform. These are provided by Medicare.
-    /// d) User identifier details.
+    /// d) Provider AdministrativeIndividual details
     /// </summary>
-    class ConsumerCreateVerifiedIHIModClientSample
+    public class ProviderReadProviderAdministrativeIndividualClientSample
     {
         public void Sample()
         {
             //Set up client
-            ConsumerCreateVerifiedIHIModClient client = CreateClient();
+            ProviderReadProviderAdministrativeIndividualClient client = CreateClient();
 
-            // Set up the request
-            createVerifiedIHI request = new createVerifiedIHI();
-            request.dateOfBirth = DateTime.Parse("01 Dec 2014");
-            request.dateOfBirthAccuracyIndicator = "AAA";
-            request.familyName = "Wood";
-            request.givenName = new [] {"Jessica"};
-            request.sex = "F";
-            request.usage = "L";
-            request.address = new AddressType();
-            request.address.australianStreetAddress = new AustralianStreetAddressType();
-            request.address.australianStreetAddress.streetNumber = "10";
-            request.address.australianStreetAddress.streetName = "Browning Street";
-            request.address.australianStreetAddress.streetType = StreetType.ST;
-            request.address.australianStreetAddress.streetTypeSpecified = true;
-            request.address.australianStreetAddress.suburb = "West End";
-            request.address.australianStreetAddress.postcode = "4101";
-            request.address.australianStreetAddress.state = "QLD";
-            request.address.purpose = "R";
-            request.address.preferred = TrueFalseType.T;
-            request.privacyNotification = true;
+            // Create the request
+            var directoryEntry = new readProviderAdministrativeIndividual
+            {
+                qualifiedIdentifier = "qualifiedIdentifier in here (like ro, omo, hpii"
+            };
 
+            // Submit the request  
             try
             {
-                // Invokes a basic search
-                createVerifiedIHIResponse ihiResponse = client.CreateVerifiedIhi(request);
+                var response = client.ReadProviderAdministrativeIndividual(directoryEntry);
             }
             catch (FaultException fex)
             {
@@ -80,7 +65,7 @@ namespace Nehta.VendorLibrary.HI.Sample
                 // detailed description of the error.
                 string soapResponse = client.SoapMessages.SoapResponse;
             }
-            catch (Exception ex)
+            catch (Exception x)
             {
                 // If an error is encountered, client.LastSoapResponse often provides a more
                 // detailed description of the error.
@@ -91,33 +76,18 @@ namespace Nehta.VendorLibrary.HI.Sample
         public async void SampleAsync()
         {
             //Set up client
-            ConsumerCreateVerifiedIHIModClient client = CreateClient();
+            ProviderReadProviderAdministrativeIndividualClient client = CreateClient();
 
-            // Set up the request
-            createVerifiedIHI request = new createVerifiedIHI();
-            request.dateOfBirth = DateTime.Parse("01 Dec 2014");
-            request.dateOfBirthAccuracyIndicator = "AAA";
-            request.familyName = "Wood";
-            request.givenName = new[] { "Jessica" };
-            request.sex = "F";
-            request.usage = "L";
-            request.address = new AddressType();
-            request.address.australianStreetAddress = new AustralianStreetAddressType();
-            request.address.australianStreetAddress.streetNumber = "10";
-            request.address.australianStreetAddress.streetName = "Browning Street";
-            request.address.australianStreetAddress.streetType = StreetType.ST;
-            request.address.australianStreetAddress.streetTypeSpecified = true;
-            request.address.australianStreetAddress.suburb = "West End";
-            request.address.australianStreetAddress.postcode = "4101";
-            request.address.australianStreetAddress.state = "QLD";
-            request.address.purpose = "R";
-            request.address.preferred = TrueFalseType.T;
-            request.privacyNotification = true;
+            // Create the request
+            var directoryEntry = new readProviderAdministrativeIndividual
+            {
+                qualifiedIdentifier = "qualifiedIdentifier in here (like ro, omo, hpii"
+            };
 
+            // Submit the request  
             try
             {
-                // Invokes a basic search
-                createVerifiedIHIResponse ihiResponse = await client.CreateVerifiedIhiAsync(request);
+                var response = await client.ReadProviderAdministrativeIndividualAsync(directoryEntry);
             }
             catch (FaultException fex)
             {
@@ -135,7 +105,7 @@ namespace Nehta.VendorLibrary.HI.Sample
                 // detailed description of the error.
                 string soapResponse = client.SoapMessages.SoapResponse;
             }
-            catch (Exception ex)
+            catch (Exception x)
             {
                 // If an error is encountered, client.LastSoapResponse often provides a more
                 // detailed description of the error.
@@ -143,7 +113,7 @@ namespace Nehta.VendorLibrary.HI.Sample
             }
         }
 
-        public ConsumerCreateVerifiedIHIModClient CreateClient()
+        public ProviderReadProviderAdministrativeIndividualClient CreateClient()
         {
             // ------------------------------------------------------------------------------
             // Set up
@@ -166,29 +136,30 @@ namespace Nehta.VendorLibrary.HI.Sample
 
             // Set up client product information (PCIN)
             // Values below should be provided by Medicare
-            ProductType product = new ProductType()
+            ProductType product = new ProductType
             {
-                platform = "Your system platform (Eg. Windows XP SP3)",     // Can be any value
-                productName = "Product Name",                               // Provided by Medicare
-                productVersion = "Product Version",                         // Provided by Medicare
+                platform = "Your system platform (Eg. Windows XP SP3)", // Can be any value
+                productName = "Product Name", // Provided by Medicare
+                productVersion = "Product Version", // Provided by Medicare
                 vendor = new QualifiedId()
                 {
-                    id = "Vendor Id",                                       // Provided by Medicare               
-                    qualifier = "Vendor Qualifier"                          // Provided by Medicare
+                    id = "Vendor Id", // Provided by Medicare               
+                    qualifier = "Vendor Qualifier" // Provided by Medicare
                 }
             };
 
             // Set up user identifier details
-            QualifiedId user = new QualifiedId()
+            QualifiedId user = new QualifiedId
             {
-                id = "User Id",                                             // User ID internal to your system
-                qualifier = "http://<anything>/id/<anything>/userid/1.0"    // Eg: http://ns.yourcompany.com.au/id/yoursoftware/userid/1.0
+                id = "OMO", // The OMO of the certificate
+                qualifier = "http://<anything>/id/<anything>/userid/1.0"
+                // Eg: http://ns.medicareaustralia.gov.au/id/hi/distinguishedname/1.0
             };
 
-            // Set up user identifier details
+            // Set up org identifier details
             QualifiedId hpio = new QualifiedId()
             {
-                id = "HPIO",                                              // HPIO internal to your system
+                id = "HPIO", // HPIO internal to your system
                 qualifier = "http://ns.electronichealth.net.au/id/hi/hpio/1.0"
             };
 
@@ -197,15 +168,18 @@ namespace Nehta.VendorLibrary.HI.Sample
             // ------------------------------------------------------------------------------
 
             // Instantiate the client
-            ConsumerCreateVerifiedIHIModClient client = new ConsumerCreateVerifiedIHIModClient(
+            var client = new ProviderReadProviderAdministrativeIndividualClient(
                 new Uri("https://HIServiceEndpoint"),
                 product,
                 user,
                 hpio,
                 signingCert,
-                tlsCert);
-
+                tlsCert
+                );
+            
             return client;
+
         }
+
     }
 }

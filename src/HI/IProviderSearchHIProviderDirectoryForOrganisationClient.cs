@@ -151,5 +151,9 @@ namespace Nehta.VendorLibrary.HI
         /// Asynchronous implementation of <see cref="DemographicSearch" />.
         /// </summary>
         Task<searchHIProviderDirectoryForOrganisationResponse> DemographicSearchAsync(searchHIProviderDirectoryForOrganisation request);
+
+        searchHIProviderDirectoryForOrganisationResponse OpenSearch(searchHIProviderDirectoryForOrganisation request);
+
+        Task<searchHIProviderDirectoryForOrganisationResponse> OpenSearchAsync(searchHIProviderDirectoryForOrganisation request);
     }
 }

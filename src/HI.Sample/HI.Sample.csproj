@@ -15,7 +15,7 @@
     <ProjectReference Include="..\HI\HI.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Nehta.VendorLibrary.Common" Version="4.3.0" />
+    <PackageReference Include="Nehta.VendorLibrary.Common" Version="5.0.0" />
     <PackageReference Include="System.Formats.Asn1" Version="10.0.5" />
     <PackageReference Include="System.Security.Cryptography.Pkcs" Version="10.0.5" />
   </ItemGroup>
