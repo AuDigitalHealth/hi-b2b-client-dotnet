@@ -1,39 +1,43 @@
 ### Change Log/Revision History
 
+2.0.1
+=====
+System.Security.Cryptography.Xml 10.0.5 -> 10.0.8
+
 2.0.0
-------
+=====
 * Net10.0 added to target frameworks
 * Removed R40-CreateVerifiedIHI-Mod.cs  - HIPS dont need
 * No longer support using app.settings for configuration
 
 1.15.0
-------
+======
 * Removed AutoMapper as licenced
 
 1.14.0
-------
+======
 * moved from fw45 to fw472 to update vulnerable packages
 * Updated packages to highest compatible version
   - AutoMapper 7.0.1 --> 16.1.1
 
 1.13.0
-------
+======
 * Added 'Open' OrganisationSearch
 
 1.12.0
-------
+======
 * added support for client for R32-ConsumerUpdateIHI
 
 1.11.0
-------
+======
 * added ElectronicCommunication for BatchIHI
 
 1.10.0
-------
+======
 * added client for R32-ProviderReadProviderAdministrativeIndividual
 
 1.9.0
------
+======
 * Updated packages to highest compatible version
   - AutoMapper 6.2.2 --> 7.0.1
   - System.ServiceModel.Http 4.9.0 --> 4.10.3
@@ -41,52 +45,52 @@
 * Async implemtation added.
 	
 1.8.2
------
+=====
 * Fix order of elements in IHISearch
 
 1.8.1
------
+=====
 * Added support for mobile/email for IHIsearch
 
 1.8.0
------
+=====
 * Added support for netstandard2.0
 
 1.7.1
------
+=====
 * Fixed client for Async IHI Batch Submit,Status,Retrieve,Delete for CSP
 * fixed up samples and added Tls12
 
 1.7.0
------
+=====
 * Added support for NUNIT testing exposing interfaces for dummy responses to can test locally
 
 1.6.0
------
+=====
 * Added modified R40-CreateVerifiedIHI-Mod.cs file for HIPS
 
 
 1.5.1
------
+=====
 * Referencing latest Common Library to fix Serialize issue with HI Service
 
 1.5.0
------
+=====
 * Updated the signedXml.CheckSignature function passing in certificate as fw 4.6.2 fails if not there
 
 1.4.0
------
+=====
 * removed redundant code/libs
 * updated mapper to nuget package
 * Latest common library
 
 1.3.1
------
+=====
 * Removed duplicate calls to web service in :
   ProviderSearchForProviderOrganisationClient.cs (5.0) and ProviderSearchForProviderIndividualClient.cs (5.0)
 
 1.3.0
------
+=====
 + Added ProviderManageProviderDirectoryEntryClient, ProviderManageProviderOrganisationClient and ProviderReadProviderOrganisationClient.
 + Added australian unstructured address search.
 + Added ProviderBatchAsyncSearchForProviderIndividualClient and ProviderBatchAsyncSearchForProviderOrganisationClient.
@@ -96,46 +100,46 @@
 
 
 1.2.1
------
+=====
 * Fixed issue with state not being serialized due to the absence of the "stateFieldSpecified" field in Australian Postal and Australian Street Addresses.
 
 
 1.2.0
------
+=====
 + Added client for ProviderSearchForProviderIndividual.
 + Added client for ProviderSearchForProviderOrganisation.
 
 
 1.1.6
------
+=====
 * Change the clients to expose the property SoapMessages, which further contains SOAP request and response XMLs and Message IDs.
 
 
 1.1.4
------
+=====
 + Added CSP support to the header of the request.
 
 
 1.1.3
------
+=====
 * ConsumerSearchIHIBatchSyncClient has time out values on the client increased.
 
 
 1.1.2
------
+=====
 - Removed ValidateUri from Validation class
 * Updated clients throw a specific FaultException when one is returned from Medicare which gives details on the problem
 
 
 1.1.1
------
+=====
 * Changed namespaces of generated classes to Nehta.MCAR3 and Nehta.MCAR32
 + Added a sample project
 + Added validation to ID length for batch IHI search
 
 
 1.1.0
------
+=====
 + Added ProviderReadReferenceDataClient
 + Added the following properties to all clients:
    - LastSoapRequestTimestamp
@@ -145,7 +149,7 @@
 
 
 1.0.0
------
+=====
 + Original release
 
 

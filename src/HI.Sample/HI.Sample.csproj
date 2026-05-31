@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Company>Australian Digital Health Agency</Company>
-    <Copyright>Copyright ©2022</Copyright>
+    <Copyright>Copyright ©2026</Copyright>
     <Authors>Australian Digital Health Agency</Authors>
     <Description>HI library Sample</Description>
   </PropertyGroup>
@@ -15,8 +15,8 @@
     <ProjectReference Include="..\HI\HI.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Nehta.VendorLibrary.Common" Version="5.0.0" />
-    <PackageReference Include="System.Formats.Asn1" Version="10.0.5" />
-    <PackageReference Include="System.Security.Cryptography.Pkcs" Version="10.0.5" />
+    <PackageReference Include="Nehta.VendorLibrary.Common" Version="5.0.1" />
+    <PackageReference Include="System.Formats.Asn1" Version="10.0.8" />
+    <PackageReference Include="System.Security.Cryptography.Pkcs" Version="10.0.8" />
   </ItemGroup>
 </Project>
