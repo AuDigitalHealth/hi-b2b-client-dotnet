@@ -30,7 +30,7 @@
     <ItemGroup>
     <PackageReference Include="Nehta.VendorLibrary.Common" Version="5.0.1" />
     <PackageReference Include="System.Formats.Asn1" Version="10.0.8" />
-    <PackageReference Include="System.Security.Cryptography.Pkcs" Version="10.0.8" />
+    <PackageReference Include="System.Security.Cryptography.Pkcs" Version="10.0.13" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
