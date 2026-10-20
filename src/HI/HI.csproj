@@ -12,7 +12,7 @@
   </PropertyGroup>
   <!-- Package and assembly information -->
   <PropertyGroup>
-    <Version>2.0.1.0</Version>
+    <Version>2.0.2.0</Version>
     <Description>A library for communicating with the HI Service</Description>
     <Company>Australian Digital Health Agency</Company>
     <Authors>$(Company)</Authors>
@@ -28,9 +28,9 @@
     <NoWarn>1701;1702;CS1591;</NoWarn>
   </PropertyGroup>
     <ItemGroup>
-    <PackageReference Include="Nehta.VendorLibrary.Common" Version="5.0.1" />
-    <PackageReference Include="System.Formats.Asn1" Version="10.0.8" />
-    <PackageReference Include="System.Security.Cryptography.Pkcs" Version="10.0.8" />
+    <PackageReference Include="Nehta.VendorLibrary.Common" Version="5.0.2" />
+    <PackageReference Include="System.Formats.Asn1" Version="10.0.13" />
+    <PackageReference Include="System.Security.Cryptography.Pkcs" Version="10.0.13" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
